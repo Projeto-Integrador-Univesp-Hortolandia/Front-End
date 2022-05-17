@@ -17,9 +17,10 @@ steps:
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
+
 - task: NodeTool@0
   inputs:
-    versionSpec: 10 
+    versionSpec: '10.x'
     checkLatest: true
     force32bit: true
 - task: Npm@1
@@ -31,3 +32,5 @@ steps:
     command: 'publish'
     publishRegistry: 'useFeed'
     publishFeed: '95eb54a1-5c85-44ec-b3fc-3f8170680b3c'
+
+
