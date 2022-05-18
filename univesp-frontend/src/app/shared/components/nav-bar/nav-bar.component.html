@@ -1,0 +1,49 @@
+<div class="container">
+    <mat-toolbar class="toolbar">
+        <div class="header-brand">
+            <mat-icon> school </mat-icon>
+            <h1 class="header-brand-app-name"> HEADER TITLE </h1>
+        </div>
+        <button class="hamburg" (click)="snav.toggle()" mat-ripple>
+            <mat-icon>menu</mat-icon>
+        </button>
+    </mat-toolbar>
+
+    <mat-sidenav-container 
+        class="sidenav-container"
+        [style.marginTop.px]="mobileQuery.matches ? 56 : 0"
+    >
+        <mat-sidenav #snav 
+            [mode]="mobileQuery.matches ? 'over' : 'side'"
+            [fixedInViewport]="mobileQuery.matches" fixedTopGap="56"
+        >
+            <mat-nav-list class="icon-list">
+                <span class="icon-list-session"> Menu </span>
+                <div class="icon-list-item">
+                    <span class="item-icon">
+                        <mat-icon> home </mat-icon>
+                    </span>
+                    <span> Home </span>
+                </div>
+                <div class="icon-list-item">
+                    <span class="item-icon">
+                        <mat-icon> chat_bubble </mat-icon>
+                    </span>
+                    <span> Menssagens </span>
+                </div>
+
+                <span class="icon-list-session"> Administrativo </span>
+                <div class="icon-list-item">
+                    <span class="item-icon">
+                        <mat-icon> admin_panel_settings </mat-icon>
+                    </span>
+                    <span> Painel administrativo </span>
+                </div>
+            </mat-nav-list>
+        </mat-sidenav>
+
+        <mat-sidenav-content>
+
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>
