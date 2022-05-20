@@ -78,6 +78,8 @@ $primary: #4527A0;
                   flex-direction: row;
                   align-items: center;
                   gap: 10px;
+                  user-select: none;
+                  cursor: pointer;
               }
               .item-icon{
                 margin-left: 10px;
@@ -91,7 +93,7 @@ $primary: #4527A0;
       }
       mat-sidenav-content{
           background: #E3F2FD;
-          border-top-left-radius: 10px;
+          border-top-left-radius: 20px;
           padding: 10px;
       }
   }
