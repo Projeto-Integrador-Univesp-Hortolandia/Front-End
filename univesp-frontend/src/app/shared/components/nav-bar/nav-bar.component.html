@@ -19,7 +19,7 @@
         >
             <mat-nav-list class="icon-list">
                 <span class="icon-list-session"> Menu </span>
-                <div class="icon-list-item">
+                <div class="icon-list-item" routerLink="">
                     <span class="item-icon">
                         <mat-icon> home </mat-icon>
                     </span>
@@ -33,7 +33,7 @@
                 </div>
 
                 <span class="icon-list-session"> Administrativo </span>
-                <div class="icon-list-item">
+                <div class="icon-list-item" routerLink="cadastros">
                     <span class="item-icon">
                         <mat-icon> admin_panel_settings </mat-icon>
                     </span>
@@ -41,9 +41,10 @@
                 </div>
             </mat-nav-list>
         </mat-sidenav>
-
         <mat-sidenav-content>
+            <router-outlet>
 
+            </router-outlet>
         </mat-sidenav-content>
     </mat-sidenav-container>
 </div>
