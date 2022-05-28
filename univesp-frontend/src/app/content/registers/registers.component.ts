@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
+import { RegisterGroupComponent } from './register-group/register-group.component';
 
 @Component({
   selector: 'app-registers',
@@ -8,7 +10,9 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class RegistersComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private matDialog: MatDialog
+  ) { }
 
   displayedColumns: string[] = [
 		'Ano',
@@ -18,31 +22,32 @@ export class RegistersComponent implements OnInit {
     'Controls'
 	];
 
-  dataValues = [
-    {
-      Ano: '1° ano',
-      Turma: 'SA113-17002',
-      Periodo: 'Tarde',
-      Sala: 'Sala 01'
-    },
-    {
-      Ano: '1° ano',
-      Turma: 'SA113-17002',
-      Periodo: 'Tarde',
-      Sala: 'Sala 01'
-    },
-    {
-      Ano: '1° ano',
-      Turma: 'SA113-17002',
-      Periodo: 'Tarde',
-      Sala: 'Sala 01'
-    },
-  ]
+  data = {
+    Ano: '1° ano',
+    Turma: 'SA113-17002',
+    Periodo: 'Tarde',
+    Sala: 'Sala 01'
+  }
+
+  dataLoop = Array.from({length: 20}).map((_, i) => this.data )
 
   _dataSource!: MatTableDataSource<any>
 
   ngOnInit(): void {
-    this._dataSource = new MatTableDataSource(this.dataValues)
+    this._dataSource = new MatTableDataSource(this.dataLoop)
+  }
+
+  registerGroups(){
+
+    this.matDialog.open(
+      RegisterGroupComponent,
+      {
+        autoFocus: false,
+        panelClass: 'dialog-template',
+        data: ''
+      }
+    )
+
   }
 
 }

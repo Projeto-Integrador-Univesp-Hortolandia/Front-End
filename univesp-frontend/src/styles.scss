@@ -4,6 +4,46 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 
+//OVERRIDE SCROLLBAR
+* {
+	::-webkit-scrollbar {
+		background: #eff0f6;
+		width: 5px;
+		height: 5px;
+	}
+
+	::-webkit-scrollbar-button {
+		display: none;
+	}
+
+	::-webkit-scrollbar-track {
+		border-radius: 10px;
+		background: #eff0f6;
+	}
+
+	::-webkit-scrollbar-thumb {
+		background: #9b9b9b;
+		border-radius: 10px;
+
+		&:hover {
+			background: #606060;
+		}
+	}
+
+	scrollbar-color: #9b9b9b #e1e1e1;
+	scrollbar-width: thin;
+}
+
+//DIALOG TEMPLATES
+
+.dialog-template{
+	max-width: 90vw !important;
+	max-height: 90vh !important;
+	width: 100vw;
+	height: 100vh;
+	position: relative !important;
+}
+
 //Global colors
 
 $primary-1: #4527A0;
@@ -30,4 +70,12 @@ $base-4: #D2D2D2;
 
 .mat-drawer-side{
     border: none !important;
+}
+
+.mat-drawer:not(.mat-drawer-side) {
+	box-shadow: none !important;
+}
+
+.mat-dialog-content{
+	max-height: none;
 }
