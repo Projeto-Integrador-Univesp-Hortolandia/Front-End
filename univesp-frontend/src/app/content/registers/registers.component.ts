@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { RegisterGroupComponent } from './register-group/register-group.component';
+import { RegisterTeacherComponent } from './register-teacher/register-teacher.component';
 
 @Component({
   selector: 'app-registers',
@@ -41,6 +42,19 @@ export class RegistersComponent implements OnInit {
 
     this.matDialog.open(
       RegisterGroupComponent,
+      {
+        autoFocus: false,
+        panelClass: 'dialog-template',
+        data: ''
+      }
+    )
+
+  }
+
+  registerTeacher(){
+
+    this.matDialog.open(
+      RegisterTeacherComponent,
       {
         autoFocus: false,
         panelClass: 'dialog-template',

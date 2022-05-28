@@ -1,0 +1,35 @@
+<div class="upload-files-container">
+
+    <div class="drop-area" (fileDropped)="testFile()" (FileOver)="isOver = $event" appDropFile>
+        
+        <ng-container *ngIf="isOver; else isOverTemplate">
+            <p class="drop-area-label over"> 
+                Solte
+             </p>
+        </ng-container>
+        <ng-template #isOverTemplate>
+            <p class="drop-area-label"> 
+                Arraste uma foto
+             </p>
+            <span> ou </span>
+    
+            <label 
+                class="upload-button"
+                for="uploadFile"
+            >
+                Procurar arquivo
+            </label>
+            <input 
+                type="file"
+                id="uploadFile"
+                accept=".png,.jpeg,.jpg"
+            >
+        </ng-template>
+        
+    </div>
+<!-- 
+    <div class="drop-preview">
+        <img src="https://www.seekpng.com/png/full/41-410093_circled-user-icon-user-profile-icon-png.png" class="img-preview">
+    </div> -->
+
+</div>

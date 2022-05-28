@@ -6,12 +6,15 @@ import { RegistersComponent } from './registers.component';
 import { MaterialModule } from 'src/app/material-module';
 import { RegisterGroupComponent } from './register-group/register-group.component';
 import { ComponentsModule } from 'src/app/shared/components/components.module';
+import { RegisterTeacherComponent } from './register-teacher/register-teacher.component';
+import { DropFileDirective } from 'src/app/shared/directives/drop-file.directive';
 
 
 @NgModule({
   declarations: [
     RegistersComponent,
-    RegisterGroupComponent
+    RegisterGroupComponent,
+    RegisterTeacherComponent
   ],
   imports: [
     CommonModule,
