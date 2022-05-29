@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { RegisterGroupComponent } from './register-group/register-group.component';
+import { RegisterResponsibleComponent } from './register-responsible/register-responsible.component';
+import { RegisterStudentComponent } from './register-student/register-student.component';
 import { RegisterTeacherComponent } from './register-teacher/register-teacher.component';
 
 @Component({
@@ -68,6 +70,32 @@ export class RegistersComponent implements OnInit {
 
     this.matDialog.open(
       RegisterTeacherComponent,
+      {
+        autoFocus: false,
+        panelClass: 'dialog-template',
+        data: ''
+      }
+    )
+
+  }
+
+  registerStudent(){
+
+    this.matDialog.open(
+      RegisterStudentComponent,
+      {
+        autoFocus: false,
+        panelClass: 'dialog-template',
+        data: ''
+      }
+    )
+
+  }
+
+  registerResponsible(){
+
+    this.matDialog.open(
+      RegisterResponsibleComponent,
       {
         autoFocus: false,
         panelClass: 'dialog-template',

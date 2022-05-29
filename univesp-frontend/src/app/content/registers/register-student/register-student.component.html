@@ -1,29 +1,15 @@
 <div class="dialog-content-template">
-    <h2 mat-dialog-title> Novo professor </h2>
+    <h2 mat-dialog-title> Novo aluno </h2>
     <mat-dialog-content class="content register-dialog">
 
-        <form class="form-grid" autocomplete="off">
+        <form class="form-grid">
 
             <mat-form-field class="grid-2">
                 <mat-label> Nome </mat-label>
                 <input matInput required formControlName="Nome" />
             </mat-form-field>
 
-            <mat-form-field class="grid-2">
-                <mat-label> Email </mat-label>
-                <input type="email" inputmode="email" matInput required formControlName="Nome" />
-            </mat-form-field>
-
-            <mat-form-field class="grid-1">
-                <mat-label> senha </mat-label>
-                <input type="password" matInput required formControlName="Nome" />
-            </mat-form-field>
-
-            <mat-form-field class="grid-1">
-                <mat-label> conf. Senha </mat-label>
-                <input type="password" matInput required formControlName="Nome" />
-            </mat-form-field>
-
+            
             <mat-form-field class="grid-1">
                 <mat-label> CPF </mat-label>
                 <input 
@@ -41,10 +27,10 @@
                 <input matInput required formControlName="Nome" />
             </mat-form-field>
 
-            <mat-form-field class="grid-2">
-                <mat-label> Num. de registo </mat-label>
-                <input matInput required formControlName="Nome" />
-            </mat-form-field>
+            <mat-form-field class="grid-textarea">
+                <mat-label> Observação </mat-label>
+                <textarea matInput rows="4" placeholder="Adicione uma observação"> </textarea>
+            </mat-form-field>           
         </form>
 
         <div class="container-content">

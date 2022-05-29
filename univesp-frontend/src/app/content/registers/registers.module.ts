@@ -9,6 +9,8 @@ import { ComponentsModule } from 'src/app/shared/components/components.module';
 import { RegisterTeacherComponent } from './register-teacher/register-teacher.component';
 import { DropFileDirective } from 'src/app/shared/directives/drop-file.directive';
 import { IConfig, NgxMaskModule } from 'ngx-mask';
+import { RegisterStudentComponent } from './register-student/register-student.component';
+import { RegisterResponsibleComponent } from './register-responsible/register-responsible.component';
 
 const maskConfigFunction: () => Partial<IConfig> = () => {
 	return {
@@ -20,7 +22,9 @@ const maskConfigFunction: () => Partial<IConfig> = () => {
   declarations: [
     RegistersComponent,
     RegisterGroupComponent,
-    RegisterTeacherComponent
+    RegisterTeacherComponent,
+    RegisterStudentComponent,
+    RegisterResponsibleComponent
   ],
   imports: [
     CommonModule,

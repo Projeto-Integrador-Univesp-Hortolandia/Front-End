@@ -1,0 +1,60 @@
+{
+    "groups":[
+        {
+            "id": 1,
+            "Nome": "Grupo teste",
+            "Turma": "2",
+            "Periodo": "",
+            "Sala": ""
+        }
+    ],
+    "teachers":[
+        {
+            "id": 1,
+            "Nome": "Professor Legal",
+            "Email": "Professor@Univesp.com.br",
+            "Senha": "123456789",
+            "CPF": "12345678910",
+            "DataNasc": "1947-01-01",
+            "NumRegisto": "123426789-ABC",
+            "Groups": [
+                { "id": 1 }
+            ]
+        }
+    ],
+    "students":[
+        {
+            "id": 1,
+            "Nome": "Joãozinho da silva",
+            "CPF": "98765432110",
+            "DataNasc": "2015-01-01",
+            "Observacao": "Precisa sair 10 minutos mais cedo",
+            "Groups": [
+                { "id": 1 }
+            ]
+        },
+        {
+            "id": 2,
+            "Nome": "Clarinha da silva",
+            "CPF": "78945612310",
+            "DataNasc": "2016-01-01",
+            "Observacao": "Precisa sair 10 minutos mais cedo",
+            "Groups": [
+                { "id": 1 }
+            ]
+        }
+    ],
+    "responsibles":[
+        {
+            "id": 1,
+            "Nome": "Joãozinho da silva",
+            "CPF": "98765432110",
+            "DataNasc": "2015-01-01",
+            "Observacao": "Precisa sair 10 minutos mais cedo",
+            "Filhos": [
+                { "id": 1 },
+                { "id": 2 }
+            ]
+        }
+    ]
+}
