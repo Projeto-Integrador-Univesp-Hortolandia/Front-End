@@ -2,6 +2,8 @@ import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
+import { forkJoin } from 'rxjs';
+import { RegisterService } from 'src/app/services/register/register.service';
 import { RegisterGroupComponent } from './register-group/register-group.component';
 import { RegisterResponsibleComponent } from './register-responsible/register-responsible.component';
 import { RegisterStudentComponent } from './register-student/register-student.component';
@@ -16,7 +18,8 @@ export class RegistersComponent implements OnInit {
 
   constructor(
     private matDialog: MatDialog,
-    private breakpointObserver: BreakpointObserver
+    private breakpointObserver: BreakpointObserver,
+    private registerService: RegisterService
   ) { }
 
   displayedColumns: string[] = [
@@ -34,13 +37,13 @@ export class RegistersComponent implements OnInit {
     Sala: 'Sala 01'
   }
 
-  dataLoop = Array.from({length: 20}).map((_, i) => this.data )
+  // dataLoop = Array.from({length: 20}).map((_, i) => this.data )
 
   _dataSource!: MatTableDataSource<any>
   breakPoint: boolean = false;
 
   ngOnInit(): void {
-    this._dataSource = new MatTableDataSource(this.dataLoop)
+    // this._dataSource = new MatTableDataSource(this.dataLoop)
 
     this.breakpointObserver
       .observe(['(max-width: 900px)'])
@@ -51,6 +54,33 @@ export class RegistersComponent implements OnInit {
             this.breakPoint = false;
           }
       });
+
+      this.getGroups()
+  }
+
+  getAll(){
+
+  }
+
+  getGroups(){
+    this.registerService.Get({ url: 'groups' })
+      .subscribe(
+        (success: any) => {
+          this._dataSource = new MatTableDataSource(success)
+        }
+      )
+  }
+
+  getTeachers(){
+
+  }
+
+  getStudents(){
+    
+  }
+
+  getResposibles(){
+
   }
 
   registerGroups(){

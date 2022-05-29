@@ -8,6 +8,7 @@ import { MaterialModule } from './material-module';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import { CustomDateAdapter } from './shared/utils/custon-date-adapter';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { CustomDateAdapter } from './shared/utils/custon-date-adapter';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+	HttpClientModule
   ],
   bootstrap: [AppComponent],
   providers: [

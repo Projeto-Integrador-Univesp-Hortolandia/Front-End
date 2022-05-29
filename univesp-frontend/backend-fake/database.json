@@ -3,9 +3,18 @@
         {
             "id": 1,
             "Nome": "Grupo teste",
-            "Turma": "2",
-            "Periodo": "",
-            "Sala": ""
+            "Turma": "B",
+            "Periodo": "Manhã",
+            "Ano": "2° Ano",
+            "Sala": "3"
+        },
+        {
+            "id": 2,
+            "Nome": "Grupo teste 2",
+            "Turma": "B",
+            "Periodo": "Manhã",
+            "Ano": "3° Ano",
+            "Sala": "4"
         }
     ],
     "teachers":[
