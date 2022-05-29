@@ -1,3 +1,4 @@
+import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
@@ -12,7 +13,8 @@ import { RegisterTeacherComponent } from './register-teacher/register-teacher.co
 export class RegistersComponent implements OnInit {
 
   constructor(
-    private matDialog: MatDialog
+    private matDialog: MatDialog,
+    private breakpointObserver: BreakpointObserver
   ) { }
 
   displayedColumns: string[] = [
@@ -33,9 +35,20 @@ export class RegistersComponent implements OnInit {
   dataLoop = Array.from({length: 20}).map((_, i) => this.data )
 
   _dataSource!: MatTableDataSource<any>
+  breakPoint: boolean = false;
 
   ngOnInit(): void {
     this._dataSource = new MatTableDataSource(this.dataLoop)
+
+    this.breakpointObserver
+      .observe(['(max-width: 900px)'])
+      .subscribe((state: BreakpointState) => {
+          if (state.matches) {
+            this.breakPoint = true;
+          } else {
+            this.breakPoint = false;
+          }
+      });
   }
 
   registerGroups(){

@@ -3,7 +3,7 @@
         <mat-tab label="Grupos"> 
 			<div class="tab-header-controls">
 				<button mat-button (click)="registerGroups()">
-					<span> Novo grupo </span>
+					<span *ngIf="!breakPoint"> Novo grupo </span>
 					<mat-icon> add </mat-icon>
 				</button>
 
@@ -90,7 +90,7 @@
         <mat-tab label="Professores"> 
 			<div class="tab-header-controls">
 				<button mat-button (click)="registerTeacher()">
-					<span> Novo grupo </span>
+					<span *ngIf="!breakPoint"> Novo grupo </span>
 					<mat-icon> add </mat-icon>
 				</button>
 
@@ -106,7 +106,41 @@
 			</div>
 			
 		</mat-tab>
-        <mat-tab label="Alunos"> Lista de alunos </mat-tab>
-        <mat-tab label="Responsáveis"> Lista de Responsáveis</mat-tab>
+        <mat-tab label="Alunos">
+			<div class="tab-header-controls">
+				<button mat-button (click)="registerTeacher()">
+					<span *ngIf="!breakPoint"> Adicionar aluno </span>
+					<mat-icon> add </mat-icon>
+				</button>
+
+				<div class="teste-form">
+					<mat-form-field appearance="outline" style="width: 100%;">
+						<mat-label> Pesquisar </mat-label>
+						<input matInput type="text">
+						<mat-icon matSuffix>	
+							search
+						</mat-icon>
+					</mat-form-field>
+				</div>
+			</div>
+		</mat-tab>
+        <mat-tab label="Responsáveis">
+			<div class="tab-header-controls">
+				<button mat-button (click)="registerTeacher()">
+					<span *ngIf="!breakPoint"> Adicionar responsável </span>
+					<mat-icon> add </mat-icon>
+				</button>
+
+				<div class="teste-form">
+					<mat-form-field appearance="outline" style="width: 100%;">
+						<mat-label> Pesquisar </mat-label>
+						<input matInput type="text">
+						<mat-icon matSuffix>	
+							search
+						</mat-icon>
+					</mat-form-field>
+				</div>
+			</div>
+		</mat-tab>
     </mat-tab-group>
 </div>

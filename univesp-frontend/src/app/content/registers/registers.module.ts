@@ -8,7 +8,13 @@ import { RegisterGroupComponent } from './register-group/register-group.componen
 import { ComponentsModule } from 'src/app/shared/components/components.module';
 import { RegisterTeacherComponent } from './register-teacher/register-teacher.component';
 import { DropFileDirective } from 'src/app/shared/directives/drop-file.directive';
+import { IConfig, NgxMaskModule } from 'ngx-mask';
 
+const maskConfigFunction: () => Partial<IConfig> = () => {
+	return {
+		validation: true
+	};
+};
 
 @NgModule({
   declarations: [
@@ -20,7 +26,8 @@ import { DropFileDirective } from 'src/app/shared/directives/drop-file.directive
     CommonModule,
     RegistersRoutingModule,
     ComponentsModule,
-    MaterialModule
+    MaterialModule,
+    NgxMaskModule.forRoot(maskConfigFunction)
   ]
 })
 export class RegistersModule { }
