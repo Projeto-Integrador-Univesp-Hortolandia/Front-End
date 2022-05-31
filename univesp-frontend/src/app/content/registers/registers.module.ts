@@ -11,6 +11,7 @@ import { DropFileDirective } from 'src/app/shared/directives/drop-file.directive
 import { IConfig, NgxMaskModule } from 'ngx-mask';
 import { RegisterStudentComponent } from './register-student/register-student.component';
 import { RegisterResponsibleComponent } from './register-responsible/register-responsible.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const maskConfigFunction: () => Partial<IConfig> = () => {
 	return {
@@ -24,14 +25,16 @@ const maskConfigFunction: () => Partial<IConfig> = () => {
     RegisterGroupComponent,
     RegisterTeacherComponent,
     RegisterStudentComponent,
-    RegisterResponsibleComponent
+    RegisterResponsibleComponent,
   ],
   imports: [
     CommonModule,
     RegistersRoutingModule,
     ComponentsModule,
     MaterialModule,
-    NgxMaskModule.forRoot(maskConfigFunction)
+    NgxMaskModule.forRoot(maskConfigFunction),
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class RegistersModule { }

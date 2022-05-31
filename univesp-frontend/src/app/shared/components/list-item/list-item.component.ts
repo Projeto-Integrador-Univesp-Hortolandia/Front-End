@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
 
 @Component({
   selector: 'app-list-item',
@@ -10,7 +10,11 @@ export class ListItemComponent implements OnInit {
 
   constructor() { }
 
+  @Input() Valores: any
+
+
   ngOnInit(): void {
+    console.log(this.Valores)
   }
 
 }

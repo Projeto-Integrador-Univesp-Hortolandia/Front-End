@@ -2,7 +2,7 @@
     <h2 mat-dialog-title> Novo grupo </h2>
     <mat-dialog-content class="content register-dialog">
 
-        <form class="form-grid" autocomplete="off">
+        <form class="form-grid" autocomplete="off" [formGroup]="_form">
             <mat-form-field class="grid-2">
                 <mat-label> Nome </mat-label>
                 <input matInput required formControlName="Nome" />
@@ -26,7 +26,11 @@
         </form>
 
         <div class="list-registers">
-            <app-list-item *ngFor="let aluno of [].constructor(10)" class="test">
+            <app-list-item 
+                *ngFor="let aluno of studentsList" 
+                [Valores]="aluno"
+                class="test"
+            >
                 
             </app-list-item>
         </div>
@@ -34,6 +38,6 @@
     </mat-dialog-content>
     <mat-dialog-actions class="controls" align="center">
         <button mat-button mat-dialog-close> Cancelar </button>
-        <button mat-flat-button color="primary" [mat-dialog-close]="true" cdkFocusInitial>Criar grupo</button>
+        <button mat-flat-button color="primary" (click)="registerGroup()">Criar grupo</button>
       </mat-dialog-actions>
 </div>

@@ -33,7 +33,7 @@ export class RegisterService {
 
   Delete(params: any){
     return this.httpClient
-    .delete(`${API}${params.url}`, params.body)
+    .delete(`${API}${params.url}/${params.body}`)
   }
 
 

@@ -1,6 +1,8 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
 import { forkJoin } from 'rxjs';
 import { RegisterService } from 'src/app/services/register/register.service';
@@ -19,7 +21,8 @@ export class RegistersComponent implements OnInit {
   constructor(
     private matDialog: MatDialog,
     private breakpointObserver: BreakpointObserver,
-    private registerService: RegisterService
+    private registerService: RegisterService,
+    private matSnackBar: MatSnackBar
   ) { }
 
   displayedColumns: string[] = [
@@ -93,6 +96,12 @@ export class RegistersComponent implements OnInit {
         data: ''
       }
     )
+    .afterClosed()
+    .subscribe(
+      (response: boolean) => {
+        response ? this.getGroups() : ''
+      }
+    )
 
   }
 
@@ -132,6 +141,24 @@ export class RegistersComponent implements OnInit {
         data: ''
       }
     )
+
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this._dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  public deleteItem(type: string, id: number){
+
+    this.registerService.Delete({ url: type, body: id })
+      .subscribe(
+        (success: any) => {
+          this.matSnackBar.open(`${type} deletado com sucesso`, '', { duration: 1500 })
+        }, error => {
+          this.matSnackBar.open('Ocorreu um erro', '', {duration: 2000})
+        }
+      )
 
   }
 
