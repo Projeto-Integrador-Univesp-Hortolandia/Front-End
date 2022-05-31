@@ -1,0 +1,52 @@
+<div class="container">
+    <mat-toolbar class="toolbar">
+        <div class="header-brand" routerLink="../home">
+            <mat-icon> school </mat-icon>
+            <h1 class="header-brand-app-name"> SOCORRO JESUS </h1>
+        </div>
+        <button class="hamburg" (click)="snav.toggle()" mat-ripple>
+            <mat-icon>menu</mat-icon>
+        </button>
+    </mat-toolbar>
+
+    <mat-sidenav-container 
+        class="sidenav-container"
+    >
+        <mat-sidenav #snav 
+            [mode]="mobileQuery.matches ? 'over' : 'side'"
+            [fixedInViewport]="mobileQuery.matches" fixedTopGap="56"
+        >
+            <span class="border"> 
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 99.88 99.83"><title>Ativo 1</title><g id="Camada_2" data-name="Camada 2"><g id="Camada_1-2" data-name="Camada 1"><path d="M0,.12V99.83S2.42,0,99.88,0Z" fill="#fff"/></g></g></svg>
+            </span>
+            <mat-nav-list class="icon-list">
+                <span class="icon-list-session"> Menu </span>
+                <div class="icon-list-item" routerLink="">
+                    <span class="item-icon">
+                        <mat-icon> home </mat-icon>
+                    </span>
+                    <span> Home </span>
+                </div>
+                <div class="icon-list-item">
+                    <span class="item-icon">
+                        <mat-icon> chat_bubble </mat-icon>
+                    </span>
+                    <span> Menssagens </span>
+                </div>
+
+                <span class="icon-list-session"> Administrativo </span>
+                <div class="icon-list-item" routerLink="cadastros">
+                    <span class="item-icon">
+                        <mat-icon> admin_panel_settings </mat-icon>
+                    </span>
+                    <span> Painel administrativo </span>
+                </div>
+            </mat-nav-list>
+        </mat-sidenav>
+        <mat-sidenav-content>
+            <router-outlet>
+
+            </router-outlet>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>

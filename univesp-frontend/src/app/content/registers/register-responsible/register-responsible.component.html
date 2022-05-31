@@ -1,0 +1,56 @@
+<div class="dialog-content-template">
+    <h2 mat-dialog-title> Novo Responsável </h2>
+    <mat-dialog-content class="content register-dialog">
+
+        <form class="form-grid">
+
+            <mat-form-field class="grid-2">
+                <mat-label> Nome </mat-label>
+                <input matInput required formControlName="Nome" />
+            </mat-form-field>
+
+            
+            <mat-form-field class="grid-1">
+                <mat-label> CPF </mat-label>
+                <input 
+                    type="text" 
+                    inputmode="numeric" 
+                    mask="000.000.000-00"
+                    matInput 
+                    required 
+                    formControlName="Nome" 
+                />
+            </mat-form-field>
+
+            <mat-form-field class="grid-1">
+                <mat-label> Data nascimento </mat-label>
+                <input matInput required formControlName="Nome" />
+            </mat-form-field>
+
+            <mat-form-field class="grid-textarea">
+                <mat-label> Observação </mat-label>
+                <textarea matInput rows="4" placeholder="Adicione uma observação"> </textarea>
+            </mat-form-field>           
+        </form>
+
+        <div class="container-content">
+            <app-upload-files class="grid-2" style="width: 100%;">
+                 
+            </app-upload-files>
+    
+            <div class="list-registers">
+                <button class="button-add-list">
+                    Filho vinculado
+                </button>
+                <app-list-item *ngFor="let aluno of [].constructor(10)" class="test">
+                    
+                </app-list-item>
+            </div>
+        </div>
+
+    </mat-dialog-content>
+    <mat-dialog-actions class="controls" align="center">
+        <button mat-button mat-dialog-close> Cancelar </button>
+        <button mat-flat-button color="primary" [mat-dialog-close]="true" cdkFocusInitial>Cadastrar</button>
+    </mat-dialog-actions>
+</div>

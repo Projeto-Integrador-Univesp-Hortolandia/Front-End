@@ -1,0 +1,122 @@
+$secondary: #EDE7F6;
+$primary: #4527A0;
+
+.container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    mat-toolbar{
+      background: #fff;
+
+      .header-brand{
+          display: flex;
+          justify-content: center;
+          flex-direction: row;
+          gap: 10px;
+          cursor: pointer;
+          user-select: none;
+
+        &-app-name{
+          color: #4A4A4A;
+        }
+      }
+
+      button.hamburg{
+        border-radius: 4px;
+        border: none;
+        background-color: $secondary;
+        width: 30px;
+        height: 30px;
+        margin-left: 20px;
+        cursor: pointer;
+
+        mat-icon{
+          width: 20px;
+          height: 20px;
+          font-size: 18px;
+          color: $primary;
+        }
+      }
+    }
+  }
+  
+  .is-mobile .toolbar {
+    position: fixed;
+    z-index: 2;
+  }
+  
+  h1.app-name {
+    margin-left: 8px;
+  }
+  
+  .sidenav-container {
+      flex: 1;
+      background-color: #fff !important;
+    
+      mat-sidenav{
+          width: 250px;
+          overflow: initial !important;
+
+          span.border {
+              display: block;
+              width: 20px;
+              height: 20px;
+              position: absolute;
+              right: -20px;
+              top: 0px;
+          }
+
+          .icon-list{
+              display: flex;
+              flex-direction: column;
+              gap: 5px;
+              padding: 0px 10px;
+
+              &-session{
+                  font-size: 14px;
+                  font-weight: 500;
+              }
+
+              &-session:nth-child(+2n){
+                margin-top: 20px;
+              }
+
+              &-item{
+                  height: 45px;
+                  width: 100%;
+                  border-radius: 7px;          
+                  display: flex;
+                  flex-direction: row;
+                  align-items: center;
+                  gap: 10px;
+                  user-select: none;
+                  cursor: pointer;
+              }
+              .item-icon{
+                margin-left: 10px;
+              }
+              &-item:hover{
+                  background-color: $secondary;
+                  color: $primary;
+                  transition: .2s;
+              }
+          }
+      }
+      mat-sidenav-content{
+          background: #E3F2FD;
+          border-top-left-radius: 20px;
+          padding: 10px 10px 0px 10px;
+          overflow: hidden;
+      }
+  }
+  
+  .is-mobile .sidenav-container {
+    flex: 1 0 auto;
+  }
+
+  
