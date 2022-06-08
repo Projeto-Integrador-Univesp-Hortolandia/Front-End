@@ -18,35 +18,59 @@
     },
     {
       "Nome": "Nova turma",
-      "Ano": "2° ano",
+      "Ano": "4° ano",
       "Turma": "N",
-      "Periodo": "Manh~ça",
-      "Sala": "215",
+      "Periodo": "Tarde",
+      "Sala": "5",
       "id": 3
     },
     {
       "Nome": "Nova turma",
-      "Ano": "2° ano",
+      "Ano": "5° ano",
       "Turma": "N",
-      "Periodo": "Manh~ça",
-      "Sala": "215",
+      "Periodo": "Tarde",
+      "Sala": "6",
       "id": 4
     },
     {
       "Nome": "Nova turma",
-      "Ano": "2° ano",
+      "Ano": "5° ano",
       "Turma": "N",
-      "Periodo": "Manh~ça",
-      "Sala": "215",
+      "Periodo": "Noite",
+      "Sala": "3",
       "id": 5
     },
     {
       "Nome": "Nova turma",
-      "Ano": "2° ano",
+      "Ano": "1° ano",
       "Turma": "N",
-      "Periodo": "Manh~ça",
-      "Sala": "215",
+      "Periodo": "Manhã",
+      "Sala": "3",
       "id": 6
+    },
+    {
+      "Nome": "Nova turma",
+      "Ano": "1° ano",
+      "Turma": "N",
+      "Periodo": "Manhã",
+      "Sala": "3",
+      "id": 7
+    },
+    {
+      "Nome": "Nova turma",
+      "Ano": "1° ano",
+      "Turma": "N",
+      "Periodo": "Tarde",
+      "Sala": "6",
+      "id": 8
+    },
+    {
+      "Nome": "Nova turma",
+      "Ano": "1° ano",
+      "Turma": "N",
+      "Periodo": "Tarde",
+      "Sala": "2",
+      "id": 9
     }
   ],
   "teachers": [
