@@ -109,8 +109,5 @@
       }
     }
   },
-  "defaultProject": "univesp-frontend",
-  "cli": {
-    "analytics": false
-  }
+  "defaultProject": "univesp-frontend"
 }

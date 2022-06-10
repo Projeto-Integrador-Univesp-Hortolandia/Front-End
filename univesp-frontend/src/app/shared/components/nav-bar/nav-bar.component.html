@@ -9,11 +9,11 @@
         </button>
     </mat-toolbar>
 
-    <mat-sidenav-container
+    <mat-sidenav-container 
         class="sidenav-container"
         [style.marginTop.px]="mobileQuery.matches ? 56 : 0"
     >
-        <mat-sidenav #snav
+        <mat-sidenav #snav 
             [mode]="mobileQuery.matches ? 'over' : 'side'"
             [fixedInViewport]="mobileQuery.matches" fixedTopGap="56"
         >
@@ -25,7 +25,7 @@
                     </span>
                     <span> Home </span>
                 </div>
-                <div class="icon-list-item" routerLink="filmes">
+                <div class="icon-list-item">
                     <span class="item-icon">
                         <mat-icon> chat_bubble </mat-icon>
                     </span>
@@ -42,7 +42,9 @@
             </mat-nav-list>
         </mat-sidenav>
         <mat-sidenav-content>
-            <router-outlet></router-outlet>
+            <router-outlet>
+
+            </router-outlet>
         </mat-sidenav-content>
     </mat-sidenav-container>
 </div>

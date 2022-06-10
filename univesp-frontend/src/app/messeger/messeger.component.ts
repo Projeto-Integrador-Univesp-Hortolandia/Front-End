@@ -1,5 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatSidenav } from '@angular/material/sidenav';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-messeger',
@@ -7,23 +6,10 @@ import { MatSidenav } from '@angular/material/sidenav';
   styleUrls: ['./messeger.component.scss']
 })
 export class MessegerComponent implements OnInit {
-  @ViewChild('sidenav', { static: false })
-  sidenav!: MatSidenav;
-
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
-
-
-  openSideNav() {
-    this.sidenav.open();
-  }
-
-  closeSideNav() {
-    this.sidenav.close();
-  }
-
 
 }
