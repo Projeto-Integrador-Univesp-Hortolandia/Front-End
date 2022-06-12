@@ -55,14 +55,6 @@
       "Periodo": "Manhã",
       "Sala": "4",
       "id": 9
-    },
-    {
-      "Nome": "Nova turma ",
-      "Ano": "1° Ano",
-      "Turma": "B",
-      "Periodo": "Manhã",
-      "Sala": "1",
-      "id": 10
     }
   ],
   "teachers": [

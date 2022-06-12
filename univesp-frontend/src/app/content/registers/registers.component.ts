@@ -12,6 +12,7 @@ import { RegisterStudentComponent } from './register-student/register-student.co
 import { RegisterTeacherComponent } from './register-teacher/register-teacher.component';
 
 import { displayGroups, displayTeachers, displayStudents, displayResponsibles } from 'src/app/shared/utils/displayedColumns';
+import { Groups, Responsibles, Students, Teachers } from 'src/app/shared/models/groups';
 
 @Component({
   selector: 'app-registers',
@@ -32,10 +33,10 @@ export class RegistersComponent implements OnInit {
   displayedColumnsStudents: string[] = displayStudents
   displayedColumnsResponsibles: string[] = displayResponsibles
 
-  groups!: MatTableDataSource<any>
-  teachers!: MatTableDataSource<any>
-  students!: MatTableDataSource<any>
-  responsibles!: MatTableDataSource<any>
+  groups!: MatTableDataSource<Groups>
+  teachers!: MatTableDataSource<Teachers>
+  students!: MatTableDataSource<Students>
+  responsibles!: MatTableDataSource<Responsibles>
   breakPoint: boolean = false;
 
   ngOnInit(): void {
@@ -64,7 +65,7 @@ export class RegistersComponent implements OnInit {
   getGroups(){
     this.registerService.Get({ url: 'groups' })
       .subscribe(
-        (success: any) => {
+        (success: Groups[]) => {
           this.groups = new MatTableDataSource(success)
         }
       )
@@ -73,7 +74,7 @@ export class RegistersComponent implements OnInit {
   getTeachers(){
     this.registerService.Get({ url: 'teachers' })
       .subscribe(
-        (success: any) => {
+        (success: Teachers[]) => {
           this.teachers = new MatTableDataSource(success)
           console.log(this.teachers.data[0]['Nome'])
         }
@@ -83,7 +84,7 @@ export class RegistersComponent implements OnInit {
   getStudents(){
     this.registerService.Get({ url: 'students' })
     .subscribe(
-      (success: any) => {
+      (success: Students[]) => {
         this.students = new MatTableDataSource(success)
       }
     )
@@ -92,7 +93,7 @@ export class RegistersComponent implements OnInit {
   getResposibles(){
     this.registerService.Get({ url: 'responsibles' })
       .subscribe(
-        (success: any) => {
+        (success: Responsibles[]) => {
           this.responsibles = new MatTableDataSource(success)
         }
       )
