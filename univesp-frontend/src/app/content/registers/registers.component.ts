@@ -11,6 +11,8 @@ import { RegisterResponsibleComponent } from './register-responsible/register-re
 import { RegisterStudentComponent } from './register-student/register-student.component';
 import { RegisterTeacherComponent } from './register-teacher/register-teacher.component';
 
+import { displayGroups, displayTeachers, displayStudents, displayResponsibles } from 'src/app/shared/utils/displayedColumns';
+
 @Component({
   selector: 'app-registers',
   templateUrl: './registers.component.html',
@@ -25,24 +27,15 @@ export class RegistersComponent implements OnInit {
     private matSnackBar: MatSnackBar
   ) { }
 
-  displayedColumns: string[] = [
-		'Ano',
-		'Turma',
-		'Periodo',
-		'Sala',
-    'Controls'
-	];
-
-  data = {
-    Ano: '1° ano',
-    Turma: 'SA113-17002',
-    Periodo: 'Tarde',
-    Sala: 'Sala 01'
-  }
-
-  // dataLoop = Array.from({length: 20}).map((_, i) => this.data )
+  displayedColumnsGroups: string[] = displayGroups
+  displayedColumnsTeachers: string[] = displayTeachers
+  displayedColumnsStudents: string[] = displayStudents
+  displayedColumnsResponsibles: string[] = displayResponsibles
 
   groups!: MatTableDataSource<any>
+  teachers!: MatTableDataSource<any>
+  students!: MatTableDataSource<any>
+  responsibles!: MatTableDataSource<any>
   breakPoint: boolean = false;
 
   ngOnInit(): void {
@@ -59,6 +52,9 @@ export class RegistersComponent implements OnInit {
       });
 
       this.getGroups()
+      this.getTeachers()
+      this.getStudents()
+      this.getResposibles()
   }
 
   getAll(){
@@ -75,15 +71,31 @@ export class RegistersComponent implements OnInit {
   }
 
   getTeachers(){
-
+    this.registerService.Get({ url: 'teachers' })
+      .subscribe(
+        (success: any) => {
+          this.teachers = new MatTableDataSource(success)
+          console.log(this.teachers.data[0]['Nome'])
+        }
+      )
   }
 
   getStudents(){
-    
+    this.registerService.Get({ url: 'students' })
+    .subscribe(
+      (success: any) => {
+        this.students = new MatTableDataSource(success)
+      }
+    )
   }
 
   getResposibles(){
-
+    this.registerService.Get({ url: 'responsibles' })
+      .subscribe(
+        (success: any) => {
+          this.responsibles = new MatTableDataSource(success)
+        }
+      )
   }
 
   registerGroups(type: string, id: number = 0){

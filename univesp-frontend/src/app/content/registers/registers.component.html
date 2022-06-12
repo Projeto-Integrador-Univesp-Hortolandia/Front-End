@@ -1,5 +1,6 @@
 <div class="container-registers">
     <mat-tab-group color="primary">
+		<!-- Tabale de grupos -->
         <mat-tab label="Grupos"> 
 			<div class="tab-header-controls">
 				<button mat-button (click)="registerGroups('create')">
@@ -82,14 +83,16 @@
 					</ng-container>
 	
 	
-					<mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"> </mat-header-row>
-					<mat-row *matRowDef="let row; columns: displayedColumns"> </mat-row>
+					<mat-header-row *matHeaderRowDef="displayedColumnsGroups; sticky: true"> </mat-header-row>
+					<mat-row *matRowDef="let row; columns: displayedColumnsGroups"> </mat-row>
 				</mat-table>
 				<div class="tab-footer">
 					<app-paginator> </app-paginator>
 				</div>
 			</div>
         </mat-tab>
+
+		<!-- / Table de professores  -->
         <mat-tab label="Professores"> 
 			<div class="tab-header-controls">
 				<button mat-button (click)="registerTeacher()">
@@ -107,8 +110,45 @@
 					</mat-form-field>
 				</div>
 			</div>
-			
+
+			<div class="table">
+				<mat-table matSort matTableResponsive [dataSource]="teachers">
+					<ng-container [matColumnDef]="column" *ngFor="let column of displayedColumnsTeachers ">
+						<mat-header-cell *matHeaderCellDef> 
+							<ng-container [ngSwitch]="column">
+								<span *ngSwitchCase="'Controls'"> </span>
+								<span *ngSwitchDefault> {{ column }}  </span>
+							</ng-container>
+						</mat-header-cell>
+						<mat-cell *matCellDef="let element" [attr.data-label]="column">
+							<ng-container [ngSwitch]="column">
+								<span *ngSwitchCase="'Controls'"> 
+									<mat-icon [matMenuTriggerFor]="menu_controls"> more_vert </mat-icon>
+									<mat-menu #menu_controls="matMenu">
+										<button mat-menu-item (click)="registerGroups('edit', element.id)">
+											<mat-icon> edit </mat-icon>
+											<span> Editar </span>
+										</button>
+										<button mat-menu-item (click)="deleteItem('groups', element.id) ? getGroups() : '' ">
+											<mat-icon> delete </mat-icon>
+											<span> Excluir </span>
+										</button>
+									</mat-menu>
+								</span>
+								<span *ngSwitchDefault> 
+									{{ element[column] }}
+								</span>
+							</ng-container>
+						</mat-cell>
+					</ng-container>
+
+					<mat-header-row *matHeaderRowDef="displayedColumnsTeachers; sticky: true"> </mat-header-row>
+					<mat-row *matRowDef="let row; columns: displayedColumnsTeachers"> </mat-row>
+				</mat-table>
+			</div>
 		</mat-tab>
+
+		<!-- Tabela de alunos -->
         <mat-tab label="Alunos">
 			<div class="tab-header-controls">
 				<button mat-button (click)="registerStudent()">
@@ -126,7 +166,44 @@
 					</mat-form-field>
 				</div>
 			</div>
+			<div class="table">
+				<mat-table matSort matTableResponsive [dataSource]="students">
+					<ng-container [matColumnDef]="column" *ngFor="let column of displayedColumnsStudents ">
+						<mat-header-cell *matHeaderCellDef> 
+							<ng-container [ngSwitch]="column">
+								<span *ngSwitchCase="'Controls'"> </span>
+								<span *ngSwitchDefault> {{ column }}  </span>
+							</ng-container>
+						</mat-header-cell>
+						<mat-cell *matCellDef="let element" [attr.data-label]="column">
+							<ng-container [ngSwitch]="column">
+								<span *ngSwitchCase="'Controls'"> 
+									<mat-icon [matMenuTriggerFor]="menu_controls"> more_vert </mat-icon>
+									<mat-menu #menu_controls="matMenu">
+										<button mat-menu-item (click)="registerGroups('edit', element.id)">
+											<mat-icon> edit </mat-icon>
+											<span> Editar </span>
+										</button>
+										<button mat-menu-item (click)="deleteItem('groups', element.id) ? getGroups() : '' ">
+											<mat-icon> delete </mat-icon>
+											<span> Excluir </span>
+										</button>
+									</mat-menu>
+								</span>
+								<span *ngSwitchDefault> 
+									{{ element[column] }}
+								</span>
+							</ng-container>
+						</mat-cell>
+					</ng-container>
+
+					<mat-header-row *matHeaderRowDef="displayedColumnsStudents; sticky: true"> </mat-header-row>
+					<mat-row *matRowDef="let row; columns: displayedColumnsStudents"> </mat-row>
+				</mat-table>
+			</div>
 		</mat-tab>
+
+		<!-- Tabela de Responsaveis -->
         <mat-tab label="Responsáveis">
 			<div class="tab-header-controls">
 				<button mat-button (click)="registerResponsible()">
@@ -143,6 +220,41 @@
 						</mat-icon>
 					</mat-form-field>
 				</div>
+			</div>
+			<div class="table">
+				<mat-table matSort matTableResponsive [dataSource]="responsibles">
+					<ng-container [matColumnDef]="column" *ngFor="let column of displayedColumnsResponsibles ">
+						<mat-header-cell *matHeaderCellDef> 
+							<ng-container [ngSwitch]="column">
+								<span *ngSwitchCase="'Controls'"> </span>
+								<span *ngSwitchDefault> {{ column }}  </span>
+							</ng-container>
+						</mat-header-cell>
+						<mat-cell *matCellDef="let element" [attr.data-label]="column">
+							<ng-container [ngSwitch]="column">
+								<span *ngSwitchCase="'Controls'"> 
+									<mat-icon [matMenuTriggerFor]="menu_controls"> more_vert </mat-icon>
+									<mat-menu #menu_controls="matMenu">
+										<button mat-menu-item (click)="registerGroups('edit', element.id)">
+											<mat-icon> edit </mat-icon>
+											<span> Editar </span>
+										</button>
+										<button mat-menu-item (click)="deleteItem('groups', element.id) ? getGroups() : '' ">
+											<mat-icon> delete </mat-icon>
+											<span> Excluir </span>
+										</button>
+									</mat-menu>
+								</span>
+								<span *ngSwitchDefault> 
+									{{ element[column] }}
+								</span>
+							</ng-container>
+						</mat-cell>
+					</ng-container>
+
+					<mat-header-row *matHeaderRowDef="displayedColumnsResponsibles; sticky: true"> </mat-header-row>
+					<mat-row *matRowDef="let row; columns: displayedColumnsResponsibles"> </mat-row>
+				</mat-table>
 			</div>
 		</mat-tab>
     </mat-tab-group>
