@@ -1,0 +1,46 @@
+<div class="pagination">
+    <button
+        mat-icon-button
+    >
+        <mat-icon>arrow_back_ios_new</mat-icon>
+    </button>
+
+    <button mat-icon-button class="active">
+        
+    </button>
+
+    <button
+        mat-mini-fab
+        color="primary"
+    >
+        <mat-icon>arrow_forward_ios_new</mat-icon>
+    </button>
+	<!-- <ng-container *ngIf="!isMobile">
+
+
+	</ng-container> -->
+
+	<!-- <ng-container *ngIf="isMobile">
+		<div class="container-mobile">
+			<button
+				mat-mini-fab
+				color="primary"
+				(click)="getPageValue(currentPage - 1)"
+				[disabled]="currentPage === pageCount"
+			>
+				<mat-icon>arrow_back_ios_new</mat-icon>
+			</button>
+
+			{{ currentPage }}
+
+			<button
+				mat-mini-fab
+				color="primary"
+				(click)="getPageValue(currentPage + 1)"
+				[disabled]="currentPage === pageCount"
+			>
+				<mat-icon>arrow_forward_ios_new</mat-icon>
+			</button>
+		</div>
+	</ng-container> -->
+</div>

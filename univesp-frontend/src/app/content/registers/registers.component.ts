@@ -42,7 +42,7 @@ export class RegistersComponent implements OnInit {
 
   // dataLoop = Array.from({length: 20}).map((_, i) => this.data )
 
-  _dataSource!: MatTableDataSource<any>
+  groups!: MatTableDataSource<any>
   breakPoint: boolean = false;
 
   ngOnInit(): void {
@@ -69,7 +69,7 @@ export class RegistersComponent implements OnInit {
     this.registerService.Get({ url: 'groups' })
       .subscribe(
         (success: any) => {
-          this._dataSource = new MatTableDataSource(success)
+          this.groups = new MatTableDataSource(success)
         }
       )
   }
@@ -86,14 +86,17 @@ export class RegistersComponent implements OnInit {
 
   }
 
-  registerGroups(){
+  registerGroups(type: string, id: number = 0){
 
     this.matDialog.open(
       RegisterGroupComponent,
       {
         autoFocus: false,
         panelClass: 'dialog-template',
-        data: ''
+        data: {
+          type: type,
+          id: id
+        }
       }
     )
     .afterClosed()
@@ -146,20 +149,22 @@ export class RegistersComponent implements OnInit {
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
-    this._dataSource.filter = filterValue.trim().toLowerCase();
+    this.groups.filter = filterValue.trim().toLowerCase();
   }
 
-  public deleteItem(type: string, id: number){
+  public deleteItem(type: string, id: number): boolean{
 
     this.registerService.Delete({ url: type, body: id })
       .subscribe(
         (success: any) => {
           this.matSnackBar.open(`${type} deletado com sucesso`, '', { duration: 1500 })
+          return true
         }, error => {
           this.matSnackBar.open('Ocorreu um erro', '', {duration: 2000})
+          return false
         }
       )
-
+    return true 
   }
 
 }

@@ -16,7 +16,7 @@ export class RegisterService {
     private httpClient: HttpClient
   ) { }
 
-  Get(params: any){
+  Get(params: any): Observable<any>{
     return this.httpClient
     .get(`${API}${params.url}`)
   }

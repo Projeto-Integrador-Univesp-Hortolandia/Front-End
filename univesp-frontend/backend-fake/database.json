@@ -1,22 +1,6 @@
 {
   "groups": [
     {
-      "id": 1,
-      "Nome": "Grupo teste",
-      "Turma": "B",
-      "Periodo": "Manhã",
-      "Ano": "2° Ano",
-      "Sala": "3"
-    },
-    {
-      "id": 2,
-      "Nome": "Grupo teste 2",
-      "Turma": "B",
-      "Periodo": "Manhã",
-      "Ano": "3° Ano",
-      "Sala": "4"
-    },
-    {
       "Nome": "Nova turma",
       "Ano": "4° ano",
       "Turma": "N",
@@ -65,12 +49,20 @@
       "id": 8
     },
     {
-      "Nome": "Nova turma",
-      "Ano": "1° ano",
-      "Turma": "N",
-      "Periodo": "Tarde",
-      "Sala": "2",
+      "Nome": "TURMA 123-A",
+      "Ano": "3° Ano",
+      "Turma": "B",
+      "Periodo": "Manhã",
+      "Sala": "4",
       "id": 9
+    },
+    {
+      "Nome": "Nova turma ",
+      "Ano": "1° Ano",
+      "Turma": "B",
+      "Periodo": "Manhã",
+      "Sala": "1",
+      "id": 10
     }
   ],
   "teachers": [

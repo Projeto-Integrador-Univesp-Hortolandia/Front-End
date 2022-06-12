@@ -2,7 +2,7 @@
     <mat-tab-group color="primary">
         <mat-tab label="Grupos"> 
 			<div class="tab-header-controls">
-				<button mat-button (click)="registerGroups()">
+				<button mat-button (click)="registerGroups('create')">
 					<span *ngIf="!breakPoint"> Novo grupo </span>
 					<mat-icon> add </mat-icon>
 				</button>
@@ -18,7 +18,7 @@
 				</div>
 			</div>
 			<div class="table">
-				<mat-table matSort matTableResponsive [dataSource]="_dataSource">
+				<mat-table matSort matTableResponsive [dataSource]="groups">
 					<ng-container matColumnDef="Notify">
 						<mat-header-cell *matHeaderCellDef> </mat-header-cell>
 						<mat-cell *matCellDef="let element" data-label="Modelo">
@@ -68,11 +68,11 @@
 							<span>
 								<mat-icon [matMenuTriggerFor]="menu_controls"> more_vert </mat-icon>
 								<mat-menu #menu_controls="matMenu">
-									<button mat-menu-item>
+									<button mat-menu-item (click)="registerGroups('edit', element.id)">
 										<mat-icon> edit </mat-icon>
 										<span> Editar </span>
 									</button>
-									<button mat-menu-item (click)="deleteItem('groups', element.id)">
+									<button mat-menu-item (click)="deleteItem('groups', element.id) ? getGroups() : '' ">
 										<mat-icon> delete </mat-icon>
 										<span> Excluir </span>
 									</button>
@@ -85,6 +85,9 @@
 					<mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"> </mat-header-row>
 					<mat-row *matRowDef="let row; columns: displayedColumns"> </mat-row>
 				</mat-table>
+				<div class="tab-footer">
+					<app-paginator> </app-paginator>
+				</div>
 			</div>
         </mat-tab>
         <mat-tab label="Professores"> 

@@ -38,6 +38,12 @@
     </mat-dialog-content>
     <mat-dialog-actions class="controls" align="center">
         <button mat-button mat-dialog-close> Cancelar </button>
-        <button mat-flat-button color="primary" (click)="registerGroup()">Criar grupo</button>
+        <button 
+            mat-flat-button 
+            color="primary" 
+            (click)=" dialogData.type === 'edit' ? putGroup() : registerGroup()"
+        >
+            {{ dialogData.type === 'edit' ? 'Salvar alterações' : 'Criar grupo'}}
+        </button>
       </mat-dialog-actions>
 </div>
