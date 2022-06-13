@@ -94,7 +94,7 @@ export class RegisterGroupComponent implements OnInit {
       (success: any) => {
 
         this.matSnackbar
-        .open('Grupo registrado com sucesso', 'Fechar', { duration: 1500 })
+        .open('Alterações salvas com sucesso', 'Fechar', { duration: 1500 })
         .afterDismissed()
         .subscribe(
           () => this.DialogRef.close(true)

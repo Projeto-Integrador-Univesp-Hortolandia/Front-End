@@ -2,9 +2,11 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormControlName, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Observable } from 'rxjs';
-import { map, startWith } from 'rxjs/operators';
+import { merge, Observable } from 'rxjs';
+import { debounceTime, map, startWith, switchMap } from 'rxjs/operators';
 import { RegisterService } from 'src/app/services/register/register.service';
+import { Groups } from 'src/app/shared/models/groups';
+import { Student } from 'src/app/shared/models/student';
 
 @Component({
   selector: 'app-register-teacher',
@@ -18,14 +20,27 @@ export class RegisterTeacherComponent implements OnInit {
     public DialogRef: MatDialogRef<any>,
     public registerService: RegisterService,
     public matSnackbar: MatSnackBar
-  ) { }
+  ) {
+ 
+    }
 
-  studentsList = [] as any[]
-
-  options: string[] = ['Grupo 1', 'Grupo 2', 'Grupo 3', 'Grupo 4'];
+  groupsList = [] as any[]
   filteredOptions!: Observable<string[]>;
 
   myControl = new FormControl('');
+  allGroups$ = this.registerService.Get({ url: 'groups' })
+  filterGroups$ = this.myControl.valueChanges
+  .pipe(
+    debounceTime(300),
+    switchMap(
+      student => this.registerService.Get
+      ({
+        url: `groups?Nome=${student}`
+      })
+    )
+  )
+
+  groups$ = merge(this.allGroups$, this.filterGroups$)
 
   _form = new FormGroup({
     Nome: new FormControl(''),
@@ -37,27 +52,73 @@ export class RegisterTeacherComponent implements OnInit {
   })
 
   ngOnInit(): void {
-    this.getStudents(this.dialogData)
 
-    this.filteredOptions = this.myControl.valueChanges.pipe(
-      startWith(''),
-      map(value => this._filter(value || '')),
-    );
+    if(this.dialogData.type === 'edit'){
+      
+      this.registerService.Get({ url: `teachers?id=${this.dialogData.id}`}).subscribe(
+        (success: any) => {
+          this._form.patchValue(success[0])
+        }
+      )
+
+    }
   }
 
-  getStudents(idGroup: number){
+  addToGroup(group: Groups){
+    if (group){
+      this.groupsList.push(group)
+    }
+  }
 
-    this.registerService.Get({ url: `students?Group=${2}`}).subscribe(
+  removeGroup(group: Groups){
+    let index = this.groupsList.indexOf(group)
+
+    if (index){
+      this.groupsList.splice(index, 1)
+    }
+  }
+
+  registerTeacher(){
+
+    this.registerService.Post
+      ({
+        url: `teachers`,
+        body: this._form.value 
+      })
+      .subscribe(
+        (success: any) => {
+          this.matSnackbar
+            .open('Professor registrado com sucesso', 'Fechar', { duration: 1500 })
+            .afterDismissed()
+            .subscribe(
+              () => this.DialogRef.close(true)
+            )
+        }, error => {
+          this.matSnackbar.open('Ocorreu um erro ao tentar registrar', 'Fechar', { duration: 2500 })
+        }
+      )
+  }
+
+  putTeacher(){
+    this.registerService.Put({
+      url: `teachers/${this.dialogData.id}`,
+      body: this._form.value
+    })
+    .subscribe(
       (success: any) => {
-        this.studentsList = success
+
+        this.matSnackbar
+        .open('Alterações salvas com sucesso', 'Fechar', { duration: 1500 })
+        .afterDismissed()
+        .subscribe(
+          () => this.DialogRef.close(true)
+        )
+
+      }, error => {
+
+        this.matSnackbar.open('Ocorreu um erro. Tente novamente', 'Fechar', { duration: 2000 })
+
       }
     )
   }
-
-  private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
-
-    return this.options.filter(option => option.toLowerCase().includes(filterValue));
-  }
-
 }

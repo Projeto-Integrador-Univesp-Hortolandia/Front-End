@@ -121,40 +121,55 @@ export class RegistersComponent implements OnInit {
 
   }
 
-  registerTeacher(){
+  registerTeacher(type: string, id: number = 0){
 
     this.matDialog.open(
       RegisterTeacherComponent,
       {
         autoFocus: false,
         panelClass: 'dialog-template',
-        data: ''
+        data: {
+          type: type,
+          id: id
+        }
+      }
+    )
+    .afterClosed()
+    .subscribe(
+      (response: boolean) => {
+        response ? this.getTeachers() : ''
       }
     )
 
   }
 
-  registerStudent(){
+  registerStudent(type: string, id: number = 0){
 
     this.matDialog.open(
       RegisterStudentComponent,
       {
         autoFocus: false,
         panelClass: 'dialog-template',
-        data: ''
+        data: {
+          type: type,
+          id: id
+        }
       }
     )
 
   }
 
-  registerResponsible(){
+  registerResponsible(type: string, id: number = 0){
 
     this.matDialog.open(
       RegisterResponsibleComponent,
       {
         autoFocus: false,
         panelClass: 'dialog-template',
-        data: ''
+        data: {
+          type: type,
+          id: id
+        }
       }
     )
 
@@ -170,7 +185,7 @@ export class RegistersComponent implements OnInit {
     this.registerService.Delete({ url: type, body: id })
       .subscribe(
         (success: any) => {
-          this.matSnackBar.open(`${type} deletado com sucesso`, '', { duration: 1500 })
+          this.matSnackBar.open(`Cadastro deletado com sucesso`, '', { duration: 1500 })
           return true
         }, error => {
           this.matSnackBar.open('Ocorreu um erro', '', {duration: 2000})

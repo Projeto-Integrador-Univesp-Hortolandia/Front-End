@@ -67,25 +67,38 @@
                             [matAutocomplete]="auto"
                         >
                         <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-                            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-                              {{option}}
+                            <mat-option 
+                                *ngFor="let option of groups$ | async as groups;" 
+                                (click)="addToGroup(option)"
+                            >
+                              {{ option.Nome }} | {{ option.Ano }} - {{ option.Periodo }}
                             </mat-option>
                           </mat-autocomplete>
                     </mat-form-field>
                 </div>
                 <app-list-item
-                    *ngFor="let aluno of studentsList" 
-                    [Valores]="aluno"
+                    *ngFor="let group of groupsList"
+                    [Valores]="group"
+                    (click)="removeGroup(group)"
                     class="test"
-                >
-                    
+                    >
                 </app-list-item>
+                <ng-template #elseBlock>
+                    <p>  Não há dados </p>
+                  </ng-template>
             </div>
         </div>
 
     </mat-dialog-content>
     <mat-dialog-actions class="controls" align="center">
         <button mat-button mat-dialog-close> Cancelar </button>
-        <button mat-flat-button color="primary" [mat-dialog-close]="true" cdkFocusInitial>Cadastrar</button>
+        <button 
+            mat-flat-button 
+            color="primary" 
+            cdkFocusInitial
+            (click)="dialogData.type === 'edit' ? putTeacher() : registerTeacher()"
+        >
+            {{ dialogData.type === 'edit' ? 'Salvar alterações' : 'Cadastras professor' }}
+        </button>
     </mat-dialog-actions>
 </div>

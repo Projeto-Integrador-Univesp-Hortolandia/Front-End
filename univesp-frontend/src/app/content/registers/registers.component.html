@@ -95,7 +95,7 @@
 		<!-- / Table de professores  -->
         <mat-tab label="Professores"> 
 			<div class="tab-header-controls">
-				<button mat-button (click)="registerTeacher()">
+				<button mat-button (click)="registerTeacher('create')">
 					<span *ngIf="!breakPoint"> Novo grupo </span>
 					<mat-icon> add </mat-icon>
 				</button>
@@ -125,11 +125,11 @@
 								<span *ngSwitchCase="'Controls'"> 
 									<mat-icon [matMenuTriggerFor]="menu_controls"> more_vert </mat-icon>
 									<mat-menu #menu_controls="matMenu">
-										<button mat-menu-item (click)="registerGroups('edit', element.id)">
+										<button mat-menu-item (click)="registerTeacher('edit', element.id)">
 											<mat-icon> edit </mat-icon>
 											<span> Editar </span>
 										</button>
-										<button mat-menu-item (click)="deleteItem('groups', element.id) ? getGroups() : '' ">
+										<button mat-menu-item (click)="deleteItem('teachers', element.id) ? getGroups() : '' ">
 											<mat-icon> delete </mat-icon>
 											<span> Excluir </span>
 										</button>
@@ -151,7 +151,7 @@
 		<!-- Tabela de alunos -->
         <mat-tab label="Alunos">
 			<div class="tab-header-controls">
-				<button mat-button (click)="registerStudent()">
+				<button mat-button (click)="registerStudent('create')">
 					<span *ngIf="!breakPoint"> Adicionar aluno </span>
 					<mat-icon> add </mat-icon>
 				</button>
@@ -206,7 +206,7 @@
 		<!-- Tabela de Responsaveis -->
         <mat-tab label="Responsáveis">
 			<div class="tab-header-controls">
-				<button mat-button (click)="registerResponsible()">
+				<button mat-button (click)="registerResponsible('create')">
 					<span *ngIf="!breakPoint"> Adicionar responsável </span>
 					<mat-icon> add </mat-icon>
 				</button>

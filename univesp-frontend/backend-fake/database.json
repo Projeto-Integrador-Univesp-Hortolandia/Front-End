@@ -67,6 +67,15 @@
       "DataNasc": "1947-01-01",
       "NumRegisto": "123426789-ABC",
       "Group": 1
+    },
+    {
+      "Nome": "Professora",
+      "Email": "Professora@univesp.com.br",
+      "Senha": "1234567890",
+      "CPF": "12345678910",
+      "DataNasc": "26/12/1997",
+      "NumRegistro": "123123123",
+      "id": 2
     }
   ],
   "students": [
