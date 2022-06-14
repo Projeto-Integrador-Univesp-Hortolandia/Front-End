@@ -1,0 +1,147 @@
+{
+  "groups": [
+    {
+      "id": 1,
+      "Nome": "Grupo teste",
+      "Turma": "B",
+      "Periodo": "Manhã",
+      "Ano": "2° Ano",
+      "Sala": "3"
+    },
+    {
+      "id": 2,
+      "Nome": "Grupo teste 2",
+      "Turma": "B",
+      "Periodo": "Manhã",
+      "Ano": "3° Ano",
+      "Sala": "4"
+    },
+    {
+      "Nome": "Nova turma",
+      "Ano": "2° ano",
+      "Turma": "N",
+      "Periodo": "Manh~ça",
+      "Sala": "215",
+      "id": 3
+    },
+    {
+      "Nome": "Nova turma",
+      "Ano": "2° ano",
+      "Turma": "N",
+      "Periodo": "Manh~ça",
+      "Sala": "215",
+      "id": 4
+    },
+    {
+      "Nome": "Nova turma",
+      "Ano": "2° ano",
+      "Turma": "N",
+      "Periodo": "Manh~ça",
+      "Sala": "215",
+      "id": 5
+    },
+    {
+      "Nome": "Nova turma",
+      "Ano": "2° ano",
+      "Turma": "N",
+      "Periodo": "Manh~ça",
+      "Sala": "215",
+      "id": 6
+    }
+  ],
+  "teachers": [
+    {
+      "id": 1,
+      "Nome": "Professor Legal",
+      "Email": "Professor@Univesp.com.br",
+      "Senha": "123456789",
+      "CPF": "12345678910",
+      "DataNasc": "1947-01-01",
+      "NumRegisto": "123426789-ABC",
+      "Group": 1
+    }
+  ],
+  "students": [
+    {
+      "id": 1,
+      "Nome": "Joãozinho da silva",
+      "CPF": "98765432110",
+      "DataNasc": "2015-01-01",
+      "Observacao": "Precisa sair 10 minutos mais cedo",
+      "Group": 2
+    },
+    {
+      "id": 2,
+      "Nome": "Clarinha da silva",
+      "CPF": "78945612310",
+      "DataNasc": "2016-01-01",
+      "Observacao": "",
+      "Group": 2
+    },
+    {
+      "id": 1,
+      "Nome": "Maria da silva",
+      "CPF": "98765432110",
+      "DataNasc": "2015-01-01",
+      "Observacao": "",
+      "Group": 2
+    },
+    {
+      "id": 2,
+      "Nome": "Valentina da silva",
+      "CPF": "78945612310",
+      "DataNasc": "2016-01-01",
+      "Observacao": "",
+      "Group": 2
+    },
+    {
+      "id": 1,
+      "Nome": "Enzo da silva",
+      "CPF": "98765432110",
+      "DataNasc": "2015-01-01",
+      "Observacao": "",
+      "Group": 2
+    },
+    {
+      "id": 2,
+      "Nome": "Lucas da silva",
+      "CPF": "78945612310",
+      "DataNasc": "2016-01-01",
+      "Observacao": "",
+      "Group": 2
+    },
+    {
+      "id": 1,
+      "Nome": "Marcela da silva",
+      "CPF": "98765432110",
+      "DataNasc": "2015-01-01",
+      "Observacao": "",
+      "Group": 2
+    },
+    {
+      "id": 2,
+      "Nome": "Marcos da silva",
+      "CPF": "78945612310",
+      "DataNasc": "2016-01-01",
+      "Observacao": "",
+      "Group": 2
+    }
+  ],
+  "responsibles": [
+    {
+      "id": 1,
+      "Nome": "Joãozinho da silva",
+      "CPF": "98765432110",
+      "DataNasc": "2015-01-01",
+      "Observacao": "",
+      "Filhos": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+<div class="container-registers">
+    <mat-tab-group color="primary">
+        <mat-tab label="Grupos"> 
+			<div class="tab-header-controls">
+				<button mat-button (click)="registerGroups()">
+					<span *ngIf="!breakPoint"> Novo grupo </span>
+					<mat-icon> add </mat-icon>
+				</button>
+
+				<div class="teste-form">
+					<mat-form-field appearance="outline" style="width: 100%;">
+						<mat-label> Pesquisar </mat-label>
+						<input matInput type="text" (keyup)="applyFilter($event)">
+						<mat-icon matSuffix>	
+							search
+						</mat-icon>
+					</mat-form-field>
+				</div>
+			</div>
+			<div class="table">
+				<mat-table matSort matTableResponsive [dataSource]="_dataSource">
+					<ng-container matColumnDef="Notify">
+						<mat-header-cell *matHeaderCellDef> </mat-header-cell>
+						<mat-cell *matCellDef="let element" data-label="Modelo">
+							<mat-icon *ngIf="element.status === 'Inativo'">
+								person_off
+							</mat-icon>
+						</mat-cell>
+					</ng-container>
+	
+					<ng-container matColumnDef="Ano">
+						<mat-header-cell *matHeaderCellDef>
+							<span> Ano </span>
+						</mat-header-cell>
+						<mat-cell *matCellDef="let element" data-label="Ano">
+							<span> {{ element.Ano }} </span>
+						</mat-cell>
+					</ng-container>
+					<ng-container matColumnDef="Turma">
+						<mat-header-cell *matHeaderCellDef>
+							<span> Turma </span>
+						</mat-header-cell>
+						<mat-cell *matCellDef="let element" data-label="Turma">
+							<span> {{ element.Turma }} </span>
+						</mat-cell>
+					</ng-container>
+					<ng-container matColumnDef="Periodo">
+						<mat-header-cell *matHeaderCellDef>
+							<span> Periodo </span>
+						</mat-header-cell>
+						<mat-cell *matCellDef="let element" data-label="Periodo">
+							<span> {{ element.Periodo }} </span>
+						</mat-cell>
+					</ng-container>
+					<ng-container matColumnDef="Sala">
+						<mat-header-cell *matHeaderCellDef>
+							<span> Sala </span>
+						</mat-header-cell>
+						<mat-cell *matCellDef="let element" data-label="Sala">
+							<span> {{ element.Sala }} </span>
+						</mat-cell>
+					</ng-container>
+					<ng-container matColumnDef="Controls">
+						<mat-header-cell *matHeaderCellDef>
+							<span>  </span>
+						</mat-header-cell>
+						<mat-cell *matCellDef="let element" data-label="">
+							<span>
+								<mat-icon [matMenuTriggerFor]="menu_controls"> more_vert </mat-icon>
+								<mat-menu #menu_controls="matMenu">
+									<button mat-menu-item>
+										<mat-icon> edit </mat-icon>
+										<span> Editar </span>
+									</button>
+									<button mat-menu-item (click)="deleteItem('groups', element.id)">
+										<mat-icon> delete </mat-icon>
+										<span> Excluir </span>
+									</button>
+								  </mat-menu>
+							</span>
+						</mat-cell>
+					</ng-container>
+	
+	
+					<mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"> </mat-header-row>
+					<mat-row *matRowDef="let row; columns: displayedColumns"> </mat-row>
+				</mat-table>
+			</div>
+        </mat-tab>
+        <mat-tab label="Professores"> 
+			<div class="tab-header-controls">
+				<button mat-button (click)="registerTeacher()">
+					<span *ngIf="!breakPoint"> Novo grupo </span>
+					<mat-icon> add </mat-icon>
+				</button>
+
+				<div class="teste-form">
+					<mat-form-field appearance="outline" style="width: 100%;">
+						<mat-label> Pesquisar </mat-label>
+						<input matInput type="text">
+						<mat-icon matSuffix>	
+							search
+						</mat-icon>
+					</mat-form-field>
+				</div>
+			</div>
+			
+		</mat-tab>
+        <mat-tab label="Alunos">
+			<div class="tab-header-controls">
+				<button mat-button (click)="registerStudent()">
+					<span *ngIf="!breakPoint"> Adicionar aluno </span>
+					<mat-icon> add </mat-icon>
+				</button>
+
+				<div class="teste-form">
+					<mat-form-field appearance="outline" style="width: 100%;">
+						<mat-label> Pesquisar </mat-label>
+						<input matInput type="text">
+						<mat-icon matSuffix>	
+							search
+						</mat-icon>
+					</mat-form-field>
+				</div>
+			</div>
+		</mat-tab>
+        <mat-tab label="Responsáveis">
+			<div class="tab-header-controls">
+				<button mat-button (click)="registerResponsible()">
+					<span *ngIf="!breakPoint"> Adicionar responsável </span>
+					<mat-icon> add </mat-icon>
+				</button>
+
+				<div class="teste-form">
+					<mat-form-field appearance="outline" style="width: 100%;">
+						<mat-label> Pesquisar </mat-label>
+						<input matInput type="text">
+						<mat-icon matSuffix>	
+							search
+						</mat-icon>
+					</mat-form-field>
+				</div>
+			</div>
+		</mat-tab>
+    </mat-tab-group>
+</div>

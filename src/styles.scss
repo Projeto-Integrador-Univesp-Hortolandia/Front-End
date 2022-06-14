@@ -1,0 +1,82 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+//OVERRIDE SCROLLBAR
+* {
+	::-webkit-scrollbar {
+		background: #eff0f6;
+		width: 5px;
+		height: 5px;
+	}
+
+	::-webkit-scrollbar-button {
+		display: none;
+	}
+
+	::-webkit-scrollbar-track {
+		border-radius: 10px;
+		background: #eff0f6;
+	}
+
+	::-webkit-scrollbar-thumb {
+		background: #9b9b9b;
+		border-radius: 10px;
+
+		&:hover {
+			background: #606060;
+		}
+	}
+
+	scrollbar-color: #9b9b9b #e1e1e1;
+	scrollbar-width: thin;
+}
+
+//DIALOG TEMPLATES
+
+.dialog-template{
+	max-width: 90vw !important;
+	max-height: 90vh !important;
+	width: 100vw;
+	height: 100vh;
+	position: relative !important;
+}
+
+//Global colors
+
+$primary-1: #4527A0;
+$primary-2: #512EA9;
+$primary-3: #5E35B1;
+$primary-4: #AF98D8;
+$primary-5: #EDE7F6;
+
+$secondary-1: #1565C0;
+$secondary-2: #1976D3;
+$secondary-3: #1E88E5;
+$secondary-4: #90CAF9;
+
+$terciary-1: #FFC415;
+$terciary-2: #FFE57F;
+$terciary-3: #FFF8E1;
+
+$base-1: #141414;
+$base-2: #6B6B6B;
+$base-3: #989899;
+$base-4: #D2D2D2;
+
+
+// OVERRIDE MATERIAL
+
+.mat-drawer-side{
+    border: none !important;
+}
+
+.mat-drawer:not(.mat-drawer-side) {
+	box-shadow: none !important;
+}
+
+.mat-dialog-content{
+	max-height: none;
+}

@@ -1,0 +1,45 @@
+<div class="upload-files-container">
+
+    <div class="drop-area" (fileDropped)="loadFileDrop($event)" (FileOver)="isOver = $event" appDropFile>
+        
+        <ng-container *ngIf="isOver; else isOverTemplate">
+            <p class="drop-area-label over"> 
+                Solte
+             </p>
+        </ng-container>
+        <ng-template #isOverTemplate>
+            <ng-container *ngIf="!filesLoaded.length; else loadedFile">
+                <p class="drop-area-label"> 
+                    Arraste uma foto
+                 </p>
+                <span> ou </span>
+        
+                <label 
+                    class="upload-button"
+                    for="uploadFile"
+                >
+                    Procurar arquivo
+                </label>
+                <input 
+                    type="file"
+                    id="uploadFile"
+                    accept=".png,.jpeg,.jpg"
+                    (change)="loadFile($event)"
+                >
+            </ng-container>
+            <ng-template #loadedFile>
+                <mat-icon class="drop-area-icon-loaded"> check_circle </mat-icon>
+                <p class="drop-area-label-loaded">
+                    {{ filesLoaded[0]?.name }}
+                </p>
+                <span class="drop-area-icon-remove" (click)="removeFile()"> remover </span>
+            </ng-template>
+        </ng-template>
+        
+    </div>
+<!-- 
+    <div class="drop-preview">
+        <img src="https://www.seekpng.com/png/full/41-410093_circled-user-icon-user-profile-icon-png.png" class="img-preview">
+    </div> -->
+
+</div>
