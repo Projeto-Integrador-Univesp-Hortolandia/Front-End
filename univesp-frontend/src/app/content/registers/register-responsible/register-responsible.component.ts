@@ -2,7 +2,10 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormControlName, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { merge, Observable } from 'rxjs';
+import { debounceTime, switchMap } from 'rxjs/operators';
 import { RegisterService } from 'src/app/services/register/register.service';
+import { Responsibles } from 'src/app/shared/models/groups';
 
 @Component({
   selector: 'app-register-responsible',
@@ -18,27 +21,100 @@ export class RegisterResponsibleComponent implements OnInit {
     public matSnackbar: MatSnackBar
   ) { }
 
-  studentsList = [] as any[]
+  childrenList = [] as any[]
+  filteredOptions!: Observable<string[]>;
+
+  myControl = new FormControl('');
+  allChildren$ = this.registerService.Get({ url: 'students' })
+  filterChildren$ = this.myControl.valueChanges
+  .pipe(
+    debounceTime(300),
+    switchMap(
+      student => this.registerService.Get
+      ({
+        url: `students?Nome=${student}`
+      })
+    )
+  )
+
+  childrens$ = merge(this.allChildren$, this.filterChildren$)
+
 
   _form = new FormGroup({
     Nome: new FormControl(''),
     CPF: new FormControl(''),
     DataNasc: new FormControl(''),
-    Observacoes: new FormControl('')
+    Observacao: new FormControl('')
   })
 
   ngOnInit(): void {
-    this.getStudents(this.dialogData)
+    if(this.dialogData.type === 'edit'){
+      
+      this.registerService.Get({ url: `responsibles?id=${this.dialogData.id}`}).subscribe(
+        (success: any) => {
+          this._form.patchValue(success[0])
+        }
+      )
+
+    }
 
   }
 
-  getStudents(idGroup: number){
+  addToGroup(group: Responsibles){
+    if (group){
+      this.childrenList.push(group)
+    }
+  }
 
-    this.registerService.Get({ url: `students?Group=${2}`}).subscribe(
+  removeGroup(group: Responsibles){
+    let index = this.childrenList.indexOf(group)
+
+    if (index){
+      this.childrenList.splice(index, 1)
+    }
+  }
+
+  registerResponsible(){
+
+    this.registerService.Post
+      ({
+        url: `responsibles`,
+        body: this._form.value 
+      })
+      .subscribe(
+        (success: any) => {
+          this.matSnackbar
+            .open('Responsável registrado com sucesso', 'Fechar', { duration: 1500 })
+            .afterDismissed()
+            .subscribe(
+              () => this.DialogRef.close(true)
+            )
+        }, error => {
+          this.matSnackbar.open('Ocorreu um erro ao tentar registrar', 'Fechar', { duration: 2500 })
+        }
+      )
+  }
+
+  putResponsible(){
+    this.registerService.Put({
+      url: `responsibles/${this.dialogData.id}`,
+      body: this._form.value
+    })
+    .subscribe(
       (success: any) => {
-        this.studentsList = success
+
+        this.matSnackbar
+        .open('Alterações salvas com sucesso', 'Fechar', { duration: 1500 })
+        .afterDismissed()
+        .subscribe(
+          () => this.DialogRef.close(true)
+        )
+
+      }, error => {
+
+        this.matSnackbar.open('Ocorreu um erro. Tente novamente', 'Fechar', { duration: 2000 })
+
       }
     )
-
   }
 }

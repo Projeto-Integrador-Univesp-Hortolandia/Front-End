@@ -3,9 +3,10 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { forkJoin, of } from 'rxjs';
-import { catchError, switchMap } from 'rxjs/operators';
+import { merge, Observable } from 'rxjs';
+import { catchError, debounceTime, map, startWith, switchMap } from 'rxjs/operators';
 import { RegisterService } from 'src/app/services/register/register.service';
-import { Groups } from 'src/app/shared/models/groups';
+import { Groups, Students } from 'src/app/shared/models/groups';
 import { Student } from 'src/app/shared/models/student';
 
 @Component({
@@ -22,7 +23,23 @@ export class RegisterGroupComponent implements OnInit {
     public matSnackbar: MatSnackBar
   ) { }
 
-  studentsList = [] as Student[]
+  studentsList = [] as any[]
+  filteredOptions!: Observable<string[]>;
+
+  myControl = new FormControl('');
+  allStudents$ = this.registerService.Get({ url: 'students' })
+  filterStudents$ = this.myControl.valueChanges
+  .pipe(
+    debounceTime(300),
+    switchMap(
+      student => this.registerService.Get
+      ({
+        url: `students?Nome=${student}`
+      })
+    )
+  )
+
+  students$ = merge(this.allStudents$, this.filterStudents$)
 
   _form = new FormGroup({
     Nome: new FormControl(''),
@@ -67,6 +84,20 @@ export class RegisterGroupComponent implements OnInit {
 
     else {
       
+    }
+  }
+
+  addToGroup(group: Students){
+    if (group){
+      this.studentsList.push(group)
+    }
+  }
+
+  removeGroup(group: Students){
+    let index = this.studentsList.indexOf(group)
+
+    if (index){
+      this.studentsList.splice(index, 1)
     }
   }
 

@@ -25,14 +25,42 @@
             </mat-form-field>
         </form>
 
-        <div class="list-registers">
-            <app-list-item 
-                *ngFor="let aluno of studentsList" 
-                [Valores]="aluno"
+        <div class="container-content">
+
+            <div class="list-registers" style="margin-top: 10px;">
+                <button class="button-add-list">
+                    Filho vinculado
+                </button>
+
+                <div class="search-autocomplete">
+                    <mat-form-field>
+                        <mat-label> Buscar Alunos </mat-label>
+                        <input 
+                            matInput 
+                            type="text" 
+                            [formControl]="myControl" 
+                            [matAutocomplete]="auto"
+                        >
+                        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                            <mat-option 
+                                *ngFor="let option of students$ | async as Students;" 
+                                (click)="addToGroup(option)"
+                            >
+                              {{ option.Nome }}
+                            </mat-option>
+                          </mat-autocomplete>
+                    </mat-form-field>
+                </div>
+
+
+                <app-list-item
+                *ngFor="let student of studentsList" 
+                [Valores]="student"
                 class="test"
             >
                 
             </app-list-item>
+            </div>
         </div>
 
     </mat-dialog-content>

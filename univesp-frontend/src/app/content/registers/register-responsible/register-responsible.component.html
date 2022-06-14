@@ -29,7 +29,7 @@
 
             <mat-form-field class="grid-textarea">
                 <mat-label> Observação </mat-label>
-                <textarea matInput rows="4" placeholder="Adicione uma observação" formControlName="Observacoes"> </textarea>
+                <textarea matInput rows="4" placeholder="Adicione uma observação" formControlName="Observacao"> </textarea>
             </mat-form-field>           
         </form>
 
@@ -42,9 +42,30 @@
                 <button class="button-add-list">
                     Filho vinculado
                 </button>
+
+                <div class="search-autocomplete">
+                    <mat-form-field>
+                        <mat-label> Buscar turma </mat-label>
+                        <input 
+                            matInput 
+                            type="text" 
+                            [formControl]="myControl" 
+                            [matAutocomplete]="auto"
+                        >
+                        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                            <mat-option 
+                                *ngFor="let option of childrens$ | async as Students;" 
+                                (click)="addToGroup(option)"
+                            >
+                              {{ option.Nome }}
+                            </mat-option>
+                          </mat-autocomplete>
+                    </mat-form-field>
+                </div>
+
                 <app-list-item
-                    *ngFor="let aluno of studentsList" 
-                    [Valores]="aluno"
+                    *ngFor="let child of childrenList" 
+                    [Valores]="child"
                     class="test"
                 >
                     
@@ -55,6 +76,12 @@
     </mat-dialog-content>
     <mat-dialog-actions class="controls" align="center">
         <button mat-button mat-dialog-close> Cancelar </button>
-        <button mat-flat-button color="primary" [mat-dialog-close]="true" cdkFocusInitial>Cadastrar</button>
+        <button 
+            mat-flat-button 
+            color="primary"
+            (click)="dialogData.type === 'edit' ? putResponsible() : registerResponsible() "
+        >
+            {{ dialogData.type === 'edit' ? 'Salvar alterações' : 'Cadastrar responsável' }}
+        </button>
     </mat-dialog-actions>
 </div>

@@ -235,7 +235,7 @@
 								<span *ngSwitchCase="'Controls'"> 
 									<mat-icon [matMenuTriggerFor]="menu_controls"> more_vert </mat-icon>
 									<mat-menu #menu_controls="matMenu">
-										<button mat-menu-item (click)="registerStudent('edit', element.id)">
+										<button mat-menu-item (click)="registerResponsible('edit', element.id)">
 											<mat-icon> edit </mat-icon>
 											<span> Editar </span>
 										</button>
