@@ -2,7 +2,10 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormControlName, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { debounceTime, map, startWith, switchMap } from 'rxjs/operators';
+import { merge, Observable } from 'rxjs';
 import { RegisterService } from 'src/app/services/register/register.service';
+import { Groups } from 'src/app/shared/models/groups';
 
 @Component({
   selector: 'app-register-student',
@@ -18,28 +21,83 @@ export class RegisterStudentComponent implements OnInit {
     public matSnackbar: MatSnackBar
   ) { }
 
-  studentsList = [] as any[]
+  groupsList = [] as any[]
+
+  myControl = new FormControl('');
+  allGroups$ = this.registerService.Get({ url: 'groups' })
+  filterGroups$ = this.myControl.valueChanges
+  .pipe(
+    debounceTime(300),
+    switchMap(
+      student => this.registerService.Get
+      ({
+        url: `groups?Nome=${student}`
+      })
+    )
+  )
+
+  groups$ = merge(this.allGroups$, this.filterGroups$)
 
   _form = new FormGroup({
     Nome: new FormControl(''),
     CPF: new FormControl(''),
     DataNasc: new FormControl(''),
-    Observacoes: new FormControl('')
+    Observacao: new FormControl('')
   })
 
   ngOnInit(): void {
-    this.getStudents(this.dialogData)
 
+    if (this.dialogData.type === 'edit'){
+
+      this.registerService.Get({ url: `students?id=${this.dialogData.id}` })
+        .subscribe(
+          (success: any) => {
+            this._form.patchValue(success[0])
+          }
+        )
+
+    } 
   }
 
-  getStudents(idGroup: number){
-
-    this.registerService.Get({ url: `students?Group=${2}`}).subscribe(
+  postStudent(){
+    this.registerService.Post({
+      url: 'students',
+      body: this._form.value
+    }).subscribe(
       (success: any) => {
-        this.studentsList = success
+        this.matSnackbar.open('Cadastro realizado com sucesso', 'Fechar', {duration: 1500})
+      }, 
+      error => {
+        this.matSnackbar.open('Ocorreu um erro ao tentar salvar', 'Fechar', {duration: 2500})
       }
     )
-
   }
 
+  putStudent(){
+    this.registerService.Put({
+      url: `students/${this.dialogData.id}`,
+      body: this._form.value
+    }).subscribe(
+      (success: any) => {
+        this.matSnackbar.open('Cadastro realizado com sucesso', 'Fechar', {duration: 1500})
+      }, 
+      error => {
+        this.matSnackbar.open('Ocorreu um erro ao tentar salvar', 'Fechar', {duration: 2500})
+      }
+    )
+  }
+
+  addToGroup(group: Groups){
+    if (group){
+      this.groupsList.push(group)
+    }
+  }
+
+  removeGroup(group: Groups){
+    let index = this.groupsList.indexOf(group)
+
+    if (index){
+      this.groupsList.splice(index, 1)
+    }
+  }
 }

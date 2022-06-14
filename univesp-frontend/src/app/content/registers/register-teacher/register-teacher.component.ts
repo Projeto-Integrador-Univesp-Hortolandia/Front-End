@@ -6,7 +6,6 @@ import { merge, Observable } from 'rxjs';
 import { debounceTime, map, startWith, switchMap } from 'rxjs/operators';
 import { RegisterService } from 'src/app/services/register/register.service';
 import { Groups } from 'src/app/shared/models/groups';
-import { Student } from 'src/app/shared/models/student';
 
 @Component({
   selector: 'app-register-teacher',

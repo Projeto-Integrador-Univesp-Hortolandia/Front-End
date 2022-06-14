@@ -29,7 +29,7 @@
 
             <mat-form-field class="grid-textarea">
                 <mat-label> Observação </mat-label>
-                <textarea matInput rows="4" placeholder="Adicione uma observação" formControlName="Observacoes"> </textarea>
+                <textarea matInput rows="4" placeholder="Adicione uma observação" formControlName="Observacao"> </textarea>
             </mat-form-field>           
         </form>
 
@@ -42,12 +42,32 @@
                 <button class="button-add-list">
                     Nova turma
                 </button>
+
+                <div class="search-autocomplete">
+                    <mat-form-field>
+                        <mat-label> Buscar turma </mat-label>
+                        <input 
+                            matInput 
+                            type="text" 
+                            [formControl]="myControl" 
+                            [matAutocomplete]="auto"
+                        >
+                        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                            <mat-option 
+                                *ngFor="let option of groups$ | async as groups;" 
+                                (click)="addToGroup(option)"
+                            >
+                              {{ option.Nome }} | {{ option.Ano }} - {{ option.Periodo }}
+                            </mat-option>
+                          </mat-autocomplete>
+                    </mat-form-field>
+                </div>
                 <app-list-item
-                    *ngFor="let aluno of studentsList" 
-                    [Valores]="aluno"
+                    *ngFor="let group of groupsList"
+                    [Valores]="group"
+                    (click)="removeGroup(group)"
                     class="test"
-                >
-                    
+                    >
                 </app-list-item>
             </div>
         </div>
@@ -55,6 +75,12 @@
     </mat-dialog-content>
     <mat-dialog-actions class="controls" align="center">
         <button mat-button mat-dialog-close> Cancelar </button>
-        <button mat-flat-button color="primary" [mat-dialog-close]="true" cdkFocusInitial>Cadastrar</button>
+        <button 
+            mat-flat-button 
+            color="primary"
+            (click)="dialogData.type === 'edit' ? putStudent() : postStudent() "
+        > 
+            {{ dialogData.type === 'edit' ? 'Salvar alterações' : 'Cadastrar aluno' }}    
+        </button>
     </mat-dialog-actions>
 </div>
