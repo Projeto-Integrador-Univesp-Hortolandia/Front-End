@@ -1,0 +1,47 @@
+.cabecalho {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+}
+
+@mixin avatar-image {
+	width: 40px;
+	height: 40px;
+	border-radius: 20px;
+	cursor: pointer;
+}
+
+.user-avatar {
+	@include avatar-image();
+	display: flex;
+	align-items: center;
+
+	&__generic-icon {
+		@include avatar-image();
+		background-color: #ccc;
+		font-size: 28pt;
+		text-align: center;
+		color: #fff;
+	}
+
+	&__user-photo {
+		@include avatar-image();
+	}
+}
+
+.select-uni {
+	padding: 10px;
+	margin: 0;
+}
+.mat-form-field.no-padding-form {
+	margin: 0;
+	width: 100%;
+}
+.userName {
+	display: flex;
+
+	.nome {
+		font-size: 16px;
+	}
+}

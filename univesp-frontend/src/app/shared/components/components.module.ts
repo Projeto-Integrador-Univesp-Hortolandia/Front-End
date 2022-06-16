@@ -7,6 +7,7 @@ import { ProfilePictureComponent } from './profile-picture/profile-picture.compo
 import { UploadFilesComponent } from './upload-files/upload-files.component';
 import { DropFileDirective } from '../directives/drop-file.directive';
 import { PaginatorComponent } from './paginator/paginator.component';
+import { UserAvatarComponent } from './user-avatar/user-avatar.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { PaginatorComponent } from './paginator/paginator.component';
     ProfilePictureComponent,
     UploadFilesComponent,
     DropFileDirective,
-    PaginatorComponent
+    PaginatorComponent,
+    UserAvatarComponent
   ],
   imports: [
     CommonModule,
@@ -24,7 +26,8 @@ import { PaginatorComponent } from './paginator/paginator.component';
     ListItemComponent,
     ProfilePictureComponent,
     UploadFilesComponent,
-    PaginatorComponent
+    PaginatorComponent,
+    UserAvatarComponent
   ]
 })
 export class ComponentsModule { }
