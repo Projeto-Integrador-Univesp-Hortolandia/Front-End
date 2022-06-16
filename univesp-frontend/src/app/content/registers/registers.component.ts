@@ -63,7 +63,7 @@ export class RegistersComponent implements OnInit {
   }
 
   getGroups(){
-    this.registerService.Get({ url: 'groups' })
+    this.registerService.Get({ url: 'Turma' })
       .subscribe(
         (success: Groups[]) => {
           this.groups = new MatTableDataSource(success)
@@ -72,7 +72,7 @@ export class RegistersComponent implements OnInit {
   }
 
   getTeachers(){
-    this.registerService.Get({ url: 'teachers' })
+    this.registerService.Get({ url: 'Funcionario' })
       .subscribe(
         (success: Teachers[]) => {
           this.teachers = new MatTableDataSource(success)
@@ -82,7 +82,7 @@ export class RegistersComponent implements OnInit {
   }
 
   getStudents(){
-    this.registerService.Get({ url: 'students' })
+    this.registerService.Get({ url: 'Aluno' })
     .subscribe(
       (success: Students[]) => {
         this.students = new MatTableDataSource(success)
@@ -91,7 +91,7 @@ export class RegistersComponent implements OnInit {
   }
 
   getResposibles(){
-    this.registerService.Get({ url: 'responsibles' })
+    this.registerService.Get({ url: 'Responsavel' })
       .subscribe(
         (success: Responsibles[]) => {
           this.responsibles = new MatTableDataSource(success)

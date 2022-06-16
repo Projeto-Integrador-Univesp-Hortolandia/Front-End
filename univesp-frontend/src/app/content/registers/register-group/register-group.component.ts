@@ -102,7 +102,16 @@ export class RegisterGroupComponent implements OnInit {
   }
 
   registerGroup(){
-    this.registerService.Post({ url: 'groups', body: this._form.value }).subscribe(
+
+    let body = {
+      "turmaId": "0",
+      "nomeTurma": "teste",
+      "alunoId": "3"
+    }
+
+    console.log(typeof(body))
+
+    this.registerService.Post({ url: 'Turma', body: body }).subscribe(
       (success: any) => {
         this.matSnackbar
           .open('Grupo registrado com sucesso', 'Fechar', { duration: 1500 })
@@ -118,7 +127,7 @@ export class RegisterGroupComponent implements OnInit {
   
   putGroup(){
     this.registerService.Put({
-      url: `groups/${this.dialogData.id}`,
+      url: `Turma/${this.dialogData.id}`,
       body: this._form.value
     })
     .subscribe(

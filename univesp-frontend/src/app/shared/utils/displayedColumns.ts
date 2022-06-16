@@ -1,7 +1,7 @@
 
 export const displayGroups = [
     'Ano',
-    'Turma',
+    'nomeTurma',
     'Periodo',
     'Sala',
     'Controls'
