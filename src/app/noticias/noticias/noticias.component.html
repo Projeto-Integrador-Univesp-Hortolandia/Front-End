@@ -2,9 +2,9 @@
   <mat-sidenav #sidenav class="sidenav" fixedInViewport="true" >
     <mat-toolbar color="primary">Menu</mat-toolbar>
     <mat-nav-list (click)="closeSideNav()">
-      <a mat-list-item routerLink="['noticias']">Mensagens</a>
+      <a mat-list-item [routerLink]="['/noticias']">Mensagens</a>
       <mat-divider></mat-divider>
-      <a mat-list-item routerLink="['cadastrar']">Inserir nova Mensagem</a>
+      <a mat-list-item [routerLink]="['/noticias/cadastrar']">Inserir nova Mensagem</a>
       <mat-divider></mat-divider>
     </mat-nav-list>
   </mat-sidenav>

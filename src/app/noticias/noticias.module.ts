@@ -26,7 +26,7 @@ import { NoticiasComponent } from './noticias/noticias.component';
     InfiniteScrollModule,
     MatMenuModule
   ],
-  exports:[
+/*  exports:[
     CommonModule,
     NoticiasRoutingModule,
     MaterialModule,
@@ -35,7 +35,7 @@ import { NoticiasComponent } from './noticias/noticias.component';
     FormsModule,
     InfiniteScrollModule,
     MatMenuModule
-  ],
+  ],*/
 
   declarations: [
     NoticiasCreateComponent,

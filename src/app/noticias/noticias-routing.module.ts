@@ -9,17 +9,17 @@ import { NoticiasComponent } from './noticias/noticias.component';
 
 const routes: Routes = [
 
-  {
+/*  {
       path: '',
       redirectTo: 'noticias',
       pathMatch: 'full'
-  },
+  },*/
   {
-    path: 'noticias',
+    path: 'noticias', component: NoticiasComponent,
     children: [
       {
         path: '',
-        component: NoticiasComponent
+        component: NoticiasReadComponent
       },
       {
         path: 'cadastrar',

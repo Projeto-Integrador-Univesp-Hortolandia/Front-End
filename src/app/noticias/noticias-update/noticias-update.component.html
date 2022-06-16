@@ -1,20 +1,19 @@
-<div mat-toolbar class="app-title">Cadastrar Notícias</div>
-<div class="main-div">
-  <mat-card class="center width50" *ngIf="cadastro" >
-    <form autocomplete="off" novalidate [formGroup]="cadastro" (ngSubmit)="submit()" (ngReset)="reiniciarForm()">
-      <mat-card-content>
-        <app-input-text titulo="Título *" controlName="titulo" [formGroup]="cadastro"></app-input-text>
-        <app-input-text titulo="Link Foto" controlName="urlFoto" [formGroup]="cadastro"></app-input-text>
-        <app-input-date titulo="Data de Lançamento *" controlName="dtLancamento" [formGroup]="cadastro"></app-input-date>
-        <app-input-textarea titulo="Descrição" controlName="descricao" [formGroup]="cadastro"></app-input-textarea>
-        <app-input-number titulo="Nota IMDb *" controlName="nota" [step]='0.1' [formGroup]="cadastro"></app-input-number>
-        <app-input-text titulo="Link IMDb" controlName="urlIMDb" [formGroup]="cadastro"></app-input-text>
-        <app-input-select titulo="Gênero *" [opcoes]="generos" controlName="genero" [formGroup]="cadastro"></app-input-select>
-      </mat-card-content>
-      <mat-card-actions>
-        <button type="submit" color="accent" mat-raised-button>Salvar</button>
-        <button type="return" color="warn" mat-raised-button>Cancelar</button>
-      </mat-card-actions>
-    </form>
-  </mat-card>
-</div>
+<a>Outro usuário visualizar detalhe da notícia e para o criador da notícia irá aparecer os botões editar e cancelar</a>
+<mat-list *ngIf="noticia; else semRegistro">
+  <mat-list-item> Título: {{noticia.titulo}} </mat-list-item>
+  <mat-list-item> Data de lançamento: {{noticia.dtLancamento | date: 'dd/MM/yyyy' }} </mat-list-item>
+  <mat-list-item> Gênero: {{noticia.genero}} </mat-list-item>
+  <mat-list-item class="quebrar-linha"> Descrição: {{noticia.descricao}} </mat-list-item>
+  <mat-list-item> Nota: <a [href]="noticia.urlIMDb" target="_blank"> {{noticia.nota}}</a> </mat-list-item>
+  <img mat-card-image [src]="noticia.urlFoto || semFoto" >
+</mat-list>
+<mat-card>
+  <mat-card-actions>
+    <button color="accent" mat-raised-button (click)="editar()">Editar</button>
+    <button color="warn" mat-raised-button (click)="excluir()">Excluir</button>
+  </mat-card-actions>
+</mat-card>
+
+<ng-template #semRegistro>
+  <h1 class="full-width main-div">Nenhum registro encontrado!</h1>
+</ng-template>
