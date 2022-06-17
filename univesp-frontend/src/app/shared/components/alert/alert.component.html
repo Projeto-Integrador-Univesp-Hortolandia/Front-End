@@ -1,0 +1,39 @@
+<h1 mat-dialog-title>{{alert.titulo}}</h1>
+<div mat-dialog-content>
+  <p>{{alert.descricao}}</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button
+          color="accent"
+          cdkFocusInitial
+          mat-dialog-close="true">
+    {{alert.btnSucesso}}
+  </button>
+  <button mat-raised-button
+          color="warn"
+          mat-dialog-close="false"
+          *ngIf="alert.possuirBtnFechar" >
+    {{alert.btnCancelar}}
+  </button>
+</div>
+
+<!--
+<h1 mat-dialog-title>{{alert.titulo}}</h1>
+<div mat-dialog-content>
+  <p>{{alert.descricao}}</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button
+          color]="alert.corBtnSucesso"
+          cdkFocusInitial
+          [mat-dialog-close]="true">
+    {{alert.btnSucesso}}
+  </button>
+  <button mat-raised-button
+          [color]="alert.corBtnCancelar"
+          [mat-dialog-close]="false"
+          *ngIf="alerta.possuirBtnFechar" >
+    {{alert.btnCancelar}}
+  </button>
+</div>
+-->

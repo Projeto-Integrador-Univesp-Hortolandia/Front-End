@@ -7,6 +7,14 @@ import { ContentComponent } from './content.component';
 import { ComponentsModule } from '../shared/components/components.module';
 import { NavBarComponent } from '../shared/components/nav-bar/nav-bar.component';
 import { MaterialModule } from '../material-module';
+import { IConfig, NgxMaskModule } from 'ngx-mask';
+
+
+const maskConfigFunction: () => Partial<IConfig> = () => {
+	return {
+		validation: true
+	};
+};
 
 @NgModule({
   declarations: [
@@ -17,7 +25,8 @@ import { MaterialModule } from '../material-module';
     CommonModule,
     ContentRoutingModule,
     ComponentsModule,
-    MaterialModule
+    MaterialModule,
+    NgxMaskModule.forRoot(maskConfigFunction)
   ],
   exports: [
     NavBarComponent

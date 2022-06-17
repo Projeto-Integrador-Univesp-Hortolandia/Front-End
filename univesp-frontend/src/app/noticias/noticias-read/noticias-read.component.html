@@ -1,0 +1,64 @@
+<mat-menu #menu="matMenu">
+  <button mat-menu-item>
+    <mat-icon>account_circle</mat-icon>
+    <span>Conta</span>
+  </button>
+  <button mat-menu-item>
+    <mat-icon>settings</mat-icon>
+    <span>Configurações</span>
+  </button>
+</mat-menu>
+
+<div mat-toolbar class="app-title">Listagem de Notícias</div>
+
+<div mat-card class="float-left margin10 filtro-listagem" >
+  <form autocomplete="off" novalidate [formGroup]="filtrosListagem">
+    <div class="float-left width50">
+      <div class="padding10">
+        <app-input-text titulo="Pesquise aqui"
+                        controlName="texto"
+                        [formGroup]="filtrosListagem">
+        </app-input-text>
+      </div>
+    </div>
+    <div class="float-left width50">
+      <div class="padding10">
+        <app-input-select titulo="Gênero"
+                          controlName="genero"
+                          [opcoes]="generos"
+                          [formGroup]="filtrosListagem">
+        </app-input-select>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div  class="home-content"
+      infiniteScroll
+      (scrolled)="onScroll()"
+      *ngIf="noticias.length; else semRegistro">
+  <mat-card class="home-card" *ngFor="let noticia of noticias">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{noticia.titulo}}</mat-card-title>
+      <mat-card-subtitle>{{noticia.genero}}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <p class="quebrar-linha">
+        {{noticia.descricao || 'Nenhuma descrição informada'}}
+      </p>
+    </mat-card-content>
+
+    <img mat-card-image [src]="noticia.urlFoto || semFoto" >
+
+    <mat-card-actions>
+      <button color="accent" mat-raised-button (click)="abrir(noticia.id!)">ABRIR</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+
+<ng-template #semRegistro>
+  <h1 class="full-width main-div">Nenhum registro encontrado!</h1>
+</ng-template>
+

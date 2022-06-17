@@ -1,0 +1,20 @@
+<div mat-toolbar class="app-title">Cadastrar Notícias</div>
+<div class="main-div">
+  <mat-card class="center width50" *ngIf="cadastro" >
+    <form autocomplete="off" novalidate [formGroup]="cadastro" (ngSubmit)="submit()" (ngReset)="reiniciarForm()">
+      <mat-card-content>
+        <app-input-text titulo="Título *" controlName="titulo" [formGroup]="cadastro"></app-input-text>
+        <app-input-text titulo="Link Foto" controlName="urlFoto" [formGroup]="cadastro"></app-input-text>
+        <app-input-date titulo="Data de Lançamento *" controlName="dtLancamento" [formGroup]="cadastro"></app-input-date>
+        <app-input-textarea titulo="Descrição" controlName="descricao" [formGroup]="cadastro"></app-input-textarea>
+        <app-input-number titulo="Nota *" controlName="nota" [step]='0.1' [formGroup]="cadastro"></app-input-number>
+        <app-input-text titulo="Link " controlName="urlIMDb" [formGroup]="cadastro"></app-input-text>
+        <app-input-select titulo="Gênero *" [opcoes]="generos" controlName="genero" [formGroup]="cadastro"></app-input-select>
+      </mat-card-content>
+      <mat-card-actions>
+        <button type="submit" color="accent" mat-raised-button>Salvar</button>
+        <button type="return" color="warn" mat-raised-button>Cancelar</button>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+</div>

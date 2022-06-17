@@ -1,0 +1,37 @@
+@import '../../../styles.scss';
+@import '../noticias//styles-noticias/styles-noticias.scss';
+
+.sidenav-container {
+  //height: 100%;
+//.container-registers{
+
+    width: 100%;
+    height: 98%;
+    background-color: #fff;
+    border: 1px solid #90CAF9;
+    border-radius: 15px 15px 0px 0px;
+    color: $primary-1;
+	overflow: hidden;
+}
+
+
+.sidenav {
+  width: 200px;
+  box-shadow: 3px 0 6px rgba(0,0,0,.24);
+}
+
+.app-content {
+  min-height: calc(100vh - 110px);
+  background: #E3F2FD;
+  border-top-left-radius: 20px;
+  padding: 10px;
+}
+
+.app-title {
+  text-transform: uppercase;
+  padding-left: 26px;
+}
+
+.header-toolbar {
+  justify-content: space-between;
+}

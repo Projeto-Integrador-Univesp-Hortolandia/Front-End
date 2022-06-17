@@ -1,0 +1,26 @@
+@import '../registers.component.scss';
+
+.register-dialog{                                 
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 15px;
+    overflow: auto;
+
+    .list-registers{
+        margin-top: 20px;
+        max-width: 600px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        margin: auto;
+        height: 100%;
+        overflow: auto;
+
+        .test{
+            width: 98%;
+        }
+    }
+}
