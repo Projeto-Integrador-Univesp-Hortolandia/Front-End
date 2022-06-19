@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ContentComponent } from '../content/content.component';
+import { NavBarComponent } from '../shared/components/nav-bar/nav-bar.component';
 
 import { NoticiasCreateComponent } from './noticias-create/noticias-create.component';
 import { NoticiasReadComponent } from './noticias-read/noticias-read.component';
@@ -8,69 +10,33 @@ import { NoticiasComponent } from './noticias/noticias.component';
 
 
 const routes: Routes = [
+ // { path: '', redirectTo: 'content'},//, pathMatch: 'full' },
 
-/*  {
-      path: '',
-      redirectTo: 'noticias',
-      pathMatch: 'full'
-  },*/
-  {
-    path: 'noticias', component: NoticiasComponent,
-    children: [
-      {
-        path: '',
-        component: NoticiasReadComponent
+  { path: '', component: NoticiasComponent,
+              //component: NavBarComponent,
+              //component: ContentComponent,
+
+    children: [{ path: '', component: NoticiasReadComponent
       },
-      {
-        path: 'cadastrar',
-        children: [
-          {
-            path: '',
-            component: NoticiasCreateComponent
-          },
-          {
-            path: ':id',
-            component: NoticiasCreateComponent
-          }
-        ]
-      },
-      {
-        path: ':id',
-        component: NoticiasUpdateComponent,
-        pathMatch: 'full'
+
+        { path: 'cadastro',
+          children: [{ path: '', component: NoticiasCreateComponent },
+            { path: ':id', component: NoticiasCreateComponent, pathMatch: 'full' }]
+        },
+
+        { path: ':id', component: NoticiasUpdateComponent, pathMatch: 'full'
       }
     ]
   },
-  { path: '**', redirectTo: 'noticias' },
 
-];
+  //{ path: '', component: NavBarComponent},
+  //{ path: '**', redirectTo: '' }
 
-/*
-const routes: Routes = [
-  {
-    path: '',
-    redirectTo: 'noticias',
-    pathMatch: 'full'
-  },
-  {
-    path: 'noticias',
-    children:[{ path: '', component: NoticiasComponent }]
-  },
-  {
-    path: 'cadastrar',
-    children: [ {path: '', component: NoticiasCreateComponent },
-                {path: ':id', component: NoticiasCreateComponent }
-              ]
-  },
-  {
-    path: ':id', component: NoticiasUpdateComponent, pathMatch: 'full'},
 
-  { path: '**', redirectTo: 'noticias' },
-];
-*/
+]
 
-@NgModule({
+  @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
-})
-export class NoticiasRoutingModule { }
+  })
+  export class NoticiasRoutingModule { }

@@ -8,6 +8,7 @@ import { Noticia } from '../../shared/components/models/noticia';
 import { NoticiasService } from '../service-noticias/noticias.service';
 import { Alert } from '../../shared/components/models/alert';
 import { AlertComponent } from 'src/app/shared/components/alert/alert.component';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-noticias-create',
@@ -20,17 +21,35 @@ id!: number;
 cadastro!: FormGroup;
 generos!: Array<string>;
 
-//  id: number = 0;
-//  cadastro: any = FormGroup;
-//  generos: Array<string> = [];
+title = 'adminDashboard';
 
   constructor(public validacao: ValidateFieldsService,
               public dialog: MatDialog,
               private fb: FormBuilder,
               private noticiaService: NoticiasService,
               private router: Router,
-              private activatedRoute: ActivatedRoute) {}
+              private activatedRoute: ActivatedRoute,
+              private http: HttpClient) {}
 
+//Drag Drop file uploader
+  file: any;
+  getFile(event: any) {
+    this.file = event.target.files[0];
+
+    console.log('file', this.file);
+  }
+
+  uploadFile() {
+    let formData = new FormData();
+    formData.set('file', this.file);
+
+    //call API
+    this.http
+      .post('http://localhost:30001/uploadFiles', formData)
+      .subscribe((response) => {});
+  }
+
+//Commands for registering news
   get f() {
     return this.cadastro.controls;
   }
@@ -98,7 +117,7 @@ generos!: Array<string>;
       const config = {
         data: {
           btnSucesso: 'Ir para a listagem',
-          btnCancelar: 'Cadastrar um novo noticia',
+          btnCancelar: 'Cadastrar uma nova noticia',
           corBtnCancelar: 'primary',
           possuirBtnFechar: true
         } as Alert

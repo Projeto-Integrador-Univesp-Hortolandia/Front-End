@@ -111,16 +111,6 @@
       "id": 11
     },
     {
-      "titulo": "Marcelo terror",
-      "urlFoto": null,
-      "dtLancamento": "2021-05-03T03:00:00.000Z",
-      "descricao": "mnabkjahsldmansd kjahsd kjhsa lkjsd ",
-      "nota": 10,
-      "urlIMDb": null,
-      "genero": "Terror",
-      "id": 12
-    },
-    {
       "titulo": "Matrix Resurrections",
       "urlFoto": "https://m.media-amazon.com/images/M/MV5BMGJkNDJlZWUtOGM1Ny00YjNkLThiM2QtY2ZjMzQxMTIxNWNmXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_FMjpg_UX1000_.jpg",
       "dtLancamento": "2021-12-22T03:00:00.000Z",
@@ -129,66 +119,6 @@
       "urlIMDb": "https://www.imdb.com/title/tt10838180/",
       "genero": "Ficção cientifica",
       "id": 13
-    },
-    {
-      "titulo": "teste",
-      "urlFoto": null,
-      "dtLancamento": "2022-06-09T03:00:00.000Z",
-      "descricao": null,
-      "nota": 0.3,
-      "urlIMDb": null,
-      "genero": "Ficção cientifica",
-      "id": 14
-    },
-    {
-      "titulo": "teste2",
-      "urlFoto": null,
-      "dtLancamento": "2022-06-10T03:00:00.000Z",
-      "descricao": null,
-      "nota": 0.1,
-      "urlIMDb": null,
-      "genero": "Comédia",
-      "id": 15
-    },
-    {
-      "titulo": "teste3",
-      "urlFoto": null,
-      "dtLancamento": "2022-06-02T03:00:00.000Z",
-      "descricao": null,
-      "nota": 0.1,
-      "urlIMDb": null,
-      "genero": "Romance",
-      "id": 16
-    },
-    {
-      "titulo": "teste4",
-      "urlFoto": null,
-      "dtLancamento": "2022-06-02T03:00:00.000Z",
-      "descricao": null,
-      "nota": 0.1,
-      "urlIMDb": null,
-      "genero": "Comédia",
-      "id": 17
-    },
-    {
-      "titulo": "teste5",
-      "urlFoto": null,
-      "dtLancamento": "2022-06-03T03:00:00.000Z",
-      "descricao": null,
-      "nota": 0.2,
-      "urlIMDb": null,
-      "genero": "Ficção cientifica",
-      "id": 18
-    },
-    {
-      "titulo": "teste6",
-      "urlFoto": null,
-      "dtLancamento": "2022-06-17T03:00:00.000Z",
-      "descricao": "ersefsdfgsdfg",
-      "nota": 0.1,
-      "urlIMDb": null,
-      "genero": "Comédia",
-      "id": 19
     }
   ]
 }

@@ -13,7 +13,6 @@ import { NoticiasReadComponent } from './noticias-read/noticias-read.component';
 import { NoticiasUpdateComponent } from './noticias-update/noticias-update.component';
 import { NoticiasComponent } from './noticias/noticias.component';
 
-
 @NgModule({
 
   imports: [
@@ -24,18 +23,8 @@ import { NoticiasComponent } from './noticias/noticias.component';
     ReactiveFormsModule,
     FormsModule,
     InfiniteScrollModule,
-    MatMenuModule
+    MatMenuModule,
   ],
-/*  exports:[
-    CommonModule,
-    NoticiasRoutingModule,
-    MaterialModule,
-    FieldsModule,
-    ReactiveFormsModule,
-    FormsModule,
-    InfiniteScrollModule,
-    MatMenuModule
-  ],*/
 
   declarations: [
     NoticiasCreateComponent,
