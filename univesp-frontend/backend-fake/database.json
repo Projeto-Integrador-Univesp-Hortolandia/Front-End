@@ -1,52 +1,60 @@
 {
   "groups": [
     {
-      "id": 1,
-      "Nome": "Grupo teste",
-      "Turma": "B",
-      "Periodo": "Manhã",
-      "Ano": "2° Ano",
-      "Sala": "3"
-    },
-    {
-      "id": 2,
-      "Nome": "Grupo teste 2",
-      "Turma": "B",
-      "Periodo": "Manhã",
-      "Ano": "3° Ano",
-      "Sala": "4"
-    },
-    {
       "Nome": "Nova turma",
-      "Ano": "2° ano",
+      "Ano": "4° ano",
       "Turma": "N",
-      "Periodo": "Manh~ça",
-      "Sala": "215",
+      "Periodo": "Tarde",
+      "Sala": "5",
       "id": 3
     },
     {
       "Nome": "Nova turma",
-      "Ano": "2° ano",
+      "Ano": "5° ano",
       "Turma": "N",
-      "Periodo": "Manh~ça",
-      "Sala": "215",
+      "Periodo": "Tarde",
+      "Sala": "6",
       "id": 4
     },
     {
       "Nome": "Nova turma",
-      "Ano": "2° ano",
+      "Ano": "5° ano",
       "Turma": "N",
-      "Periodo": "Manh~ça",
-      "Sala": "215",
+      "Periodo": "Noite",
+      "Sala": "3",
       "id": 5
     },
     {
       "Nome": "Nova turma",
-      "Ano": "2° ano",
+      "Ano": "1° ano",
       "Turma": "N",
-      "Periodo": "Manh~ça",
-      "Sala": "215",
+      "Periodo": "Manhã",
+      "Sala": "3",
       "id": 6
+    },
+    {
+      "Nome": "Nova turma",
+      "Ano": "1° ano",
+      "Turma": "N",
+      "Periodo": "Manhã",
+      "Sala": "3",
+      "id": 7
+    },
+    {
+      "Nome": "Nova turma",
+      "Ano": "1° ano",
+      "Turma": "N",
+      "Periodo": "Tarde",
+      "Sala": "6",
+      "id": 8
+    },
+    {
+      "Nome": "TURMA 123-A",
+      "Ano": "3° Ano",
+      "Turma": "B",
+      "Periodo": "Manhã",
+      "Sala": "4",
+      "id": 9
     }
   ],
   "teachers": [
@@ -59,6 +67,15 @@
       "DataNasc": "1947-01-01",
       "NumRegisto": "123426789-ABC",
       "Group": 1
+    },
+    {
+      "Nome": "Professora",
+      "Email": "Professora@univesp.com.br",
+      "Senha": "1234567890",
+      "CPF": "12345678910",
+      "DataNasc": "26/12/1997",
+      "NumRegistro": "123123123",
+      "id": 2
     }
   ],
   "students": [
@@ -125,6 +142,13 @@
       "DataNasc": "2016-01-01",
       "Observacao": "",
       "Group": 2
+    },
+    {
+      "Nome": "Luan alves",
+      "CPF": "12345678910",
+      "DataNasc": "26-12-1997",
+      "Observacao": "Sim",
+      "id": 3
     }
   ],
   "responsibles": [
@@ -142,6 +166,21 @@
           "id": 2
         }
       ]
+    },
+    {
+      "Nome": "Lucas da silva Correa",
+      "CPF": "12345678910",
+      "DataNasc": "20/04/1999",
+      "Observacao": "Lucsa amigos",
+      "id": 2
+    }
+  ],
+  "messages": [
+    {
+      "from": 1,
+      "to": 2,
+      "Message": "Aoba!",
+      "Date": "2022-01-01"
     }
   ]
 }

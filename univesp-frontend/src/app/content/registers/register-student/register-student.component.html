@@ -2,7 +2,7 @@
     <h2 mat-dialog-title> Novo aluno </h2>
     <mat-dialog-content class="content register-dialog">
 
-        <form class="form-grid">
+        <form class="form-grid" [formGroup]="_form">
 
             <mat-form-field class="grid-2">
                 <mat-label> Nome </mat-label>
@@ -18,18 +18,18 @@
                     mask="000.000.000-00"
                     matInput 
                     required 
-                    formControlName="Nome" 
+                    formControlName="CPF" 
                 />
             </mat-form-field>
 
             <mat-form-field class="grid-1">
                 <mat-label> Data nascimento </mat-label>
-                <input matInput required formControlName="Nome" />
+                <input matInput required formControlName="DataNasc" />
             </mat-form-field>
 
             <mat-form-field class="grid-textarea">
                 <mat-label> Observação </mat-label>
-                <textarea matInput rows="4" placeholder="Adicione uma observação"> </textarea>
+                <textarea matInput rows="4" placeholder="Adicione uma observação" formControlName="Observacao"> </textarea>
             </mat-form-field>           
         </form>
 
@@ -42,8 +42,32 @@
                 <button class="button-add-list">
                     Nova turma
                 </button>
-                <app-list-item *ngFor="let aluno of [].constructor(10)" class="test">
-                    
+
+                <div class="search-autocomplete">
+                    <mat-form-field>
+                        <mat-label> Buscar turma </mat-label>
+                        <input 
+                            matInput 
+                            type="text" 
+                            [formControl]="myControl" 
+                            [matAutocomplete]="auto"
+                        >
+                        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                            <mat-option 
+                                *ngFor="let option of groups$ | async as groups;" 
+                                (click)="addToGroup(option)"
+                            >
+                              {{ option.Nome }} | {{ option.Ano }} - {{ option.Periodo }}
+                            </mat-option>
+                          </mat-autocomplete>
+                    </mat-form-field>
+                </div>
+                <app-list-item
+                    *ngFor="let group of groupsList"
+                    [Valores]="group"
+                    (click)="removeGroup(group)"
+                    class="test"
+                    >
                 </app-list-item>
             </div>
         </div>
@@ -51,6 +75,12 @@
     </mat-dialog-content>
     <mat-dialog-actions class="controls" align="center">
         <button mat-button mat-dialog-close> Cancelar </button>
-        <button mat-flat-button color="primary" [mat-dialog-close]="true" cdkFocusInitial>Cadastrar</button>
+        <button 
+            mat-flat-button 
+            color="primary"
+            (click)="dialogData.type === 'edit' ? putStudent() : postStudent() "
+        > 
+            {{ dialogData.type === 'edit' ? 'Salvar alterações' : 'Cadastrar aluno' }}    
+        </button>
     </mat-dialog-actions>
 </div>

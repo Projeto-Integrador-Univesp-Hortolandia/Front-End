@@ -6,13 +6,17 @@ import { ListItemComponent } from './list-item/list-item.component';
 import { ProfilePictureComponent } from './profile-picture/profile-picture.component';
 import { UploadFilesComponent } from './upload-files/upload-files.component';
 import { DropFileDirective } from '../directives/drop-file.directive';
+import { PaginatorComponent } from './paginator/paginator.component';
+import { UserAvatarComponent } from './user-avatar/user-avatar.component';
 
 @NgModule({
   declarations: [
     ListItemComponent,
     ProfilePictureComponent,
     UploadFilesComponent,
-    DropFileDirective
+    DropFileDirective,
+    PaginatorComponent,
+    UserAvatarComponent
   ],
   imports: [
     CommonModule,
@@ -21,7 +25,9 @@ import { DropFileDirective } from '../directives/drop-file.directive';
   exports: [
     ListItemComponent,
     ProfilePictureComponent,
-    UploadFilesComponent
+    UploadFilesComponent,
+    PaginatorComponent,
+    UserAvatarComponent
   ]
 })
 export class ComponentsModule { }

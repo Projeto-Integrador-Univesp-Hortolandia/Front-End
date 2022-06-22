@@ -1,0 +1,19 @@
+<div class="cabecalho">
+	<div class="userName">
+		<span class="nome"> John Doe </span>
+	</div>
+	<div class="user-avatar"matRipple>
+		<img
+			src="../../../../assets/profile-icon.png"
+			alt="Imagem de perfil"
+			class="user-avatar__user-photo"
+			[matMenuTriggerFor]="menuUser"
+		/>
+	</div>
+</div>
+<mat-menu #menuUser xPosition="after" yPosition="below">
+	<button mat-menu-item (click)="logout()">
+		<mat-icon>exit_to_app</mat-icon>
+		<span>Sair</span>
+	</button>
+</mat-menu>

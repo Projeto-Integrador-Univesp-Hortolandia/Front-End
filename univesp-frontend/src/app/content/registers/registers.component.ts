@@ -11,6 +11,9 @@ import { RegisterResponsibleComponent } from './register-responsible/register-re
 import { RegisterStudentComponent } from './register-student/register-student.component';
 import { RegisterTeacherComponent } from './register-teacher/register-teacher.component';
 
+import { displayGroups, displayTeachers, displayStudents, displayResponsibles } from 'src/app/shared/utils/displayedColumns';
+import { Groups, Responsibles, Students, Teachers } from 'src/app/shared/models/groups';
+
 @Component({
   selector: 'app-registers',
   templateUrl: './registers.component.html',
@@ -25,24 +28,15 @@ export class RegistersComponent implements OnInit {
     private matSnackBar: MatSnackBar
   ) { }
 
-  displayedColumns: string[] = [
-		'Ano',
-		'Turma',
-		'Periodo',
-		'Sala',
-    'Controls'
-	];
+  displayedColumnsGroups: string[] = displayGroups
+  displayedColumnsTeachers: string[] = displayTeachers
+  displayedColumnsStudents: string[] = displayStudents
+  displayedColumnsResponsibles: string[] = displayResponsibles
 
-  data = {
-    Ano: '1° ano',
-    Turma: 'SA113-17002',
-    Periodo: 'Tarde',
-    Sala: 'Sala 01'
-  }
-
-  // dataLoop = Array.from({length: 20}).map((_, i) => this.data )
-
-  _dataSource!: MatTableDataSource<any>
+  groups!: MatTableDataSource<Groups>
+  teachers!: MatTableDataSource<Teachers>
+  students!: MatTableDataSource<Students>
+  responsibles!: MatTableDataSource<Responsibles>
   breakPoint: boolean = false;
 
   ngOnInit(): void {
@@ -59,6 +53,9 @@ export class RegistersComponent implements OnInit {
       });
 
       this.getGroups()
+      this.getTeachers()
+      this.getStudents()
+      this.getResposibles()
   }
 
   getAll(){
@@ -66,34 +63,53 @@ export class RegistersComponent implements OnInit {
   }
 
   getGroups(){
-    this.registerService.Get({ url: 'groups' })
+    this.registerService.Get({ url: 'Turma' })
       .subscribe(
-        (success: any) => {
-          this._dataSource = new MatTableDataSource(success)
+        (success: Groups[]) => {
+          this.groups = new MatTableDataSource(success)
         }
       )
   }
 
   getTeachers(){
-
+    this.registerService.Get({ url: 'Funcionario' })
+      .subscribe(
+        (success: Teachers[]) => {
+          this.teachers = new MatTableDataSource(success)
+          console.log(this.teachers.data[0]['Nome'])
+        }
+      )
   }
 
   getStudents(){
-    
+    this.registerService.Get({ url: 'Aluno' })
+    .subscribe(
+      (success: Students[]) => {
+        this.students = new MatTableDataSource(success)
+      }
+    )
   }
 
   getResposibles(){
-
+    this.registerService.Get({ url: 'Responsavel' })
+      .subscribe(
+        (success: Responsibles[]) => {
+          this.responsibles = new MatTableDataSource(success)
+        }
+      )
   }
 
-  registerGroups(){
+  registerGroups(type: string, id: number = 0){
 
     this.matDialog.open(
       RegisterGroupComponent,
       {
         autoFocus: false,
         panelClass: 'dialog-template',
-        data: ''
+        data: {
+          type: type,
+          id: id
+        }
       }
     )
     .afterClosed()
@@ -105,40 +121,55 @@ export class RegistersComponent implements OnInit {
 
   }
 
-  registerTeacher(){
+  registerTeacher(type: string, id: number = 0){
 
     this.matDialog.open(
       RegisterTeacherComponent,
       {
         autoFocus: false,
         panelClass: 'dialog-template',
-        data: ''
+        data: {
+          type: type,
+          id: id
+        }
+      }
+    )
+    .afterClosed()
+    .subscribe(
+      (response: boolean) => {
+        response ? this.getTeachers() : ''
       }
     )
 
   }
 
-  registerStudent(){
+  registerStudent(type: string, id: number = 0){
 
     this.matDialog.open(
       RegisterStudentComponent,
       {
         autoFocus: false,
         panelClass: 'dialog-template',
-        data: ''
+        data: {
+          type: type,
+          id: id
+        }
       }
     )
 
   }
 
-  registerResponsible(){
+  registerResponsible(type: string, id: number = 0){
 
     this.matDialog.open(
       RegisterResponsibleComponent,
       {
         autoFocus: false,
         panelClass: 'dialog-template',
-        data: ''
+        data: {
+          type: type,
+          id: id
+        }
       }
     )
 
@@ -146,20 +177,22 @@ export class RegistersComponent implements OnInit {
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
-    this._dataSource.filter = filterValue.trim().toLowerCase();
+    this.groups.filter = filterValue.trim().toLowerCase();
   }
 
-  public deleteItem(type: string, id: number){
+  public deleteItem(type: string, id: number): boolean{
 
     this.registerService.Delete({ url: type, body: id })
       .subscribe(
         (success: any) => {
-          this.matSnackBar.open(`${type} deletado com sucesso`, '', { duration: 1500 })
+          this.matSnackBar.open(`Cadastro deletado com sucesso`, '', { duration: 1500 })
+          return true
         }, error => {
           this.matSnackBar.open('Ocorreu um erro', '', {duration: 2000})
+          return false
         }
       )
-
+    return true 
   }
 
 }

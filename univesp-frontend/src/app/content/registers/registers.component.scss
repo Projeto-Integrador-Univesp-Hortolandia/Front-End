@@ -131,6 +131,14 @@
 					box-shadow: 0 0 5px #00000035;
 				}
 
+				.search-autocomplete{
+					width: 98%;
+
+					mat-form-field{
+						width: 100%;
+					}
+				}
+
 				.test{
 					width: 98%;
 				}

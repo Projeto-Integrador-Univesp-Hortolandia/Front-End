@@ -2,7 +2,12 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { forkJoin, of } from 'rxjs';
+import { merge, Observable } from 'rxjs';
+import { catchError, debounceTime, map, startWith, switchMap } from 'rxjs/operators';
 import { RegisterService } from 'src/app/services/register/register.service';
+import { Groups, Students } from 'src/app/shared/models/groups';
+import { Student } from 'src/app/shared/models/student';
 
 @Component({
   selector: 'app-register-group',
@@ -13,12 +18,28 @@ export class RegisterGroupComponent implements OnInit {
 
   constructor(
     @Inject (MAT_DIALOG_DATA) public dialogData: any,
-    public DialogRef: MatDialogRef<any>,
+    public DialogRef: MatDialogRef<Groups>,
     public registerService: RegisterService,
     public matSnackbar: MatSnackBar
   ) { }
 
   studentsList = [] as any[]
+  filteredOptions!: Observable<string[]>;
+
+  myControl = new FormControl('');
+  allStudents$ = this.registerService.Get({ url: 'students' })
+  filterStudents$ = this.myControl.valueChanges
+  .pipe(
+    debounceTime(300),
+    switchMap(
+      student => this.registerService.Get
+      ({
+        url: `students?Nome=${student}`
+      })
+    )
+  )
+
+  students$ = merge(this.allStudents$, this.filterStudents$)
 
   _form = new FormGroup({
     Nome: new FormControl(''),
@@ -29,22 +50,68 @@ export class RegisterGroupComponent implements OnInit {
   })
 
   ngOnInit(): void {
-    this.getStudents(this.dialogData)
 
+    if (this.dialogData.type === 'edit'){
+
+      forkJoin({
+        group: this.registerService
+            .Get({
+              url: `groups?id=${this.dialogData.id}`
+            })
+            .pipe(
+              catchError(error => {
+                return of(null);
+              })
+            ),
+        students: this.registerService
+            .Get({
+              url: `students?Group=${this.dialogData.id}`
+            })
+            .pipe(
+              catchError(error => {
+                return of(null);
+              })
+            )
+      })
+      .subscribe(success => {
+        let { group, students } = success
+
+        this._form.patchValue(group[0])
+        this.studentsList = students
+      })
+
+    }
+
+    else {
+      
+    }
   }
 
-  getStudents(idGroup: number){
+  addToGroup(group: Students){
+    if (group){
+      this.studentsList.push(group)
+    }
+  }
 
-    this.registerService.Get({ url: `students?Group=${2}`}).subscribe(
-      (success: any) => {
-        this.studentsList = success
-      }
-    )
+  removeGroup(group: Students){
+    let index = this.studentsList.indexOf(group)
 
+    if (index){
+      this.studentsList.splice(index, 1)
+    }
   }
 
   registerGroup(){
-    this.registerService.Post({ url: 'groups', body: this._form.value }).subscribe(
+
+    let body = {
+      "turmaId": "0",
+      "nomeTurma": "teste",
+      "alunoId": "3"
+    }
+
+    console.log(typeof(body))
+
+    this.registerService.Post({ url: 'Turma', body: body }).subscribe(
       (success: any) => {
         this.matSnackbar
           .open('Grupo registrado com sucesso', 'Fechar', { duration: 1500 })
@@ -58,5 +125,27 @@ export class RegisterGroupComponent implements OnInit {
     )
   }
   
+  putGroup(){
+    this.registerService.Put({
+      url: `Turma/${this.dialogData.id}`,
+      body: this._form.value
+    })
+    .subscribe(
+      (success: any) => {
+
+        this.matSnackbar
+        .open('Alterações salvas com sucesso', 'Fechar', { duration: 1500 })
+        .afterDismissed()
+        .subscribe(
+          () => this.DialogRef.close(true)
+        )
+
+      }, error => {
+
+        this.matSnackbar.open('Ocorreu um erro. Tente novamente', 'Fechar', { duration: 2000 })
+
+      }
+    )
+  }
 
 }
