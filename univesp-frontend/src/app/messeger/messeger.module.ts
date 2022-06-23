@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { MessegerRoutingModule } from './messeger-routing.module';
 import { MessegerComponent } from './messeger.component';
+import { MaterialModule } from '../material-module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { MessegerComponent } from './messeger.component';
   ],
   imports: [
     CommonModule,
-    MessegerRoutingModule
+    MessegerRoutingModule,
+    MaterialModule
   ]
 })
 export class MessegerModule { }
