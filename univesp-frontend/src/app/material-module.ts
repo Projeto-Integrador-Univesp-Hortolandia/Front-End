@@ -42,6 +42,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
 import { OverlayModule } from '@angular/cdk/overlay';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { CdkAccordionModule } from '@angular/cdk/accordion';
 @NgModule({
 	exports: [
 		A11yModule,
@@ -87,7 +89,9 @@ import { OverlayModule } from '@angular/cdk/overlay';
 		MatTreeModule,
 		OverlayModule,
 		PortalModule,
-		ScrollingModule
+		ScrollingModule,
+    CdkAccordionModule,
+    MatFormFieldModule
 	]
 })
 export class MaterialModule {}

@@ -9,17 +9,25 @@ import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import { CustomDateAdapter } from './shared/utils/custon-date-adapter';
 import { HttpClientModule } from '@angular/common/http';
+import { AlertComponent } from './shared/components/alert/alert.component';
+import { NavBarComponent } from './shared/components/nav-bar/nav-bar.component';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AlertComponent,
+    NavBarComponent
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-	HttpClientModule
+	  HttpClientModule
   ],
+
+  entryComponents: [AlertComponent],
   bootstrap: [AppComponent],
   providers: [
 		{

@@ -83,3 +83,64 @@ $base-4: #D2D2D2;
 .mat-dialog-content{
 	max-height: none;
 }
+
+
+//noticias
+body {
+  margin: 0;
+}
+
+.center {
+  margin: 10px auto;
+}
+
+.width50 {
+  width: 50%;
+}
+
+.width75 {
+  width: 75%;
+}
+
+.main-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.float-left {
+  float: left;
+}
+
+.margin10 {
+  margin: 10px;
+}
+
+.padding10 {
+  padding: 10px;
+}
+
+.quebrar-linha {
+  white-space: pre-line;
+}
+
+//Drag&Drop
+.file-container{
+  display: flex;
+  justify-content: center;
+  //align-items: center;
+  //width:340px;
+
+
+  .file {
+    //opacity: 0;
+    padding: 2rem;
+    width: auto;
+    height: 2rem;
+    border: 4px dotted #90CAF9;
+  }
+}

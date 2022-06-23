@@ -1,0 +1,32 @@
+<div mat-toolbar class="app-title">Inserir Mensagenss</div>
+<div class="main-div">
+  <mat-card class="center width75" *ngIf="cadastro" >
+    <form autocomplete="off" novalidate [formGroup]="cadastro" (ngSubmit)="submit()" (ngReset)="reiniciarForm()">
+      <mat-card-content>
+        <app-input-date titulo="Data de Lançamento *" controlName="dtLancamento" [formGroup]="cadastro"></app-input-date>
+        <app-input-text titulo="Título *" controlName="titulo" [formGroup]="cadastro"></app-input-text>
+        <app-input-select titulo="Gênero *" [opcoes]="generos" controlName="genero" [formGroup]="cadastro"></app-input-select>
+        <app-input-textarea titulo="Descrição" controlName="descricao" [formGroup]="cadastro"></app-input-textarea>
+        <app-input-number titulo="Nota *" controlName="nota" [step]='0.1' [formGroup]="cadastro"></app-input-number>
+        <app-input-text titulo="Link " controlName="urlIMDb" [formGroup]="cadastro"></app-input-text>
+        <app-input-text titulo="Link Foto" controlName="urlFoto" [formGroup]="cadastro"></app-input-text>
+
+
+      <div class="file-container" *ngIf="!file">
+        <input type="file" (change)="getFile($event)" class="file" />
+      </div>
+      <div *ngIf="file">
+        Nome do Arquivo: {{ file.name }}
+        <br />
+        <button (click)="file = undefined" mat-raised-button>Descartar arquivo</button>
+        <button (click)="uploadFile()" mat-raised-button>Anexar arquivo</button>
+      </div>
+    </mat-card-content>
+
+      <mat-card-actions>
+        <button type="return" color="warn" mat-raised-button>Cancelar</button>
+        <button type="submit" color="accent" mat-raised-button>Salvar</button>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+</div>

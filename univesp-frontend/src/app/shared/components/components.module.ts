@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 import { MaterialModule } from 'src/app/material-module';
 import { ListItemComponent } from './list-item/list-item.component';
@@ -8,6 +9,8 @@ import { UploadFilesComponent } from './upload-files/upload-files.component';
 import { DropFileDirective } from '../directives/drop-file.directive';
 import { PaginatorComponent } from './paginator/paginator.component';
 import { UserAvatarComponent } from './user-avatar/user-avatar.component';
+import { AlertComponent } from './alert/alert.component';
+
 
 @NgModule({
   declarations: [
@@ -18,16 +21,19 @@ import { UserAvatarComponent } from './user-avatar/user-avatar.component';
     PaginatorComponent,
     UserAvatarComponent
   ],
+
   imports: [
     CommonModule,
-    MaterialModule
+    MaterialModule,
+    RouterModule
   ],
+
   exports: [
     ListItemComponent,
     ProfilePictureComponent,
     UploadFilesComponent,
     PaginatorComponent,
-    UserAvatarComponent
+    //UserAvatarComponent
   ]
 })
 export class ComponentsModule { }

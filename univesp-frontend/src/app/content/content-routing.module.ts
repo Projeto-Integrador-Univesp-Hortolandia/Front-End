@@ -5,16 +5,14 @@ import { FeedNewsComponent } from './feed-news/feed-news.component';
 import { RegistersComponent } from './registers/registers.component';
 
 const routes: Routes = [
-    { 
-      path: '', 
-      component: ContentComponent ,
-      children: [
-        { path: 'cadastros', component: RegistersComponent },
-        { path: 'noticias', component: FeedNewsComponent }
-      ]
-    },
-    
-  ];
+    //{ path: 'cadastros',              //''
+    //  component: RegistersComponent   //ContentComponent ,
+      //children: [
+        //{ path: 'cadastros', component: RegistersComponent },
+        //{ path: 'noticias', component: FeedNewsComponent}
+
+//    }
+ ]
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

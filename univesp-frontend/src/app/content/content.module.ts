@@ -19,7 +19,7 @@ const maskConfigFunction: () => Partial<IConfig> = () => {
 @NgModule({
   declarations: [
     ContentComponent,
-    NavBarComponent
+    //NavBarComponent
   ],
   imports: [
     CommonModule,
@@ -29,7 +29,7 @@ const maskConfigFunction: () => Partial<IConfig> = () => {
     NgxMaskModule.forRoot(maskConfigFunction)
   ],
   exports: [
-    NavBarComponent
+    //NavBarComponent
   ]
 })
 export class ContentModule { }
