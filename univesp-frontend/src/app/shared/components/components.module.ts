@@ -8,6 +8,8 @@ import { UploadFilesComponent } from './upload-files/upload-files.component';
 import { DropFileDirective } from '../directives/drop-file.directive';
 import { PaginatorComponent } from './paginator/paginator.component';
 import { UserAvatarComponent } from './user-avatar/user-avatar.component';
+import { ContentCreatorComponent } from './content-creator/content-creator.component';
+import { CardNewsComponent } from './card-news/card-news.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { UserAvatarComponent } from './user-avatar/user-avatar.component';
     UploadFilesComponent,
     DropFileDirective,
     PaginatorComponent,
-    UserAvatarComponent
+    UserAvatarComponent,
+    ContentCreatorComponent,
+    CardNewsComponent
   ],
   imports: [
     CommonModule,
@@ -27,7 +31,9 @@ import { UserAvatarComponent } from './user-avatar/user-avatar.component';
     ProfilePictureComponent,
     UploadFilesComponent,
     PaginatorComponent,
-    UserAvatarComponent
+    UserAvatarComponent,
+    ContentCreatorComponent,
+    CardNewsComponent
   ]
 })
 export class ComponentsModule { }

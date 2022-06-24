@@ -1,3 +1,41 @@
 <div class="container-feedNews">
+
+    <div class="container">
+
+        <div class="creator-wrapper">
+
+            <div class="creator-container">
+                <p> Criar conteudo :D </p>
+            </div>
+            <div class="upload-options">
+                <div class="option">
+                    <mat-icon> format_quote </mat-icon>
+                    <span> Fazer um textos </span>
+                </div>
+                <div class="option">
+                    <mat-icon> crop_original </mat-icon>
+                    <span> Carregar foto </span>
+                </div>
+                <div class="option">
+                    <mat-icon> campaign </mat-icon>
+                    <span> Criar aviso </span>
+                </div>
+            </div>
+        </div>
     
+        <div class="timeline">
+    
+            <app-card-news [hasAlert]="true" [alertType]="'content'"></app-card-news>
+            <app-card-news [hasText]="true"></app-card-news>
+            <app-card-news [hasAlert]="true" [alertType]="'sucess'"></app-card-news>
+            <app-card-news [hasText]="true" [hasImage]="true"></app-card-news>
+            <app-card-news [hasAlert]="true" [alertType]="'warning'"></app-card-news>
+            <app-card-news [hasImage]="true"></app-card-news>
+            <app-card-news [hasAlert]="true" [alertType]="'alert'"></app-card-news>
+            <app-card-news [hasText]="true" [hasImage]="true"></app-card-news>
+    
+        </div>
+
+    </div>
+
 </div>

@@ -4,9 +4,80 @@
     
     width: 100%;
     height: 98%;
-    background-color: #fff;
-    border: 1px solid #90CAF9;
+
     border-radius: 15px 15px 0px 0px;
     color: $primary-1;
-	overflow: hidden;
+	overflow: auto;
+
+
+    .container{
+
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+        max-width: 685px;
+        margin: auto;
+
+        .creator-wrapper{
+            padding: 15px 20px;
+            background-color: #fff;
+            border-radius: 10px;
+
+            .creator-container{
+                width: 100%;
+                background: #f0f2f5;
+                border-radius: 25px;
+
+                p{
+                    padding: 15px 15px;
+                    color: #0000006c;
+                    font-weight: 500;
+                }
+            }
+
+            .upload-options{
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-evenly;
+                gap: 5px;
+
+                .option{
+                    width: 100%;
+                    padding: 10px 20px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 10px;
+                    color: #080808;
+                    font-weight: 600;
+
+                    &:nth-child(1){
+                        mat-icon{ color: #4527A0; }
+                    }
+                    &:nth-child(2){
+                        mat-icon{ color: #1565C0; }
+                    }
+                    &:nth-child(3){
+                        mat-icon{ color: #FFC415; }
+                    }
+                    
+                    &:hover{
+                        background: #f2f2f2;
+                        transition: .2s;
+                        border-radius: 10px;
+                    }
+                }
+            }
+        }
+
+        .timeline{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+    }
 }

@@ -1,0 +1,43 @@
+<div class="card-wrapper">
+
+    <div class="card-container">
+
+        <div class="card-header">
+            <img src="../../../../assets/profile-icon.png" alt="">
+            <div class="content">
+                <span class="content-name"> John Doe </span>
+                <span class="content-time"> há 6 dias </span>
+            </div>
+        </div>
+        <div class="card-content">
+            <ng-container *ngIf="hasText">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. A facere officia corporis expedita facilis! Dolores rerum perspiciatis totam hic cupiditate eos pariatur neque dolore, dolorem minima aliquam veritatis tenetur exercitationem.
+                </p>
+            </ng-container>
+            
+            <ng-container *ngIf="hasImage">
+                <img src="../../../../assets/images/bg-login.png" alt="">
+            </ng-container>
+
+            <ng-container *ngIf="hasAlert">
+                <div class="alert-container" [ngClass]="alertType">
+                    <div class="alert-wrapper">
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate quis expedita beatae aspernatur sunt laudantium minus exercitationem cupiditate quia aliquid culpa, ea, hic praesentium fugit obcaecati, excepturi veritatis dolorem fuga.
+                        </p>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate quis expedita beatae aspernatur sunt laudantium minus exercitationem cupiditate.
+                        </p>
+                        <mat-divider> </mat-divider>
+                        <mat-checkbox>
+                            Li e concordo
+                        </mat-checkbox>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+
+    </div>
+
+</div>

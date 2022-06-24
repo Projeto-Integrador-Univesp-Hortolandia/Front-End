@@ -1,0 +1,29 @@
+{
+    "mensagens": [
+        {
+            "idChat": 1,
+            "members": [
+                {
+                    "user": 1
+                },
+                {
+                    "user": 2
+                }
+            ],
+            "messages": [
+                {
+                    "from": 1,
+                    "content" : " Mensagem legal "
+                },
+                {
+                    "from": 2,
+                    "content" : "proin libero nunc consequat interdum varius sit amet mattis vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor posuere ac"
+                },
+                {
+                    "from": 2,
+                    "content" : " Mensagem legal "
+                }
+            ]
+        }
+    ]
+}
