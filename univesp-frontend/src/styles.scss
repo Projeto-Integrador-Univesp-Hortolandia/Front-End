@@ -47,6 +47,14 @@ main.content[role="main"]{
 	position: relative !important;
 }
 
+.dialog-contentCreator{
+	max-width: 30vw !important;
+	max-height: 50vh !important;
+	width: 30vw;
+	height: 50vh;
+	position: relative !important;	
+}
+
 //Global colors
 
 $primary-1: #4527A0;

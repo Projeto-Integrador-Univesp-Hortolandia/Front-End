@@ -1,0 +1,71 @@
+.content-creator-container{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+
+    .dialog-close{
+        position: absolute;
+        top: 0;
+        right: 0;
+        cursor: pointer;
+    }
+
+    h2{
+        text-align: center;
+    }
+
+    .creator-dialog{
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+
+        &-header{
+            display: flex;
+
+            img{
+                width: 40px;
+                height: 40px;
+                margin-right: 10px;
+            }
+
+            .content{
+                display: flex;
+                flex-direction: column;
+                color: #4A4A4A;
+
+                &-name{
+                    font-size: 14px;
+                    line-height: 17px;
+                    font-weight: 500;
+                }
+
+                &-time{
+                    font-size: 12px;
+                    line-height: 14px;
+                    color: #989899;
+                }
+            }
+        }
+
+        &-content{
+            width: 100%;
+
+            .input-CC{
+                width: 100%;
+                border: none;
+                background-color: none;
+                padding: 5px;
+                margin: 10px 0px 20px;
+                outline: none !important;
+                font-size: 16px;
+            }
+        }
+
+        button{
+            margin-top: auto;
+        }
+
+    }
+
+}
