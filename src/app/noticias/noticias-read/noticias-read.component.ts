@@ -15,6 +15,7 @@ import { NoticiasService } from '../service-noticias/noticias.service';
 export class NoticiasReadComponent implements OnInit {
   readonly semFoto = 'https://www.termoparts.com.br/wp-content/uploads/2017/10/no-image.jpg';
 
+  data: Date = new Date ();
   config: ConfigParams = {
     pagina: 0,
     limite: 4
@@ -30,7 +31,8 @@ export class NoticiasReadComponent implements OnInit {
   ngOnInit(): void {
     this.filtrosListagem = this.fb.group({
       texto: [''],
-      genero: ['']
+      genero: [''],
+      dtLancamento: ['']
     });
 
     this.filtrosListagem.get('texto').valueChanges
@@ -45,13 +47,22 @@ export class NoticiasReadComponent implements OnInit {
       this.resetarConsulta();
     });
 
-    this.generos = ['Ação', 'Romance', 'Aventura', 'Terror', 'Ficção cientifica', 'Comédia', 'Aventura', 'Drama'];
+    //this.generos = ['Ação', 'Romance', 'Aventura', 'Terror', 'Ficção cientifica', 'Comédia', 'Aventura', 'Drama'];
+
+    this.listarNoticias();
+
+
+    this.filtrosListagem.get('dtLancamento').valueChanges.subscribe((val: Date) => {
+      this.config.campo = {tipo: 'dtLancamento', valor: val};
+      this.resetarConsulta();
+    });
 
     this.listarNoticias();
   }
 
   onScroll(): void {
     this.listarNoticias();
+    console.log("listarNoticias")
   }
 
   abrir(id: number): void {

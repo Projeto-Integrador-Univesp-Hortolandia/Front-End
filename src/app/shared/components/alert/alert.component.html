@@ -3,16 +3,16 @@
   <p>{{alert.descricao}}</p>
 </div>
 <div mat-dialog-actions>
-  <button mat-raised-button
-          color="accent"
-          cdkFocusInitial
-          mat-dialog-close="true">
-    {{alert.btnSucesso}}
-  </button>
-  <button mat-raised-button
-          color="warn"
+    <button mat-button
+          color="primary"
           mat-dialog-close="false"
           *ngIf="alert.possuirBtnFechar" >
     {{alert.btnCancelar}}
+  </button>
+  <button mat-flat-button
+          color="primary"
+          cdkFocusInitial
+          mat-dialog-close="true">
+    {{alert.btnSucesso}}
   </button>
 </div>

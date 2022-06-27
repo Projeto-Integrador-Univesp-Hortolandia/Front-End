@@ -21,7 +21,7 @@
         </app-input-text>
       </div>
     </div>
-    <div class="float-left width50">
+    <!--<div class="float-left width50">
       <div class="padding10">
         <app-input-select titulo="Gênero"
                           controlName="genero"
@@ -29,11 +29,11 @@
                           [formGroup]="filtrosListagem">
         </app-input-select>
       </div>
-    </div>
+    </div>-->
   </form>
 </div>
 
-<div  class="home-content"
+<div  class="home-content center"
       infiniteScroll
       (scrolled)="onScroll()"
       *ngIf="noticias.length; else semRegistro">
@@ -41,7 +41,8 @@
     <mat-card-header>
       <div mat-card-avatar class="example-header-image"></div>
       <mat-card-title>{{noticia.titulo}}</mat-card-title>
-      <mat-card-subtitle>{{noticia.genero}}</mat-card-subtitle>
+      <!--<mat-card-subtitle>{{noticia.genero}}</mat-card-subtitle>-->
+      <mat-card-subtitle> Postado em: {{noticia.dtLancamento | date: 'dd/MM/yyyy hh:mm:ss a'}}</mat-card-subtitle>
     </mat-card-header>
 
     <mat-card-content>
@@ -53,7 +54,7 @@
     <img mat-card-image [src]="noticia.urlFoto || semFoto" >
 
     <mat-card-actions>
-      <button color="accent" mat-raised-button (click)="abrir(noticia.id!)">ABRIR</button>
+      <button color="primary" mat-raised-button (click)="abrir(noticia.id!)">ABRIR</button>
     </mat-card-actions>
   </mat-card>
 </div>

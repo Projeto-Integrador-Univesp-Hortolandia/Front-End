@@ -63,7 +63,7 @@ title = 'adminDashboard';
       this.criarFormulario(this.criarnoticiaEmBranco());
     }
 
-    this.generos = ['Ação', 'Romance', 'Aventura', 'Terror', 'Ficção cientifica', 'Comédia', 'Aventura', 'Drama'];
+    //this.generos = ['Ação', 'Romance', 'Aventura', 'Terror', 'Ficção cientifica', 'Comédia', 'Aventura', 'Drama'];
 
   }
 
@@ -92,9 +92,9 @@ title = 'adminDashboard';
       urlFoto: [noticia.urlFoto, [Validators.minLength(10)]],
       dtLancamento: [noticia.dtLancamento, [Validators.required]],
       descricao: [noticia.descricao],
-      nota: [noticia.nota, [Validators.required, Validators.min(0), Validators.max(10)]],
-      urlIMDb: [noticia.urlIMDb, [Validators.minLength(10)]],
-      genero: [noticia.genero, [Validators.required]]
+      //nota: [noticia.nota, [Validators.required, Validators.min(0), Validators.max(10)]],
+      //urlIMDb: [noticia.urlIMDb, [Validators.minLength(10)]],
+      //genero: [noticia.genero, [Validators.required]]
     });
     console.log(noticia.titulo);
   }
@@ -106,9 +106,9 @@ title = 'adminDashboard';
       dtLancamento: null,
       urlFoto: null,
       descricao: null,
-      nota: null,
-      urlImdb: null,
-      genero: null
+      //nota: null,
+      //urlImdb: null,
+      //genero: null
     } as unknown as Noticia;
   }
 

@@ -1,17 +1,19 @@
-<mat-list *ngIf="noticia; else semRegistro">
-  <mat-list-item> Título: {{noticia.titulo}} </mat-list-item>
-  <mat-list-item> Data de lançamento: {{noticia.dtLancamento | date: 'dd/MM/yyyy' }} </mat-list-item>
-  <mat-list-item> Gênero: {{noticia.genero}} </mat-list-item>
-  <mat-list-item class="quebrar-linha"> Descrição: {{noticia.descricao}} </mat-list-item>
-  <mat-list-item> Nota: <a [href]="noticia.urlIMDb" target="_blank"> {{noticia.nota}}</a> </mat-list-item>
-  <img mat-card-image [src]="noticia.urlFoto || semFoto" >
-</mat-list>
-<mat-card>
+<div class="center width75">
+  <mat-list *ngIf="noticia; else semRegistro">
+    <mat-list-item> Título: {{noticia.titulo}} </mat-list-item>
+    <mat-list-item> Data de postagem: {{noticia.dtLancamento | date: 'dd/MM/yyyy' }} </mat-list-item>
+
+    <mat-list-item class="quebrar-linha"> Descrição: {{noticia.descricao}} </mat-list-item>
+    <!--<mat-list-item> Nota: <a [href]="noticia.urlIMDb" target="_blank"> {{noticia.nota}}</a> </mat-list-item>
+        <mat-list-item> Gênero: {{noticia.genero}} </mat-list-item>-->
+    <img mat-card-image [src]="noticia.urlFoto || semFoto" >
+  </mat-list>
+
   <mat-card-actions>
-    <button color="accent" mat-raised-button (click)="editar()">Editar</button>
-    <button color="warn" mat-raised-button (click)="excluir()">Excluir</button>
+    <button color="primary" mat-button (click)="excluir()">Excluir</button>
+    <button color="primary" mat-flat-button (click)="editar()">Editar</button>
   </mat-card-actions>
-</mat-card>
+</div>
 
 <ng-template #semRegistro>
   <h1 class="full-width main-div">Nenhum registro encontrado!</h1>
