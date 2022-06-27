@@ -64,7 +64,6 @@ export class NoticiasCreateComponent implements OnInit {
         this.criarFormulario(this.criarnoticiaEmBranco());
       }
 
-      this.generos = ['Ação', 'Romance', 'Aventura', 'Terror', 'Ficção cientifica', 'Comédia', 'Aventura', 'Drama'];
 
     }
 
@@ -92,10 +91,7 @@ export class NoticiasCreateComponent implements OnInit {
         titulo: [noticia.titulo, [Validators.required, Validators.minLength(2), Validators.maxLength(256)]],
         urlFoto: [noticia.urlFoto, [Validators.minLength(10)]],
         dtLancamento: [noticia.dtLancamento, [Validators.required]],
-        descricao: [noticia.descricao],
-        nota: [noticia.nota, [Validators.required, Validators.min(0), Validators.max(10)]],
-        urlIMDb: [noticia.urlIMDb, [Validators.minLength(10)]],
-        genero: [noticia.genero, [Validators.required]]
+        descricao: [noticia.descricao]
       });
       console.log(noticia.titulo);
     }
@@ -106,10 +102,7 @@ export class NoticiasCreateComponent implements OnInit {
         titulo: null,
         dtLancamento: null,
         urlFoto: null,
-        descricao: null,
-        nota: null,
-        urlImdb: null,
-        genero: null
+        descricao: null
       } as unknown as Noticia;
     }
 

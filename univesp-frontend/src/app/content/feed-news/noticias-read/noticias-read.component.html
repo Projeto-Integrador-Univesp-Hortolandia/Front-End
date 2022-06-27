@@ -41,7 +41,7 @@
     <mat-card-header>
       <div mat-card-avatar class="example-header-image"></div>
       <mat-card-title>{{noticia.titulo}}</mat-card-title>
-      <mat-card-subtitle>{{noticia.genero}}</mat-card-subtitle>
+      <mat-card-subtitle> Postado em: {{noticia.dtLancamento | date: 'dd/MM/yyyy hh:mm:ss a'}}</mat-card-subtitle>
     </mat-card-header>
 
     <mat-card-content>

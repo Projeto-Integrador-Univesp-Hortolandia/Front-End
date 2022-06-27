@@ -1,9 +1,9 @@
 <mat-list *ngIf="noticia; else semRegistro">
   <mat-list-item> Título: {{noticia.titulo}} </mat-list-item>
-  <mat-list-item> Data de lançamento: {{noticia.dtLancamento | date: 'dd/MM/yyyy' }} </mat-list-item>
-  <mat-list-item> Gênero: {{noticia.genero}} </mat-list-item>
+  <mat-list-item> Data de Postagem: {{noticia.dtLancamento | date: 'dd/MM/yyyy' }} </mat-list-item>
+
   <mat-list-item class="quebrar-linha"> Descrição: {{noticia.descricao}} </mat-list-item>
-  <mat-list-item> Nota: <a [href]="noticia.urlIMDb" target="_blank"> {{noticia.nota}}</a> </mat-list-item>
+
   <img mat-card-image [src]="noticia.urlFoto || semFoto" >
 </mat-list>
 <mat-card>

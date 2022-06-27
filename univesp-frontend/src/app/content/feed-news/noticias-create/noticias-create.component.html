@@ -5,10 +5,7 @@
       <mat-card-content>
         <app-input-date titulo="Data de Lançamento *" controlName="dtLancamento" [formGroup]="cadastro"></app-input-date>
         <app-input-text titulo="Título *" controlName="titulo" [formGroup]="cadastro"></app-input-text>
-        <app-input-select titulo="Gênero *" [opcoes]="generos" controlName="genero" [formGroup]="cadastro"></app-input-select>
         <app-input-textarea titulo="Descrição" controlName="descricao" [formGroup]="cadastro"></app-input-textarea>
-        <app-input-number titulo="Nota *" controlName="nota" [step]='0.1' [formGroup]="cadastro"></app-input-number>
-        <app-input-text titulo="Link " controlName="urlIMDb" [formGroup]="cadastro"></app-input-text>
         <app-input-text titulo="Link Foto" controlName="urlFoto" [formGroup]="cadastro"></app-input-text>
 
 
