@@ -42,11 +42,11 @@ export class RegisterGroupComponent implements OnInit {
   students$ = merge(this.allStudents$, this.filterStudents$)
 
   _form = new FormGroup({
-    Nome: new FormControl(''),
-    Ano: new FormControl(''),
-    Turma: new FormControl(''),
-    Periodo: new FormControl(''),
-    Sala: new FormControl('')
+    nome: new FormControl(''),
+    ano: new FormControl(''),
+    turma: new FormControl(''),
+    periodo: new FormControl(''),
+    sala: new FormControl('')
   })
 
   ngOnInit(): void {
@@ -56,7 +56,7 @@ export class RegisterGroupComponent implements OnInit {
       forkJoin({
         group: this.registerService
             .Get({
-              url: `groups?id=${this.dialogData.id}`
+              url: `Turma/${this.dialogData.id}`
             })
             .pipe(
               catchError(error => {
@@ -76,7 +76,7 @@ export class RegisterGroupComponent implements OnInit {
       .subscribe(success => {
         let { group, students } = success
 
-        this._form.patchValue(group[0])
+        this._form.patchValue(group)
         this.studentsList = students
       })
 
@@ -103,15 +103,7 @@ export class RegisterGroupComponent implements OnInit {
 
   registerGroup(){
 
-    let body = {
-      "turmaId": "0",
-      "nomeTurma": "teste",
-      "alunoId": "3"
-    }
-
-    console.log(typeof(body))
-
-    this.registerService.Post({ url: 'Turma', body: body }).subscribe(
+    this.registerService.Post({ url: 'Turma', body: this._form.value }).subscribe(
       (success: any) => {
         this.matSnackbar
           .open('Grupo registrado com sucesso', 'Fechar', { duration: 1500 })

@@ -29,36 +29,36 @@
 						</mat-cell>
 					</ng-container>
 	
-					<ng-container matColumnDef="Ano">
+					<ng-container matColumnDef="ano">
 						<mat-header-cell *matHeaderCellDef>
 							<span> Ano </span>
 						</mat-header-cell>
-						<mat-cell *matCellDef="let element" data-label="Ano">
-							<span> {{ element.Ano }} </span>
+						<mat-cell *matCellDef="let element" data-label="ano">
+							<span> {{ element.ano }} </span>
 						</mat-cell>
 					</ng-container>
-					<ng-container matColumnDef="nomeTurma">
+					<ng-container matColumnDef="turma">
 						<mat-header-cell *matHeaderCellDef>
 							<span> Turma </span>
 						</mat-header-cell>
-						<mat-cell *matCellDef="let element" data-label="nomeTurma">
-							<span> {{ element.nomeTurma }} </span>
+						<mat-cell *matCellDef="let element" data-label="turma">
+							<span> {{ element.turma }} </span>
 						</mat-cell>
 					</ng-container>
-					<ng-container matColumnDef="Periodo">
+					<ng-container matColumnDef="periodo">
 						<mat-header-cell *matHeaderCellDef>
 							<span> Periodo </span>
 						</mat-header-cell>
-						<mat-cell *matCellDef="let element" data-label="Periodo">
-							<span> {{ element.Periodo }} </span>
+						<mat-cell *matCellDef="let element" data-label="periodo">
+							<span> {{ element.periodo }} </span>
 						</mat-cell>
 					</ng-container>
-					<ng-container matColumnDef="Sala">
+					<ng-container matColumnDef="sala">
 						<mat-header-cell *matHeaderCellDef>
 							<span> Sala </span>
 						</mat-header-cell>
-						<mat-cell *matCellDef="let element" data-label="Sala">
-							<span> {{ element.Sala }} </span>
+						<mat-cell *matCellDef="let element" data-label="sala">
+							<span> {{ element.sala }} </span>
 						</mat-cell>
 					</ng-container>
 					<ng-container matColumnDef="Controls">
@@ -73,7 +73,7 @@
 										<mat-icon> edit </mat-icon>
 										<span> Editar </span>
 									</button>
-									<button mat-menu-item (click)="deleteItem('groups', element.id) ? getGroups() : '' ">
+									<button mat-menu-item (click)="deleteItem('Turma', element.id) ? getGroups() : '' ">
 										<mat-icon> delete </mat-icon>
 										<span> Excluir </span>
 									</button>
@@ -125,11 +125,11 @@
 								<span *ngSwitchCase="'Controls'"> 
 									<mat-icon [matMenuTriggerFor]="menu_controls"> more_vert </mat-icon>
 									<mat-menu #menu_controls="matMenu">
-										<button mat-menu-item (click)="registerTeacher('edit', element.id)">
+										<button mat-menu-item (click)="registerTeacher('edit', element.funcionarioId)">
 											<mat-icon> edit </mat-icon>
 											<span> Editar </span>
 										</button>
-										<button mat-menu-item (click)="deleteItem('teachers', element.id) ? getGroups() : '' ">
+										<button mat-menu-item (click)="deleteItem('Funcionario', element.funcionarioId) ? getGroups() : '' ">
 											<mat-icon> delete </mat-icon>
 											<span> Excluir </span>
 										</button>
@@ -180,11 +180,11 @@
 								<span *ngSwitchCase="'Controls'"> 
 									<mat-icon [matMenuTriggerFor]="menu_controls"> more_vert </mat-icon>
 									<mat-menu #menu_controls="matMenu">
-										<button mat-menu-item (click)="registerStudent('edit', element.id)">
+										<button mat-menu-item (click)="registerStudent('edit', element.alunoId)">
 											<mat-icon> edit </mat-icon>
 											<span> Editar </span>
 										</button>
-										<button mat-menu-item (click)="deleteItem('groups', element.id) ? getGroups() : '' ">
+										<button mat-menu-item (click)="deleteItem('Aluno', element.alunoId) ? getGroups() : '' ">
 											<mat-icon> delete </mat-icon>
 											<span> Excluir </span>
 										</button>
@@ -235,11 +235,11 @@
 								<span *ngSwitchCase="'Controls'"> 
 									<mat-icon [matMenuTriggerFor]="menu_controls"> more_vert </mat-icon>
 									<mat-menu #menu_controls="matMenu">
-										<button mat-menu-item (click)="registerResponsible('edit', element.id)">
+										<button mat-menu-item (click)="registerResponsible('edit', element.responsavelId)">
 											<mat-icon> edit </mat-icon>
 											<span> Editar </span>
 										</button>
-										<button mat-menu-item (click)="deleteItem('groups', element.id) ? getStudents() : '' ">
+										<button mat-menu-item (click)="deleteItem('Responsavel', element.responsavelId) ? getStudents() : '' ">
 											<mat-icon> delete </mat-icon>
 											<span> Excluir </span>
 										</button>

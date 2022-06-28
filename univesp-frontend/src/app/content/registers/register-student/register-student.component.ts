@@ -39,20 +39,20 @@ export class RegisterStudentComponent implements OnInit {
   groups$ = merge(this.allGroups$, this.filterGroups$)
 
   _form = new FormGroup({
-    Nome: new FormControl(''),
-    CPF: new FormControl(''),
-    DataNasc: new FormControl(''),
-    Observacao: new FormControl('')
+    nome: new FormControl(''),
+    cpf: new FormControl(''),
+    dataNasc: new FormControl(''),
+    observacao: new FormControl('')
   })
 
   ngOnInit(): void {
 
     if (this.dialogData.type === 'edit'){
 
-      this.registerService.Get({ url: `students?id=${this.dialogData.id}` })
+      this.registerService.Get({ url: `aluno/${this.dialogData.id}` })
         .subscribe(
           (success: any) => {
-            this._form.patchValue(success[0])
+            this._form.patchValue(success)
           }
         )
 
@@ -61,7 +61,7 @@ export class RegisterStudentComponent implements OnInit {
 
   postStudent(){
     this.registerService.Post({
-      url: 'students',
+      url: 'aluno',
       body: this._form.value
     }).subscribe(
       (success: any) => {
@@ -75,7 +75,7 @@ export class RegisterStudentComponent implements OnInit {
 
   putStudent(){
     this.registerService.Put({
-      url: `students/${this.dialogData.id}`,
+      url: `aluno/${this.dialogData.id}`,
       body: this._form.value
     }).subscribe(
       (success: any) => {

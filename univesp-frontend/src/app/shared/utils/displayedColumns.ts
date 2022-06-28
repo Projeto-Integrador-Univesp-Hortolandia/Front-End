@@ -1,27 +1,27 @@
 
 export const displayGroups = [
-    'Ano',
-    'nomeTurma',
-    'Periodo',
-    'Sala',
+    'ano',
+    'turma',
+    'periodo',
+    'sala',
     'Controls'
 ]
 
 export const displayTeachers = [
-    'Nome',
-    'NumRegistro',
-    'Email',
+    'nome',
+    'funcionarioId',
+    'email',
     'Controls'
 ]
 
 export const displayStudents = [
-    'Nome',
-    'Observacao',
+    'nome',
+    'observacao',
     'Controls'
 ]
 
 export const displayResponsibles = [
-    'Nome',
-    'Observacao',
+    'nome',
+    'observacao',
     'Controls'
 ]

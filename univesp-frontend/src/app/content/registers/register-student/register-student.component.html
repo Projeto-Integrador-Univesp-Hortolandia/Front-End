@@ -6,7 +6,7 @@
 
             <mat-form-field class="grid-2">
                 <mat-label> Nome </mat-label>
-                <input matInput required formControlName="Nome" />
+                <input matInput required formControlName="nome" />
             </mat-form-field>
 
             
@@ -18,18 +18,20 @@
                     mask="000.000.000-00"
                     matInput 
                     required 
-                    formControlName="CPF" 
+                    formControlName="cpf" 
                 />
             </mat-form-field>
 
-            <mat-form-field class="grid-1">
-                <mat-label> Data nascimento </mat-label>
-                <input matInput required formControlName="DataNasc" />
+            <mat-form-field appearance="outline" class="grid-1">
+                <mat-label>Data nascimento</mat-label>
+                <input matInput required [matDatepicker]="picker" formControlName="dataNasc">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
 
             <mat-form-field class="grid-textarea">
                 <mat-label> Observação </mat-label>
-                <textarea matInput rows="4" placeholder="Adicione uma observação" formControlName="Observacao"> </textarea>
+                <textarea matInput rows="4" placeholder="Adicione uma observação" formControlName="observacao"> </textarea>
             </mat-form-field>           
         </form>
 
@@ -78,6 +80,7 @@
         <button 
             mat-flat-button 
             color="primary"
+            [disabled]="dialogData.type === 'edit' ?  !_form.dirty : !_form.valid"
             (click)="dialogData.type === 'edit' ? putStudent() : postStudent() "
         > 
             {{ dialogData.type === 'edit' ? 'Salvar alterações' : 'Cadastrar aluno' }}    

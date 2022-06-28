@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormControl, FormControlName, FormGroup } from '@angular/forms';
+import { FormControl, FormControlName, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { merge, Observable } from 'rxjs';
@@ -42,21 +42,21 @@ export class RegisterTeacherComponent implements OnInit {
   groups$ = merge(this.allGroups$, this.filterGroups$)
 
   _form = new FormGroup({
-    Nome: new FormControl(''),
-    Email: new FormControl(''),
-    Senha: new FormControl(''),
-    CPF: new FormControl(''),
-    DataNasc: new FormControl(''),
-    NumRegistro: new FormControl('')
+    nome: new FormControl('', Validators.required),
+    email: new FormControl('', Validators.required),
+    senha: new FormControl('', Validators.required),
+    cpf: new FormControl('', Validators.required),
+    dataNasc: new FormControl('', Validators.required),
+    numRegistro: new FormControl('', Validators.required)
   })
 
   ngOnInit(): void {
 
     if(this.dialogData.type === 'edit'){
       
-      this.registerService.Get({ url: `teachers?id=${this.dialogData.id}`}).subscribe(
+      this.registerService.Get({ url: `funcionario/${this.dialogData.id}`}).subscribe(
         (success: any) => {
-          this._form.patchValue(success[0])
+          this._form.patchValue(success)
         }
       )
 
@@ -79,10 +79,16 @@ export class RegisterTeacherComponent implements OnInit {
 
   registerTeacher(){
 
+    let obj = {
+      ...this._form.value,
+      foto: '',
+      sexo: '',
+    }
+
     this.registerService.Post
       ({
-        url: `teachers`,
-        body: this._form.value 
+        url: `funcionario`,
+        body: obj
       })
       .subscribe(
         (success: any) => {
@@ -100,7 +106,7 @@ export class RegisterTeacherComponent implements OnInit {
 
   putTeacher(){
     this.registerService.Put({
-      url: `teachers/${this.dialogData.id}`,
+      url: `funcionario/${this.dialogData.id}`,
       body: this._form.value
     })
     .subscribe(
