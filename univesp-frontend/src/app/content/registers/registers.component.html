@@ -73,7 +73,7 @@
 										<mat-icon> edit </mat-icon>
 										<span> Editar </span>
 									</button>
-									<button mat-menu-item (click)="deleteItem('groups', element.id) ? getGroups() : '' ">
+									<button mat-menu-item (click)="deleteItem('Turma', element.id) ? getGroups() : '' ">
 										<mat-icon> delete </mat-icon>
 										<span> Excluir </span>
 									</button>
@@ -129,7 +129,7 @@
 											<mat-icon> edit </mat-icon>
 											<span> Editar </span>
 										</button>
-										<button mat-menu-item (click)="deleteItem('teachers', element.funcionarioId) ? getGroups() : '' ">
+										<button mat-menu-item (click)="deleteItem('Funcionario', element.funcionarioId) ? getGroups() : '' ">
 											<mat-icon> delete </mat-icon>
 											<span> Excluir </span>
 										</button>
@@ -184,7 +184,7 @@
 											<mat-icon> edit </mat-icon>
 											<span> Editar </span>
 										</button>
-										<button mat-menu-item (click)="deleteItem('groups', element.alunoId) ? getGroups() : '' ">
+										<button mat-menu-item (click)="deleteItem('Aluno', element.alunoId) ? getGroups() : '' ">
 											<mat-icon> delete </mat-icon>
 											<span> Excluir </span>
 										</button>
@@ -235,11 +235,11 @@
 								<span *ngSwitchCase="'Controls'"> 
 									<mat-icon [matMenuTriggerFor]="menu_controls"> more_vert </mat-icon>
 									<mat-menu #menu_controls="matMenu">
-										<button mat-menu-item (click)="registerResponsible('edit', element.id)">
+										<button mat-menu-item (click)="registerResponsible('edit', element.responsavelId)">
 											<mat-icon> edit </mat-icon>
 											<span> Editar </span>
 										</button>
-										<button mat-menu-item (click)="deleteItem('groups', element.id) ? getStudents() : '' ">
+										<button mat-menu-item (click)="deleteItem('Responsavel', element.responsavelId) ? getStudents() : '' ">
 											<mat-icon> delete </mat-icon>
 											<span> Excluir </span>
 										</button>

@@ -52,14 +52,14 @@ export class RegistersComponent implements OnInit {
           }
       });
 
-      this.getGroups()
-      this.getTeachers()
-      this.getStudents()
-      this.getResposibles()
+      this.getAll()
   }
 
   getAll(){
-
+    this.getGroups()
+    this.getTeachers()
+    this.getStudents()
+    this.getResposibles()
   }
 
   getGroups(){
@@ -186,6 +186,7 @@ export class RegistersComponent implements OnInit {
       .subscribe(
         (success: any) => {
           this.matSnackBar.open(`Cadastro deletado com sucesso`, '', { duration: 1500 })
+          this.getAll()
           return true
         }, error => {
           this.matSnackBar.open('Ocorreu um erro', '', {duration: 2000})
