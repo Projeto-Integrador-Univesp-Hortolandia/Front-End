@@ -1,4 +1,4 @@
-<div mat-toolbar class="app-title">Inserir Mensagenss</div>
+<!--<div mat-toolbar class="app-title">Inserir Mensagens</div>-->
 <div class="main-div">
   <mat-card class="center width75" *ngIf="cadastro" >
     <form autocomplete="off" novalidate [formGroup]="cadastro" (ngSubmit)="submit()" (ngReset)="reiniciarForm()">
@@ -21,8 +21,8 @@
     </mat-card-content>
 
       <mat-card-actions>
-        <button type="return" color="warn" mat-raised-button>Cancelar</button>
-        <button type="submit" color="accent" mat-raised-button>Salvar</button>
+        <button type="return" color="primary" mat-button>Cancelar</button>
+        <button type="submit" color="primary" mat-flat-button>Salvar</button>
       </mat-card-actions>
     </form>
   </mat-card>

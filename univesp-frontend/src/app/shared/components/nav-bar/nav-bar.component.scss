@@ -2,7 +2,7 @@ $secondary: #EDE7F6;
 $primary: #4527A0;
 
 .container {
-    display: flex;
+    //display: flex;
     flex-direction: column;
     position: absolute;
     top: 0;
@@ -48,20 +48,20 @@ $primary: #4527A0;
       }
     }
   }
-  
+
   .is-mobile .toolbar {
     position: fixed;
     z-index: 2;
   }
-  
+
   h1.app-name {
     margin-left: 8px;
   }
-  
+
   .sidenav-container {
       flex: 1;
       background-color: #fff !important;
-    
+
       mat-sidenav{
           width: 250px;
           overflow: initial !important;
@@ -93,7 +93,7 @@ $primary: #4527A0;
               &-item{
                   height: 45px;
                   width: 100%;
-                  border-radius: 7px;          
+                  border-radius: 7px;
                   display: flex;
                   flex-direction: row;
                   align-items: center;
@@ -118,9 +118,8 @@ $primary: #4527A0;
           overflow: hidden;
       }
   }
-  
+
   .is-mobile .sidenav-container {
     flex: 1 0 auto;
   }
 
-  

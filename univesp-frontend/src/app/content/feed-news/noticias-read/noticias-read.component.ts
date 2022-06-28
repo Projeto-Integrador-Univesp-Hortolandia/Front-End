@@ -16,6 +16,8 @@ import { NoticiasService } from '../services/noticias.service';
 export class NoticiasReadComponent implements OnInit {
   readonly semFoto = 'https://www.termoparts.com.br/wp-content/uploads/2017/10/no-image.jpg';
 
+  panelOpenState = false;
+
   config: ConfigParams = {
     pagina: 0,
     limite: 4
@@ -45,8 +47,6 @@ export class NoticiasReadComponent implements OnInit {
       this.config.campo = {tipo: 'genero', valor: val};
       this.resetarConsulta();
     });
-
-    this.generos = ['Ação', 'Romance', 'Aventura', 'Terror', 'Ficção cientifica', 'Comédia', 'Aventura', 'Drama'];
 
     this.listarNoticias();
   }
