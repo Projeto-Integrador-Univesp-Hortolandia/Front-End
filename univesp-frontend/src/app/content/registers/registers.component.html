@@ -125,11 +125,11 @@
 								<span *ngSwitchCase="'Controls'"> 
 									<mat-icon [matMenuTriggerFor]="menu_controls"> more_vert </mat-icon>
 									<mat-menu #menu_controls="matMenu">
-										<button mat-menu-item (click)="registerTeacher('edit', element.id)">
+										<button mat-menu-item (click)="registerTeacher('edit', element.funcionarioId)">
 											<mat-icon> edit </mat-icon>
 											<span> Editar </span>
 										</button>
-										<button mat-menu-item (click)="deleteItem('teachers', element.id) ? getGroups() : '' ">
+										<button mat-menu-item (click)="deleteItem('teachers', element.funcionarioId) ? getGroups() : '' ">
 											<mat-icon> delete </mat-icon>
 											<span> Excluir </span>
 										</button>
