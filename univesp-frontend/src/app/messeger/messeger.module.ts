@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { MessegerRoutingModule } from './messeger-routing.module';
 import { MessegerComponent } from './messeger.component';
 import { MaterialModule } from '../material-module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -13,7 +14,9 @@ import { MaterialModule } from '../material-module';
   imports: [
     CommonModule,
     MessegerRoutingModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class MessegerModule { }
