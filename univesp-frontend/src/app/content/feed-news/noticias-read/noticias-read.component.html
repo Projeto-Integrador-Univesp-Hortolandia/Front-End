@@ -20,22 +20,20 @@
             Nova publicação
           </mat-panel-title>
         </mat-expansion-panel-header>
-
-        <app-noticias-create></app-noticias-create>
-
+           <app-noticias-create></app-noticias-create>
     </mat-expansion-panel>
 </mat-accordion>
 
 
-
-<div  class="home-content"
-      infiniteScroll
-      (scrolled)="onScroll()"
-      *ngIf="noticias.length; else semRegistro">
+    <div  class="home-content"
+    infiniteScroll
+    (scrolled)="onScroll()"
+    *ngIf="noticias.length; else semRegistro">
 
     <mat-card class="home-card" *ngFor="let noticia of noticias">
         <mat-card-header>
-            <div mat-card-avatar class="example-header-image"></div>
+            <img mat-card-avatar class="header-image" [src]="semFotoPerfil">
+
             <mat-card-title>{{noticia.titulo}}</mat-card-title>
             <mat-card-subtitle> Postado em: {{noticia.dtLancamento | date: 'dd/MM/yyyy'}}</mat-card-subtitle>
         </mat-card-header>

@@ -14,7 +14,8 @@ import { NoticiasService } from '../services/noticias.service';
 
 
 export class NoticiasReadComponent implements OnInit {
-  readonly semFoto = 'https://www.termoparts.com.br/wp-content/uploads/2017/10/no-image.jpg';
+  readonly semFoto = 'http://localhost:3000/assets/images/no-image.jpg';
+  readonly semFotoPerfil = 'http://localhost:3000/assets/images/logo_escola.png';
 
   panelOpenState = false;
 

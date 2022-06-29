@@ -112,7 +112,7 @@
     },
     {
       "titulo": "Professora Nayara",
-      "urlFoto": "./assets/images/turma_1.png",
+      "urlFoto": "http://localhost:3000/assets/images/turma_1.png",
       "dtLancamento": "2019-06-14T03:00:00.000Z",
       "descricao": "Chegada ao Parque Ecológico Monsenhor Emílio José Salim.",
       "nota": 10,
