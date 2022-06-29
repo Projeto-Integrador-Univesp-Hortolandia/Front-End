@@ -5,29 +5,24 @@
         <div class="card-header">
             <img src="../../../../assets/profile-icon.png" alt="">
             <div class="content">
-                <span class="content-name"> John Doe </span>
-                <span class="content-time"> há 6 dias </span>
+                <span class="content-name"> {{ postBody.author }} </span>
+                <span class="content-time"> {{ postBody.date | date: 'dd/MM/YYYY' }} </span>
             </div>
         </div>
         <div class="card-content">
-            <ng-container *ngIf="hasText">
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. A facere officia corporis expedita facilis! Dolores rerum perspiciatis totam hic cupiditate eos pariatur neque dolore, dolorem minima aliquam veritatis tenetur exercitationem.
-                </p>
+            <ng-container *ngIf="!postBody.hasAlert">
+                <p> {{ postBody.content }}</p>
             </ng-container>
             
-            <ng-container *ngIf="hasImage">
-                <img src="../../../../assets/images/bg-login.png" alt="">
+            <ng-container *ngIf="postBody.hasImage">
+                <img [src]="postBody.media" alt="">
             </ng-container>
 
-            <ng-container *ngIf="hasAlert">
-                <div class="alert-container" [ngClass]="alertType">
+            <ng-container *ngIf="postBody.hasAlert">
+                <div class="alert-container" [ngClass]="postBody.type">
                     <div class="alert-wrapper">
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate quis expedita beatae aspernatur sunt laudantium minus exercitationem cupiditate quia aliquid culpa, ea, hic praesentium fugit obcaecati, excepturi veritatis dolorem fuga.
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate quis expedita beatae aspernatur sunt laudantium minus exercitationem cupiditate.
+                            {{ postBody.content }}
                         </p>
                         <mat-divider> </mat-divider>
                         <mat-checkbox>

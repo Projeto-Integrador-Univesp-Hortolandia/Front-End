@@ -27,14 +27,14 @@ export class RegisterGroupComponent implements OnInit {
   filteredOptions!: Observable<string[]>;
 
   myControl = new FormControl('');
-  allStudents$ = this.registerService.Get({ url: 'students' })
+  allStudents$ = this.registerService.Get({ url: 'Turma' })
   filterStudents$ = this.myControl.valueChanges
   .pipe(
     debounceTime(300),
     switchMap(
       student => this.registerService.Get
       ({
-        url: `students?Nome=${student}`
+        url: `Turma?Nome=${student}`
       })
     )
   )
@@ -51,6 +51,8 @@ export class RegisterGroupComponent implements OnInit {
 
   ngOnInit(): void {
 
+    console.log(this.dialogData.id)
+
     if (this.dialogData.type === 'edit'){
 
       forkJoin({
@@ -65,7 +67,7 @@ export class RegisterGroupComponent implements OnInit {
             ),
         students: this.registerService
             .Get({
-              url: `students?Group=${this.dialogData.id}`
+              url: `Aluno?id=${this.dialogData.id}`
             })
             .pipe(
               catchError(error => {

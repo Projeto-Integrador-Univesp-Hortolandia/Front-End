@@ -25,14 +25,14 @@ export class RegisterResponsibleComponent implements OnInit {
   filteredOptions!: Observable<string[]>;
 
   myControl = new FormControl('');
-  allChildren$ = this.registerService.Get({ url: 'students' })
+  allChildren$ = this.registerService.Get({ url: 'Aluno' })
   filterChildren$ = this.myControl.valueChanges
   .pipe(
     debounceTime(300),
     switchMap(
       student => this.registerService.Get
       ({
-        url: `students?Nome=${student}`
+        url: `Aluno?Nome=${student}`
       })
     )
   )

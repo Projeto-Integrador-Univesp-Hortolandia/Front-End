@@ -24,14 +24,14 @@ export class RegisterStudentComponent implements OnInit {
   groupsList = [] as any[]
 
   myControl = new FormControl('');
-  allGroups$ = this.registerService.Get({ url: 'groups' })
+  allGroups$ = this.registerService.Get({ url: 'Aluno' })
   filterGroups$ = this.myControl.valueChanges
   .pipe(
     debounceTime(300),
     switchMap(
       student => this.registerService.Get
       ({
-        url: `groups?Nome=${student}`
+        url: `Aluno?Nome=${student}`
       })
     )
   )
@@ -49,7 +49,7 @@ export class RegisterStudentComponent implements OnInit {
 
     if (this.dialogData.type === 'edit'){
 
-      this.registerService.Get({ url: `aluno/${this.dialogData.id}` })
+      this.registerService.Get({ url: `Aluno/${this.dialogData.id}` })
         .subscribe(
           (success: any) => {
             this._form.patchValue(success)

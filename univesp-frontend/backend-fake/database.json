@@ -1,164 +1,195 @@
 {
-  "groups": [
+  "Login": [
     {
-      "Nome": "Nova turma",
-      "Ano": "4° ano",
-      "Turma": "N",
-      "Periodo": "Tarde",
-      "Sala": "5",
+      "user": "usuario@univesp.com.br",
+      "password": "user123!",
+      "permissions": {
+        "canCreate": false,
+        "canDelete": false,
+        "canUpdate": false,
+        "canRead": true
+      }
+    },
+    {
+      "user": "admins@univesp.com.br",
+      "password": "admin123!",
+      "permissions": {
+        "canCreate": true,
+        "canDelete": true,
+        "canUpdate": true,
+        "canRead": true
+      }
+    }
+  ],
+  "Turma": [
+    {
+      "nome": "Nova turma",
+      "ano": "4° ano",
+      "turma": "N",
+      "periodo": "Tarde",
+      "sala": "5",
       "id": 3
     },
     {
-      "Nome": "Nova turma",
-      "Ano": "5° ano",
-      "Turma": "N",
-      "Periodo": "Tarde",
-      "Sala": "6",
+      "nome": "Nova turma",
+      "ano": "5° ano",
+      "turma": "N",
+      "periodo": "Tarde",
+      "sala": "6",
       "id": 4
     },
     {
-      "Nome": "Nova turma",
-      "Ano": "5° ano",
-      "Turma": "N",
-      "Periodo": "Noite",
-      "Sala": "3",
+      "nome": "Nova turma",
+      "ano": "5° ano",
+      "turma": "N",
+      "periodo": "Noite",
+      "sala": "3",
       "id": 5
     },
     {
-      "Nome": "Nova turma",
-      "Ano": "1° ano",
-      "Turma": "N",
-      "Periodo": "Manhã",
-      "Sala": "3",
+      "nome": "Nova turma",
+      "ano": "1° ano",
+      "turma": "N",
+      "periodo": "Manhã",
+      "sala": "3",
       "id": 6
     },
     {
-      "Nome": "Nova turma",
-      "Ano": "1° ano",
-      "Turma": "N",
-      "Periodo": "Manhã",
-      "Sala": "3",
+      "nome": "Nova turma",
+      "ano": "1° ano",
+      "turma": "N",
+      "periodo": "Manhã",
+      "sala": "3",
       "id": 7
     },
     {
-      "Nome": "Nova turma",
-      "Ano": "1° ano",
-      "Turma": "N",
-      "Periodo": "Tarde",
-      "Sala": "6",
+      "nome": "Nova turma",
+      "ano": "1° ano",
+      "turma": "N",
+      "periodo": "Tarde",
+      "sala": "6",
       "id": 8
     },
     {
-      "Nome": "TURMA 123-A",
-      "Ano": "3° Ano",
-      "Turma": "B",
-      "Periodo": "Manhã",
-      "Sala": "4",
+      "nome": "TURMA 123-A",
+      "ano": "3° Ano",
+      "turma": "B",
+      "periodo": "Manhã",
+      "sala": "4",
       "id": 9
+    },
+    {
+      "nome": "Richard eu to com fome",
+      "ano": "2022",
+      "turma": "A",
+      "periodo": "Noite",
+      "sala": "123",
+      "id": 10
     }
   ],
-  "teachers": [
+  "Professor": [
     {
       "id": 1,
-      "Nome": "Professor Legal",
-      "Email": "Professor@Univesp.com.br",
-      "Senha": "123456789",
-      "CPF": "12345678910",
-      "DataNasc": "1947-01-01",
-      "NumRegisto": "123426789-ABC",
+      "nome": "Professor Legal",
+      "email": "Professor@Univesp.com.br",
+      "senha": "123456789",
+      "cpf": "12345678910",
+      "dataNasc": "1947-01-01",
+      "numRegistro": "123426789-ABC",
       "Group": 1
     },
     {
-      "Nome": "Professora",
-      "Email": "Professora@univesp.com.br",
-      "Senha": "1234567890",
-      "CPF": "12345678910",
-      "DataNasc": "26/12/1997",
-      "NumRegistro": "123123123",
-      "id": 2
+      "id": 2,
+      "nome": "Professora",
+      "email": "Professora@univesp.com.br",
+      "senha": "1234567890",
+      "cpf": "12345678910",
+      "dataNasc": "26/12/1997",
+      "numRegistro": "123123123",
+      "Group": 2
     }
   ],
-  "students": [
+  "Aluno": [
     {
       "id": 1,
-      "Nome": "Joãozinho da silva",
-      "CPF": "98765432110",
-      "DataNasc": "2015-01-01",
-      "Observacao": "Precisa sair 10 minutos mais cedo",
-      "Group": 2
+      "nome": "Joãozinho da silva",
+      "cpf": "98765432110",
+      "dataNasc": "2015-01-01",
+      "observacao": "Precisa sair 10 minutos mais cedo",
+      "group": 2
     },
     {
       "id": 2,
-      "Nome": "Clarinha da silva",
-      "CPF": "78945612310",
-      "DataNasc": "2016-01-01",
-      "Observacao": "",
-      "Group": 2
+      "nome": "Clarinha da silva",
+      "cpf": "78945612310",
+      "dataNasc": "2016-01-01",
+      "observacao": "",
+      "group": 2
     },
     {
       "id": 1,
-      "Nome": "Maria da silva",
-      "CPF": "98765432110",
-      "DataNasc": "2015-01-01",
-      "Observacao": "",
-      "Group": 2
+      "nome": "Maria da silva",
+      "cpf": "98765432110",
+      "dataNasc": "2015-01-01",
+      "observacao": "",
+      "group": 2
     },
     {
       "id": 2,
-      "Nome": "Valentina da silva",
-      "CPF": "78945612310",
-      "DataNasc": "2016-01-01",
-      "Observacao": "",
-      "Group": 2
+      "nome": "Valentina da silva",
+      "cpf": "78945612310",
+      "dataNasc": "2016-01-01",
+      "observacao": "",
+      "group": 2
     },
     {
       "id": 1,
-      "Nome": "Enzo da silva",
-      "CPF": "98765432110",
-      "DataNasc": "2015-01-01",
-      "Observacao": "",
-      "Group": 2
+      "nome": "Enzo da silva",
+      "cpf": "98765432110",
+      "dataNasc": "2015-01-01",
+      "observacao": "",
+      "group": 2
     },
     {
       "id": 2,
-      "Nome": "Lucas da silva",
-      "CPF": "78945612310",
-      "DataNasc": "2016-01-01",
-      "Observacao": "",
-      "Group": 2
+      "nome": "Lucas da silva",
+      "cpf": "78945612310",
+      "dataNasc": "2016-01-01",
+      "observacao": "",
+      "group": 2
     },
     {
       "id": 1,
-      "Nome": "Marcela da silva",
-      "CPF": "98765432110",
-      "DataNasc": "2015-01-01",
-      "Observacao": "",
-      "Group": 2
+      "nome": "Marcela da silva",
+      "cpf": "98765432110",
+      "dataNasc": "2015-01-01",
+      "observacao": "",
+      "group": 2
     },
     {
       "id": 2,
-      "Nome": "Marcos da silva",
-      "CPF": "78945612310",
-      "DataNasc": "2016-01-01",
-      "Observacao": "",
-      "Group": 2
+      "nome": "Marcos da silva",
+      "cpf": "78945612310",
+      "dataNasc": "2016-01-01",
+      "observacao": "",
+      "group": 2
     },
     {
-      "Nome": "Luan alves",
-      "CPF": "12345678910",
-      "DataNasc": "26-12-1997",
-      "Observacao": "Sim",
-      "id": 3
+      "nome": "Luan alves",
+      "cpf": "12345678910",
+      "dataNasc": "26-12-1997",
+      "observacao": "Sim",
+      "gd": 3
     }
   ],
-  "responsibles": [
+  "Responsavel": [
     {
       "id": 1,
-      "Nome": "Joãozinho da silva",
-      "CPF": "98765432110",
-      "DataNasc": "2015-01-01",
-      "Observacao": "",
-      "Filhos": [
+      "nome": "Joãozinho da silva",
+      "cpf": "98765432110",
+      "dataNasc": "2015-01-01",
+      "observacao": "",
+      "filhos": [
         {
           "id": 1
         },
@@ -168,14 +199,176 @@
       ]
     },
     {
-      "Nome": "Lucas da silva Correa",
-      "CPF": "12345678910",
-      "DataNasc": "20/04/1999",
-      "Observacao": "Lucsa amigos",
-      "id": 2
+      "nome": "Lucas da silva Correa",
+      "cpf": "12345678910",
+      "dataNasc": "20/04/1999",
+      "observacao": "Lucsa amigos",
+      "fd": 2
     }
   ],
-  "messages": [
+  "Home": [
+    {
+      "id": 1,
+      "date": "2022-01-01",
+      "author": "Teste foof",
+      "content": "Uma postagem de teste",
+      "hasAlert": false,
+      "hasImage": false,
+      "hasContent": true,
+      "type": "",
+      "media": ""
+    },
+    {
+      "id": 2,
+      "date": "2022-01-01",
+      "author": "Teste foof",
+      "content": "Uma postagem de teste",
+      "hasAlert": false,
+      "hasImage": true,
+      "type": "",
+      "media": "https://i.ytimg.com/vi/Wk1XDuO0O2g/hqdefault.jpg"
+    },
+    {
+      "id": 3,
+      "date": "2022-01-01",
+      "author": "Teste foof",
+      "content": "Um aviso de teste",
+      "hasAlert": true,
+      "hasImage": false,
+      "type": "content",
+      "media": ""
+    },
+    {
+      "id": 4,
+      "date": "2022-01-01",
+      "author": "Teste foof",
+      "content": "Um aviso de teste",
+      "hasAlert": true,
+      "hasImage": false,
+      "type": "success",
+      "media": ""
+    },
+    {
+      "id": 5,
+      "date": "2022-01-01",
+      "author": "Teste foof",
+      "content": "Amanhã (01/02/2022) não haverá aula",
+      "hasAlert": true,
+      "hasImage": false,
+      "type": "warning",
+      "media": ""
+    },
+    {
+      "id": 6,
+      "date": "2022-01-01",
+      "author": "Teste foof",
+      "content": "A retirada dos uniformes será feita entre as datas de 01/02/2022 até 01/03/2022",
+      "hasAlert": true,
+      "hasImage": false,
+      "type": "alert",
+      "media": ""
+    },
+    {
+      "date": "2022-06-29T02:46:56.799Z",
+      "author": "Usuario Teste",
+      "content": "",
+      "hasAlert": false,
+      "hasImage": false,
+      "hasContent": true,
+      "type": "",
+      "media": "",
+      "id": 7
+    },
+    {
+      "date": "2022-06-29T02:53:36.467Z",
+      "author": "Usuario Teste",
+      "content": "awdawdawdawd",
+      "hasAlert": false,
+      "hasImage": false,
+      "hasContent": true,
+      "type": "",
+      "media": "",
+      "id": 8
+    },
+    {
+      "date": "2022-06-29T03:02:54.555Z",
+      "author": "Usuario Teste",
+      "content": "awdawdawdawdawdawdaw",
+      "hasAlert": false,
+      "hasImage": true,
+      "hasContent": true,
+      "type": "",
+      "media": "brand.png",
+      "id": 9
+    },
+    {
+      "date": "2022-06-29T03:03:36.851Z",
+      "author": "Usuario Teste",
+      "content": "",
+      "hasAlert": false,
+      "hasImage": true,
+      "hasContent": true,
+      "type": "",
+      "media": "brand.png",
+      "id": 10
+    },
+    {
+      "date": "2022-06-29T03:10:07.178Z",
+      "author": "Usuario Teste",
+      "content": "123123123123123",
+      "hasAlert": true,
+      "hasImage": false,
+      "hasContent": true,
+      "type": "content",
+      "media": "",
+      "id": 11
+    },
+    {
+      "date": "2022-06-29T03:16:16.116Z",
+      "author": "Usuario Teste",
+      "content": "awdawdawdawd",
+      "hasAlert": true,
+      "hasImage": false,
+      "hasContent": true,
+      "type": "awdawdawdawd",
+      "media": "",
+      "id": 12
+    },
+    {
+      "date": "2022-06-29T03:16:42.454Z",
+      "author": "Usuario Teste",
+      "content": "awdawdawdawda",
+      "hasAlert": true,
+      "hasImage": false,
+      "hasContent": true,
+      "type": "content",
+      "media": "",
+      "id": 13
+    },
+    {
+      "date": "2022-06-29T03:16:50.233Z",
+      "author": "Usuario Teste",
+      "content": "",
+      "hasAlert": true,
+      "hasImage": false,
+      "hasContent": true,
+      "type": "alert",
+      "media": "",
+      "id": 14
+    },
+    {
+      "date": "2022-06-29T03:18:51.801Z",
+      "author": "Usuario Teste",
+      "content": "awdawdawdawdawd",
+      "hasAlert": true,
+      "hasImage": false,
+      "hasContent": true,
+      "type": "success",
+      "media": "",
+      "id": 15
+    }
+  ],
+  "Chat": [
     {
       "from": 1,
       "to": 2,

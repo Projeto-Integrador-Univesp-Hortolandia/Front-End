@@ -14,8 +14,12 @@ export class CardNewsComponent implements OnInit {
   @Input() hasImage: boolean = false
   @Input() hasAlert: boolean = false
   @Input() alertType: string = 'warning'
+  @Input() postBody: any = {}
 
   ngOnInit(): void {
+
+    
+
   }
 
 }

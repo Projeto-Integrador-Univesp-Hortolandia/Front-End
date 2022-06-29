@@ -27,14 +27,14 @@ export class RegisterTeacherComponent implements OnInit {
   filteredOptions!: Observable<string[]>;
 
   myControl = new FormControl('');
-  allGroups$ = this.registerService.Get({ url: 'groups' })
+  allGroups$ = this.registerService.Get({ url: 'Turma' })
   filterGroups$ = this.myControl.valueChanges
   .pipe(
     debounceTime(300),
     switchMap(
       student => this.registerService.Get
       ({
-        url: `groups?Nome=${student}`
+        url: `Turma?Nome=${student}`
       })
     )
   )
@@ -54,7 +54,7 @@ export class RegisterTeacherComponent implements OnInit {
 
     if(this.dialogData.type === 'edit'){
       
-      this.registerService.Get({ url: `funcionario/${this.dialogData.id}`}).subscribe(
+      this.registerService.Get({ url: `Professor/${this.dialogData.id}`}).subscribe(
         (success: any) => {
           this._form.patchValue(success)
         }

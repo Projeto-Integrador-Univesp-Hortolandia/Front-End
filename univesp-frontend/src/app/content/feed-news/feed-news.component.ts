@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { FeedService } from 'src/app/services/register/feed.service';
 import { ContentCreatorComponent } from './content-creator/content-creator.component';
 
 @Component({
@@ -10,10 +11,22 @@ import { ContentCreatorComponent } from './content-creator/content-creator.compo
 export class FeedNewsComponent implements OnInit {
 
   constructor(
-    private matDialog: MatDialog
+    private matDialog: MatDialog,
+    private feedService: FeedService
   ) { }
 
   ngOnInit(): void {
+    this.getFeed()
+  }
+
+  feedList: any = []
+
+  getFeed(){
+    this.feedService.Get({url: 'Home'}).subscribe(
+      ((success: any) => {
+        this.feedList = success
+      })
+    )
   }
 
   createContent(type: string){

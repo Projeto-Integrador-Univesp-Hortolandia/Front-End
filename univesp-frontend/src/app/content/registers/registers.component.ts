@@ -72,7 +72,7 @@ export class RegistersComponent implements OnInit {
   }
 
   getTeachers(){
-    this.registerService.Get({ url: 'Funcionario' })
+    this.registerService.Get({ url: 'Professor' })
       .subscribe(
         (success: Teachers[]) => {
           this.teachers = new MatTableDataSource(success)

@@ -6,6 +6,7 @@ import { FeedNewsComponent } from './feed-news.component';
 import { MaterialModule } from 'src/app/material-module';
 import { ComponentsModule } from 'src/app/shared/components/components.module';
 import { ContentCreatorComponent } from './content-creator/content-creator.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,7 +18,9 @@ import { ContentCreatorComponent } from './content-creator/content-creator.compo
     CommonModule,
     MaterialModule,
     FeedNewsRoutingModule,
-    ComponentsModule
+    ComponentsModule,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class FeedNewsModule { }

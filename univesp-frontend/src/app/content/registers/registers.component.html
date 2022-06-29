@@ -125,11 +125,11 @@
 								<span *ngSwitchCase="'Controls'"> 
 									<mat-icon [matMenuTriggerFor]="menu_controls"> more_vert </mat-icon>
 									<mat-menu #menu_controls="matMenu">
-										<button mat-menu-item (click)="registerTeacher('edit', element.funcionarioId)">
+										<button mat-menu-item (click)="registerTeacher('edit', element.id)">
 											<mat-icon> edit </mat-icon>
 											<span> Editar </span>
 										</button>
-										<button mat-menu-item (click)="deleteItem('Funcionario', element.funcionarioId) ? getGroups() : '' ">
+										<button mat-menu-item (click)="deleteItem('Funcionario', element.id) ? getGroups() : '' ">
 											<mat-icon> delete </mat-icon>
 											<span> Excluir </span>
 										</button>
@@ -180,11 +180,11 @@
 								<span *ngSwitchCase="'Controls'"> 
 									<mat-icon [matMenuTriggerFor]="menu_controls"> more_vert </mat-icon>
 									<mat-menu #menu_controls="matMenu">
-										<button mat-menu-item (click)="registerStudent('edit', element.alunoId)">
+										<button mat-menu-item (click)="registerStudent('edit', element.id)">
 											<mat-icon> edit </mat-icon>
 											<span> Editar </span>
 										</button>
-										<button mat-menu-item (click)="deleteItem('Aluno', element.alunoId) ? getGroups() : '' ">
+										<button mat-menu-item (click)="deleteItem('Aluno', element.id) ? getGroups() : '' ">
 											<mat-icon> delete </mat-icon>
 											<span> Excluir </span>
 										</button>
@@ -235,11 +235,11 @@
 								<span *ngSwitchCase="'Controls'"> 
 									<mat-icon [matMenuTriggerFor]="menu_controls"> more_vert </mat-icon>
 									<mat-menu #menu_controls="matMenu">
-										<button mat-menu-item (click)="registerResponsible('edit', element.responsavelId)">
+										<button mat-menu-item (click)="registerResponsible('edit', element.id)">
 											<mat-icon> edit </mat-icon>
 											<span> Editar </span>
 										</button>
-										<button mat-menu-item (click)="deleteItem('Responsavel', element.responsavelId) ? getStudents() : '' ">
+										<button mat-menu-item (click)="deleteItem('Responsavel', element.id) ? getStudents() : '' ">
 											<mat-icon> delete </mat-icon>
 											<span> Excluir </span>
 										</button>

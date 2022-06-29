@@ -11,12 +11,26 @@
         </div>
 
         <div class="creator-dialog-content">
-            <input class="input-CC" type="text" placeholder="Aqui vai o textinho">
+            <input class="input-CC" type="text" [formControl]="content" placeholder="Aqui vai o textinho">
         </div>
 
-        <app-upload-files>
+        <app-upload-files *ngIf="!isAlert" (returnFile)="fileUpload = $event">
         </app-upload-files>
+
+        <mat-form-field appearance="outline" *ngIf="isAlert">
+            <mat-label>Tipo do alerta</mat-label>
+            <mat-select [formControl]="type">
+              <mat-option *ngFor="let alert of types" [value]="alert.type">
+                {{alert.nome}}
+              </mat-option>
+            </mat-select>
+        </mat-form-field>
         
-        <button mat-flat-button color="primary"> Publicar </button>
+        <button 
+            mat-flat-button 
+            color="primary" 
+            [disabled]=" isAlert ? !type.valid && !content.valid : !content.valid "
+            (click)="postFeed()"
+        > Publicar </button>
     </mat-dialog-content>
 </div>

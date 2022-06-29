@@ -8,15 +8,15 @@
                 <p (click)="createContent('')"> Criar conteudo :D </p>
             </div>
             <div class="upload-options">
-                <div class="option" (click)="createContent('')">
+                <div class="option" (click)="createContent('text')">
                     <mat-icon> format_quote </mat-icon>
                     <span> Criar texto </span>
                 </div>
-                <div class="option" (click)="createContent('')">
+                <div class="option" (click)="createContent('text')">
                     <mat-icon> crop_original </mat-icon>
                     <span> Carregar foto </span>
                 </div>
-                <div class="option" (click)="createContent('')">
+                <div class="option" (click)="createContent('alert')">
                     <mat-icon> campaign </mat-icon>
                     <span> Criar aviso </span>
                 </div>
@@ -24,7 +24,14 @@
         </div>
     
         <div class="timeline">
-    
+
+            <app-card-news 
+                *ngFor="let post of feedList"
+                [hasAlert]="true" 
+                [alertType]="'content'"
+                [postBody]="post"
+            ></app-card-news>
+<!--     
             <app-card-news [hasAlert]="true" [alertType]="'content'"></app-card-news>
             <app-card-news [hasText]="true"></app-card-news>
             <app-card-news [hasAlert]="true" [alertType]="'sucess'"></app-card-news>
@@ -32,7 +39,7 @@
             <app-card-news [hasAlert]="true" [alertType]="'warning'"></app-card-news>
             <app-card-news [hasImage]="true"></app-card-news>
             <app-card-news [hasAlert]="true" [alertType]="'alert'"></app-card-news>
-            <app-card-news [hasText]="true" [hasImage]="true"></app-card-news>
+            <app-card-news [hasText]="true" [hasImage]="true"></app-card-news> -->
     
         </div>
 
