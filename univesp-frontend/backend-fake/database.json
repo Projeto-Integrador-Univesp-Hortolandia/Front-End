@@ -370,6 +370,7 @@
   ],
   "Chat": [
     {
+      "author": "Usuario teste",
       "id": 1,
       "from": 1,
       "to": 2,
