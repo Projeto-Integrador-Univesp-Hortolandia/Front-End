@@ -4,8 +4,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import { Noticia } from '../../../shared/models/noticia';
 import { NoticiasService } from '../services/noticias.service';
-import { Alert } from 'src/app/shared/models/alert';
-import { AlertComponent } from 'src/app/shared/components/alert/alert.component';
+import { Alert } from '../../../shared/models/alert';
+import { AlertComponent } from '../../../shared/components/alert/alert.component';
 
 @Component({
   selector: 'app-noticias-update',

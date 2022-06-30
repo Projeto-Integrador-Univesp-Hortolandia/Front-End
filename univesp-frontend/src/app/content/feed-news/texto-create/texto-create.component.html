@@ -4,17 +4,7 @@
       <mat-card-content>
         <app-input-date titulo="Data de Lançamento *" controlName="dtLancamento" [formGroup]="cadastro"></app-input-date>
         <app-input-text titulo="Seu nome *" controlName="nome" [formGroup]="cadastro"></app-input-text>
-        <app-input-textarea titulo="Descrição" controlName="descricao" [formGroup]="cadastro"></app-input-textarea>
-
-      <div class="file-container" *ngIf="!file">
-        <input type="file" (change)="getFile($event)" class="file" />
-      </div>
-      <div *ngIf="file">
-        Nome do Arquivo: {{ file.name }}
-        <br />
-        <button (click)="file = undefined" mat-raised-button>Descartar arquivo</button>
-        <button (click)="uploadFile()" mat-raised-button>Anexar arquivo</button>
-      </div>
+        <app-input-textarea titulo="Qual o seu aviso?" controlName="descricao" [formGroup]="cadastro"></app-input-textarea>
     </mat-card-content>
 
       <mat-card-actions>

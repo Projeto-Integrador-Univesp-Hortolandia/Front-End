@@ -1,29 +1,36 @@
 .home-content {
   display: flex;
-  flex-wrap: wrap;
-  width: calc(100% - 20px);
-  justify-content: space-evenly;
-  padding: 10px;
-  .home-card {
-    margin-bottom: 10px;
-
-  }
+  flex-direction: column;
+  align-items: center
 }
 
-.filtro-listagem {
-  width: calc(100% - 50px);
+.home-card {
+  max-width: 600px;
+  margin-bottom: 10px;
+  width: calc(100% - 130px);
 }
+
+.material-icons.pri { color: #4527A0; }
+.material-icons.blue { color: #1565C0; }
+.material-icons.yellow { color: #FFC415; }
+
+.home-buttons {
+  //max-width: 600px;
+  flex-direction: column;
+  align-items: center
+}
+
+.header-image {
+  background-size: cover;
+}
+
+.mat-card-actions{
+  display: flex;
+  justify-content: space-around;
+}
+
 
 /*
-.mat-card-image {
-  display: block;
-  margin: auto;
-  //width: 182px;
-  //height: 268px;
-
-
-}
-
 @media screen and (min-width: 325px) {
   .home-content {
     .home-card {
@@ -46,31 +53,4 @@
         width: calc(25% - 52px);
       }
     }
-}*/
-
-.home-card {
-  max-width: 600px;
-}
-
-.header-image {
-  background-size: cover;
-}
-
-.mat-card-actions{
-  float:right;
-  margin-right: 10px;
-}
-
-.mat-form-field + .mat-form-field {
-  margin-left: 8px;
-}
-
-.mat-expansion-panel-header {
-  height: 70px;
-  padding: 0px 20px;
-}
-
-/*.mat-accordion .mat-expansion-panel{
-  width: calc(100% - 40px);
-
 }*/

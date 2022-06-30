@@ -10,13 +10,12 @@ import { NoticiasService } from '../services/noticias.service';
 import { Alert } from '../../../shared/models/alert';
 import { AlertComponent } from '../../../shared/components/alert/alert.component';
 
-
 @Component({
-  selector: 'app-noticias-create',
-  templateUrl: './noticias-create.component.html',
-  styleUrls: ['./noticias-create.component.scss']
+  selector: 'app-aviso-create',
+  templateUrl: './aviso-create.component.html',
+  styleUrls: ['./aviso-create.component.scss']
 })
-export class NoticiasCreateComponent implements OnInit {
+export class AvisoCreateComponent implements OnInit {
 
   id!: number;
   cadastro!: FormGroup;

@@ -12,6 +12,9 @@ import { FeedNewsComponent } from './feed-news.component';
 import { NoticiasReadComponent } from './noticias-read/noticias-read.component';
 import { NoticiasUpdateComponent } from './noticias-update/noticias-update.component';
 import { NoticiasCreateComponent } from './noticias-create/noticias-create.component';
+import { MatBadgeModule } from '@angular/material/badge';
+import { TextoCreateComponent } from './texto-create/texto-create.component';
+import { AvisoCreateComponent } from './aviso-create/aviso-create.component';
 
 
 @NgModule({
@@ -23,13 +26,16 @@ import { NoticiasCreateComponent } from './noticias-create/noticias-create.compo
     ReactiveFormsModule,
     FormsModule,
     InfiniteScrollModule,
-    MatMenuModule
+    MatMenuModule,
+    MatBadgeModule
   ],
   declarations: [
     FeedNewsComponent,
     NoticiasReadComponent,
     NoticiasUpdateComponent,
-    NoticiasCreateComponent
+    NoticiasCreateComponent,
+    TextoCreateComponent,
+    AvisoCreateComponent
   ],
 
 })

@@ -1,31 +1,18 @@
-<!--<div mat-toolbar class="app-title">Mensagens</div>
+<div class="home-content">
+<mat-card class="home-card">
+    <mat-panel-title>Nova publicação</mat-panel-title>
+    <mat-card-actions>
+      <button mat-flat-button routerLink="/noticias/texto">
+        <span class="material-icons pri">circle</span> Criar texto</button>
+      <button mat-flat-button routerLink="/noticias/cadastro">
+        <span class="material-icons blue">circle</span> Carregar foto</button>
+      <button mat-flat-button routerLink="/noticias/aviso">
+        <span class="material-icons yellow">circle</span> Criar aviso</button>
+    </mat-card-actions>
+</mat-card>
+</div>
 
-<div mat-card class="float-left margin10 filtro-listagem" >
-    <form autocomplete="off" novalidate [formGroup]="filtrosListagem">
-        <div class="float-left width50">
-            <div class="padding10">
-                <app-input-text nome="Pesquise aqui"
-                                controlName="texto"
-                                [formGroup]="filtrosListagem">
-                </app-input-text>
-            </div>
-        </div>
-    </form>
-</div>-->
-
-<mat-accordion>
-    <mat-expansion-panel hideToggle>
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            Nova publicação
-          </mat-panel-title>
-        </mat-expansion-panel-header>
-           <app-noticias-create></app-noticias-create>
-    </mat-expansion-panel>
-</mat-accordion>
-
-
-    <div  class="home-content"
+<div  class="home-content"
     infiniteScroll
     (scrolled)="onScroll()"
     *ngIf="noticias.length; else semRegistro">

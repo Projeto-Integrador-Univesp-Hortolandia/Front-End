@@ -3,12 +3,23 @@
     {
       "nome": "Professora Nayara",
       "urlFoto": "http://localhost:3000/assets/images/turma_1.png",
-      "dtLancamento": "2019-06-14T03:00:00.000Z",
+      "dtLancamento": "2021-11-10T03:00:00.000Z",
       "descricao": "Chegada ao Parque Ecológico Monsenhor Emílio José Salim.",
-      "nota": 10,
-      "urlIMDb": "https://www.imdb.com/title/tt1618434/",
-      "genero": "Comédia",
-      "id": 12
+      "id": 1
+    },
+    {
+      "nome": "Professora Nayara",
+      "urlFoto": "http://localhost:3000/assets/images/info_1.png",
+      "dtLancamento": "2021-11-14T03:00:00.000Z",
+      "descricao": "Atenção, atenção ao Webinário!",
+      "id": 2
+    },
+    {
+      "nome": "Professora Nayara",
+      "urlFoto": "http://localhost:3000/assets/images/turma_2.png",
+      "dtLancamento": "2021-06-26T03:00:00.000Z",
+      "descricao": "Feira do livro foi um sucesso!",
+      "id": 3
     }
   ]
 }
