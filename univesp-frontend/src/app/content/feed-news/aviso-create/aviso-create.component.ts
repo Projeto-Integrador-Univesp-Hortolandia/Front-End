@@ -31,30 +31,6 @@ export class AvisoCreateComponent implements OnInit {
                 private activatedRoute: ActivatedRoute,
                 private http: HttpClient) {}
 
-  //Drag Drop file uploader
-    file: any;
-    getFile(event: any) {
-      this.file = event.target.files[0];
-
-      console.log('file', this.file);
-    }
-
-    uploadFile() {
-      let formData = new FormData();
-      formData.set('file', this.file);
-
-      //call API
-      this.http
-        .post('http://localhost:3000/assets/images', formData).subscribe(
-          (res) => console.log(res),
-          (err) => console.log(err));
-
-    }
-
-  //Commands for registering news
-    get f() {
-      return this.cadastro.controls;
-    }
 
     ngOnInit(): void {
       this.id = this.activatedRoute.snapshot.params['id'];
