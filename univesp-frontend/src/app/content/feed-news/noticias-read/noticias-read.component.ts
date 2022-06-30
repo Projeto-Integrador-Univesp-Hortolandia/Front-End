@@ -25,7 +25,7 @@ export class NoticiasReadComponent implements OnInit {
   };
   noticias: Noticia[] = [];
   filtrosListagem: any = FormGroup;
-  generos: Array<string> = [];
+  //generos: Array<string> = [];
 
   constructor(private noticiasService: NoticiasService,
               private fb: FormBuilder,
@@ -34,7 +34,7 @@ export class NoticiasReadComponent implements OnInit {
   ngOnInit(): void {
     this.filtrosListagem = this.fb.group({
       texto: [''],
-      genero: ['']
+      //genero: ['']
     });
 
     this.filtrosListagem.get('texto').valueChanges
@@ -44,10 +44,10 @@ export class NoticiasReadComponent implements OnInit {
       this.resetarConsulta();
     });
 
-    this.filtrosListagem.get('genero').valueChanges.subscribe((val: string) => {
+    /*this.filtrosListagem.get('genero').valueChanges.subscribe((val: string) => {
       this.config.campo = {tipo: 'genero', valor: val};
       this.resetarConsulta();
-    });
+    });*/
 
     this.listarNoticias();
   }

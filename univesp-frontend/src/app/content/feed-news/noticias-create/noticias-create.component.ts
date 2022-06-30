@@ -20,7 +20,7 @@ export class NoticiasCreateComponent implements OnInit {
 
   id!: number;
   cadastro!: FormGroup;
-  generos!: Array<string>;
+  //generos!: Array<string>;
 
   title = 'adminDashboard';
 
@@ -46,8 +46,10 @@ export class NoticiasCreateComponent implements OnInit {
 
       //call API
       this.http
-        .post('http://localhost:30001/uploadFiles', formData)
-        .subscribe((response) => {});
+        .post('http://localhost:3000/assets/images', formData).subscribe(
+          (res) => console.log(res),
+          (err) => console.log(err));
+
     }
 
   //Commands for registering news
@@ -63,8 +65,6 @@ export class NoticiasCreateComponent implements OnInit {
       } else {
         this.criarFormulario(this.criarnoticiaEmBranco());
       }
-
-
     }
 
     submit(): void {
@@ -88,18 +88,18 @@ export class NoticiasCreateComponent implements OnInit {
 
     private criarFormulario(noticia: Noticia): void {
       this.cadastro = this.fb.group({
-        titulo: [noticia.titulo, [Validators.required, Validators.minLength(2), Validators.maxLength(256)]],
+        nome: [noticia.nome, [Validators.required, Validators.minLength(2), Validators.maxLength(256)]],
         urlFoto: [noticia.urlFoto, [Validators.minLength(10)]],
         dtLancamento: [noticia.dtLancamento, [Validators.required]],
         descricao: [noticia.descricao]
       });
-      console.log(noticia.titulo);
+      console.log(noticia.nome);
     }
 
     private criarnoticiaEmBranco(): Noticia {
       return {
         id: null,
-        titulo: null,
+        nome: null,
         dtLancamento: null,
         urlFoto: null,
         descricao: null

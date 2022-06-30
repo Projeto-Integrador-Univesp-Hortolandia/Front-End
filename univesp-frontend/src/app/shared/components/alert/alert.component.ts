@@ -27,7 +27,7 @@ export class AlertComponent implements OnInit {
 
   ngOnInit() {
     if (this.data) {
-      this.alert.titulo = this.data.titulo || this.alert.titulo;
+      this.alert.nome = this.data.nome || this.alert.nome;
       this.alert.descricao = this.data.descricao || this.alert.descricao;
       this.alert.btnSucesso = this.data.btnSucesso || this.alert.btnSucesso;
       this.alert.btnCancelar = this.data.btnCancelar || this.alert.btnCancelar;

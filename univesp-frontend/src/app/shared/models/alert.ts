@@ -1,5 +1,5 @@
 export interface Alert {
-  titulo?: string;
+  nome?: string;
   descricao?: string;
   btnSucesso?: string;
   btnCancelar?: string;

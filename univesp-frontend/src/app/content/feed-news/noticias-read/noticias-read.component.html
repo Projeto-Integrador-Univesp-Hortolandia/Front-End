@@ -4,7 +4,7 @@
     <form autocomplete="off" novalidate [formGroup]="filtrosListagem">
         <div class="float-left width50">
             <div class="padding10">
-                <app-input-text titulo="Pesquise aqui"
+                <app-input-text nome="Pesquise aqui"
                                 controlName="texto"
                                 [formGroup]="filtrosListagem">
                 </app-input-text>
@@ -34,7 +34,7 @@
         <mat-card-header>
             <img mat-card-avatar class="header-image" [src]="semFotoPerfil">
 
-            <mat-card-title>{{noticia.titulo}}</mat-card-title>
+            <mat-card-title>{{noticia.nome}}</mat-card-title>
             <mat-card-subtitle> Postado em: {{noticia.dtLancamento | date: 'dd/MM/yyyy'}}</mat-card-subtitle>
         </mat-card-header>
 

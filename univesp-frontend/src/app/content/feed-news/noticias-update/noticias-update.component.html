@@ -1,5 +1,5 @@
 <mat-list *ngIf="noticia; else semRegistro">
-  <mat-list-item> Título: {{noticia.titulo}} </mat-list-item>
+  <mat-list-item> Título: {{noticia.nome}} </mat-list-item>
   <mat-list-item> Data de Postagem: {{noticia.dtLancamento | date: 'dd/MM/yyyy' }} </mat-list-item>
 
   <mat-list-item class="quebrar-linha"> Descrição: {{noticia.descricao}} </mat-list-item>

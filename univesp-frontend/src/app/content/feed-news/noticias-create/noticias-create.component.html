@@ -4,7 +4,7 @@
     <form autocomplete="off" novalidate [formGroup]="cadastro" (ngSubmit)="submit()" (ngReset)="reiniciarForm()">
       <mat-card-content>
         <app-input-date titulo="Data de Lançamento *" controlName="dtLancamento" [formGroup]="cadastro"></app-input-date>
-        <app-input-text titulo="Título *" controlName="titulo" [formGroup]="cadastro"></app-input-text>
+        <app-input-text titulo="Seu nome *" controlName="nome" [formGroup]="cadastro"></app-input-text>
         <app-input-textarea titulo="Descrição" controlName="descricao" [formGroup]="cadastro"></app-input-textarea>
         <app-input-text titulo="Link Foto" controlName="urlFoto" [formGroup]="cadastro"></app-input-text>
 
