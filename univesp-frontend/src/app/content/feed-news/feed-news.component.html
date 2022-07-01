@@ -24,15 +24,16 @@
         </div>
     
         <div class="timeline">
-    
-            <app-card-news [hasAlert]="true" [alertType]="'content'"></app-card-news>
-            <app-card-news [hasText]="true"></app-card-news>
-            <app-card-news [hasAlert]="true" [alertType]="'sucess'"></app-card-news>
-            <app-card-news [hasText]="true" [hasImage]="true"></app-card-news>
-            <app-card-news [hasAlert]="true" [alertType]="'warning'"></app-card-news>
-            <app-card-news [hasImage]="true"></app-card-news>
-            <app-card-news [hasAlert]="true" [alertType]="'alert'"></app-card-news>
-            <app-card-news [hasText]="true" [hasImage]="true"></app-card-news>
+
+            <app-card-news 
+            ta
+                *ngFor="let post of posts; let i = index"
+                [attr.tabindex]="i"
+                aria
+                [content]="post"
+                [hasAlert]="post.hasAlert" 
+                [alertType]="post.type"
+            ></app-card-news>
     
         </div>
 

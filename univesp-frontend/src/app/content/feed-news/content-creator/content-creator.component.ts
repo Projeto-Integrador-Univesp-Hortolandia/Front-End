@@ -24,7 +24,6 @@ export class ContentCreatorComponent implements OnInit {
 
   types = [
     { nome: 'Mensagem', type: 'content' },
-    { nome: 'Sucesso', type: 'success' },
     { nome: 'Aviso', type: 'warning' },
     { nome: 'Alerta', type: 'alert' }
   ]
@@ -38,20 +37,25 @@ export class ContentCreatorComponent implements OnInit {
   }
 
   postFeed(){
-    let body = {
-      date: new Date(),
-      author: 'Usuario Teste',
-      content: this.content.value,
-      hasAlert: this.isAlert,
-      hasImage: this.fileUpload ? true : false,
-      hasContent: true,
-      type: this.isAlert ? this.type.value : '',
-      media: this.fileUpload ? this.fileUpload[0].name : ''
+    let formData = new FormData()
+
+    if (this.fileUpload){
+      formData.append('foto', this.fileUpload[0], this.fileUpload[0].name)
     }
 
-    console.log( this.fileUpload)
+    let body = {
+      author: 'Usuario Teste',
+      turmaid: 1,
+      professorId: 0,
+      postagem: this.content.value,
+      type: this.isAlert ? this.type.value : 'content',
+      hasAlert: this.isAlert,
+      imagem: this.fileUpload ? formData : 'none',
+      dataPublicacao: new Date(),
+      tag: 0,
+    }
 
-    this.feedNews.Post({ url: 'Home', body: body })
+    this.feedNews.Post({ url: 'Posts', body: body })
       .subscribe(
         (success: any) => {
           this.matSnackbar.open('Noticia publicada com sucesso', 'Fechar', {duration: 1500})

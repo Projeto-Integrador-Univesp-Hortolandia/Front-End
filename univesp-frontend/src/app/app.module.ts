@@ -1,6 +1,7 @@
-import { NgModule } from '@angular/core';
+import { DEFAULT_CURRENCY_CODE, LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import localePt from '@angular/common/locales/pt';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -9,6 +10,10 @@ import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import { CustomDateAdapter } from './shared/utils/custon-date-adapter';
 import { HttpClientModule } from '@angular/common/http';
+import { registerLocaleData } from '@angular/common';
+
+registerLocaleData(localePt, 'pt');
+
 @NgModule({
   declarations: [
     AppComponent
@@ -22,6 +27,11 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   bootstrap: [AppComponent],
   providers: [
+		{ provide: LOCALE_ID, useValue: 'pt' },
+		{
+			provide: DEFAULT_CURRENCY_CODE,
+			useValue: 'BRL'
+		},
 		{
 			provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
 			useValue: { appearance: 'outline' }

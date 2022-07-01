@@ -5,30 +5,29 @@
         <div class="card-header">
             <img src="../../../../assets/profile-icon.png" alt="">
             <div class="content">
-                <span class="content-name"> John Doe </span>
-                <span class="content-time"> há 6 dias </span>
+                <span class="content-name"> {{ content.autor || '-' }} </span>
+                <span 
+                    class="content-time"
+                    [matTooltip]="(content.dataPublicacao | date) || '-'"
+                    matTooltipPosition="right"
+                > 
+                    {{ timeFromNow(content.dataPublicacao) || '-' }} 
+                </span>
             </div>
         </div>
         <div class="card-content">
-            <ng-container *ngIf="hasText">
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. A facere officia corporis expedita facilis! Dolores rerum perspiciatis totam hic cupiditate eos pariatur neque dolore, dolorem minima aliquam veritatis tenetur exercitationem.
-                </p>
+            <ng-container *ngIf="content.postagem != ''">
+                <p> {{ content.postagem }} </p>
             </ng-container>
             
-            <ng-container *ngIf="hasImage">
-                <img src="../../../../assets/images/bg-login.png" alt="">
+            <ng-container *ngIf="content.imagem != 'none'">
+                <img [src]="content.imagem" [alt]="content.postagem">
             </ng-container>
 
             <ng-container *ngIf="hasAlert">
                 <div class="alert-container" [ngClass]="alertType">
                     <div class="alert-wrapper">
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate quis expedita beatae aspernatur sunt laudantium minus exercitationem cupiditate quia aliquid culpa, ea, hic praesentium fugit obcaecati, excepturi veritatis dolorem fuga.
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate quis expedita beatae aspernatur sunt laudantium minus exercitationem cupiditate.
-                        </p>
+                        <p> {{ content.postagem }}  </p>
                         <mat-divider> </mat-divider>
                         <!-- <mat-checkbox>
                             Li e concordo
