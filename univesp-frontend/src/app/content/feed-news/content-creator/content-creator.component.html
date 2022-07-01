@@ -1,5 +1,5 @@
 <div class="content-creator-container">
-    <mat-icon class="dialog-close"> close </mat-icon >
+    <mat-icon class="dialog-close" [matDialogClose]="true"> close </mat-icon >
     <h2 mat-dialog-title> Criar publicação </h2>
     <mat-dialog-content class="content creator-dialog">
 
@@ -11,12 +11,26 @@
         </div>
 
         <div class="creator-dialog-content">
-            <input class="input-CC" type="text" placeholder="Digite o conteúdo">
+            <input class="input-CC" type="text" [formControl]="content" placeholder="Escreva alguma coisa">
         </div>
 
-        <app-upload-files>
+        <app-upload-files *ngIf="!isAlert" (returnFile)="fileUpload = $event">
         </app-upload-files>
+
+        <mat-form-field appearance="outline" *ngIf="isAlert">
+            <mat-label>Tipo do alerta</mat-label>
+            <mat-select [formControl]="type">
+              <mat-option *ngFor="let alert of types" [value]="alert.type">
+                {{alert.nome}}
+              </mat-option>
+            </mat-select>
+        </mat-form-field>
         
-        <button mat-flat-button color="primary"> Publicar </button>
+        <button 
+            mat-flat-button 
+            color="primary" 
+            [disabled]=" isAlert ? !type.valid && !content.valid : !content.valid "
+            (click)="postFeed()"
+        > Publicar </button>
     </mat-dialog-content>
 </div>
