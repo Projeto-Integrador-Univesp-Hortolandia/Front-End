@@ -42,19 +42,19 @@ export class RegisterTeacherComponent implements OnInit {
   groups$ = merge(this.allGroups$, this.filterGroups$)
 
   _form = new FormGroup({
-    nome: new FormControl('', Validators.required),
-    email: new FormControl('', Validators.required),
-    senha: new FormControl('', Validators.required),
-    cpf: new FormControl('', Validators.required),
-    dataNasc: new FormControl('', Validators.required),
-    numRegistro: new FormControl('', Validators.required)
+    nome: new FormControl('Teste front', Validators.required),
+    email: new FormControl('Teste@teste.com', Validators.required),
+    senha: new FormControl('Teste', Validators.required),
+    cpf: new FormControl('12345678910', Validators.required),
+    dataNasc: new FormControl('2022-01-01', Validators.required),
+    Registro: new FormControl('1234567890', Validators.required)
   })
 
   ngOnInit(): void {
 
     if(this.dialogData.type === 'edit'){
       
-      this.registerService.Get({ url: `funcionario/${this.dialogData.id}`}).subscribe(
+      this.registerService.Get({ url: `Professors/${this.dialogData.id}`}).subscribe(
         (success: any) => {
           this._form.patchValue(success)
         }
@@ -82,12 +82,11 @@ export class RegisterTeacherComponent implements OnInit {
     let obj = {
       ...this._form.value,
       foto: '',
-      sexo: '',
     }
 
     this.registerService.Post
       ({
-        url: `funcionario`,
+        url: `Professors`,
         body: obj
       })
       .subscribe(
@@ -106,7 +105,7 @@ export class RegisterTeacherComponent implements OnInit {
 
   putTeacher(){
     this.registerService.Put({
-      url: `funcionario/${this.dialogData.id}`,
+      url: `Professors/${this.dialogData.id}`,
       body: this._form.value
     })
     .subscribe(

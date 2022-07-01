@@ -16,7 +16,7 @@ export const displayTeachers = [
 
 export const displayStudents = [
     'nome',
-    'observacao',
+    'observacoes',
     'Controls'
 ]
 

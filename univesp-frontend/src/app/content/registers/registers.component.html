@@ -73,7 +73,7 @@
 										<mat-icon> edit </mat-icon>
 										<span> Editar </span>
 									</button>
-									<button mat-menu-item (click)="deleteItem('Turma', element.id) ? getGroups() : '' ">
+									<button mat-menu-item (click)="deleteItem('Turmas', element.id) ? getGroups() : '' ">
 										<mat-icon> delete </mat-icon>
 										<span> Excluir </span>
 									</button>
@@ -96,14 +96,14 @@
         <mat-tab label="Professores"> 
 			<div class="tab-header-controls">
 				<button mat-button (click)="registerTeacher('create')">
-					<span *ngIf="!breakPoint"> Novo grupo </span>
+					<span *ngIf="!breakPoint"> Novo Professor </span>
 					<mat-icon> add </mat-icon>
 				</button>
 
 				<div class="teste-form">
 					<mat-form-field appearance="outline" style="width: 100%;">
 						<mat-label> Pesquisar </mat-label>
-						<input matInput type="text">
+						<input matInput type="text" (keyup)="applyFilterTeachers($event)">
 						<mat-icon matSuffix>	
 							search
 						</mat-icon>
@@ -125,11 +125,11 @@
 								<span *ngSwitchCase="'Controls'"> 
 									<mat-icon [matMenuTriggerFor]="menu_controls"> more_vert </mat-icon>
 									<mat-menu #menu_controls="matMenu">
-										<button mat-menu-item (click)="registerTeacher('edit', element.funcionarioId)">
+										<button mat-menu-item (click)="registerTeacher('edit', element.id)">
 											<mat-icon> edit </mat-icon>
 											<span> Editar </span>
 										</button>
-										<button mat-menu-item (click)="deleteItem('Funcionario', element.funcionarioId) ? getGroups() : '' ">
+										<button mat-menu-item (click)="deleteItem('Professors', element.id) ? getGroups() : '' ">
 											<mat-icon> delete </mat-icon>
 											<span> Excluir </span>
 										</button>
@@ -159,7 +159,7 @@
 				<div class="teste-form">
 					<mat-form-field appearance="outline" style="width: 100%;">
 						<mat-label> Pesquisar </mat-label>
-						<input matInput type="text">
+						<input matInput type="text" (keyup)="applyFilterStudents($event)">
 						<mat-icon matSuffix>	
 							search
 						</mat-icon>
@@ -180,11 +180,11 @@
 								<span *ngSwitchCase="'Controls'"> 
 									<mat-icon [matMenuTriggerFor]="menu_controls"> more_vert </mat-icon>
 									<mat-menu #menu_controls="matMenu">
-										<button mat-menu-item (click)="registerStudent('edit', element.alunoId)">
+										<button mat-menu-item (click)="registerStudent('edit', element)">
 											<mat-icon> edit </mat-icon>
 											<span> Editar </span>
 										</button>
-										<button mat-menu-item (click)="deleteItem('Aluno', element.alunoId) ? getGroups() : '' ">
+										<button mat-menu-item (click)="deleteItem('Alunoes', element.id) ? getGroups() : '' ">
 											<mat-icon> delete </mat-icon>
 											<span> Excluir </span>
 										</button>
@@ -214,7 +214,7 @@
 				<div class="teste-form">
 					<mat-form-field appearance="outline" style="width: 100%;">
 						<mat-label> Pesquisar </mat-label>
-						<input matInput type="text">
+						<input matInput type="text" (keyup)="applyFilterResponsibles($event)">
 						<mat-icon matSuffix>	
 							search
 						</mat-icon>
@@ -235,11 +235,11 @@
 								<span *ngSwitchCase="'Controls'"> 
 									<mat-icon [matMenuTriggerFor]="menu_controls"> more_vert </mat-icon>
 									<mat-menu #menu_controls="matMenu">
-										<button mat-menu-item (click)="registerResponsible('edit', element.responsavelId)">
+										<button mat-menu-item (click)="registerResponsible('edit', element.id)">
 											<mat-icon> edit </mat-icon>
 											<span> Editar </span>
 										</button>
-										<button mat-menu-item (click)="deleteItem('Responsavel', element.responsavelId) ? getStudents() : '' ">
+										<button mat-menu-item (click)="deleteItem('Responsavels', element.id) ? getStudents() : '' ">
 											<mat-icon> delete </mat-icon>
 											<span> Excluir </span>
 										</button>

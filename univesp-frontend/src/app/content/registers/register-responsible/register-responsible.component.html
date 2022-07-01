@@ -24,7 +24,7 @@
 
             <mat-form-field appearance="outline" class="grid-1">
                 <mat-label>Data nascimento</mat-label>
-                <input matInput required [matDatepicker]="picker" formControlName="dataNasc">
+                <input matInput required [matDatepicker]="picker" formControlName="dataNascimento">
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
@@ -41,11 +41,11 @@
             </app-upload-files>
     
             <div class="list-registers">
-                <button class="button-add-list">
-                    Filho vinculado
-                </button>
+                <!-- <button class="button-add-list">
+                    Filho(s) vinculado(s)
+                </button> -->
 
-                <div class="search-autocomplete">
+                <!-- <div class="search-autocomplete">
                     <mat-form-field>
                         <mat-label> Buscar turma </mat-label>
                         <input 
@@ -63,7 +63,7 @@
                             </mat-option>
                           </mat-autocomplete>
                     </mat-form-field>
-                </div>
+                </div> -->
 
                 <app-list-item
                     *ngFor="let child of childrenList" 

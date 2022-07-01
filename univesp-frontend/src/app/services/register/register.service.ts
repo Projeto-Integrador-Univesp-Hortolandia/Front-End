@@ -19,22 +19,22 @@ export class RegisterService {
 
   Get(params: any): Observable<any>{
     return this.httpClient
-    .get(`${API}${params.url}`)
+    .get<any>(`${API}${params.url}`)
   }
 
   Put(params: any){
     return this.httpClient
-    .put(`${API}${params.url}`, params.body)
+    .put<any>(`${API}${params.url}`, params.body)
   }
 
   Post(params: any){
     return this.httpClient
-    .post(`${API}${params.url}`, params.body)
+    .post<any>(`${API}${params.url}`, params.body)
   }
 
   Delete(params: any){
     return this.httpClient
-    .delete(`${API}${params.url}/${params.body}`)
+    .delete<any>(`${API}${params.url}/${params.body}`)
   }
 
 

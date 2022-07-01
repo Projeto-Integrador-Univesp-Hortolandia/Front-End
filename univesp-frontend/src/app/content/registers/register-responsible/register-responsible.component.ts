@@ -43,16 +43,16 @@ export class RegisterResponsibleComponent implements OnInit {
   _form = new FormGroup({
     nome: new FormControl(''),
     cpf: new FormControl(''),
-    dataNasc: new FormControl(''),
+    dataNascimento: new FormControl(''),
     observacao: new FormControl('')
   })
 
   ngOnInit(): void {
     if(this.dialogData.type === 'edit'){
       
-      this.registerService.Get({ url: `responsavel/${this.dialogData.id}`}).subscribe(
+      this.registerService.Get({ url: `Responsavels/${this.dialogData.id}`}).subscribe(
         (success: any) => {
-          this._form.patchValue(success[0])
+          this._form.patchValue(success)
         }
       )
 
@@ -78,7 +78,7 @@ export class RegisterResponsibleComponent implements OnInit {
 
     this.registerService.Post
       ({
-        url: `responsavel`,
+        url: `Responsavels`,
         body: this._form.value 
       })
       .subscribe(
@@ -97,7 +97,7 @@ export class RegisterResponsibleComponent implements OnInit {
 
   putResponsible(){
     this.registerService.Put({
-      url: `responsavel/${this.dialogData.id}`,
+      url: `Responsavels/${this.dialogData.id}`,
       body: this._form.value
     })
     .subscribe(

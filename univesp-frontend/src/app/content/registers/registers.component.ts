@@ -63,7 +63,7 @@ export class RegistersComponent implements OnInit {
   }
 
   getGroups(){
-    this.registerService.Get({ url: 'Turma' })
+    this.registerService.Get({ url: 'Turmas' })
       .subscribe(
         (success: Groups[]) => {
           this.groups = new MatTableDataSource(success)
@@ -71,18 +71,27 @@ export class RegistersComponent implements OnInit {
       )
   }
 
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.groups.filter = filterValue.trim().toLowerCase();
+  }
+
   getTeachers(){
-    this.registerService.Get({ url: 'Funcionario' })
+    this.registerService.Get({ url: 'Professors' })
       .subscribe(
         (success: Teachers[]) => {
           this.teachers = new MatTableDataSource(success)
-          console.log(this.teachers.data[0]['Nome'])
         }
       )
   }
 
+  applyFilterTeachers(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.teachers.filter = filterValue.trim().toLowerCase();
+  }
+
   getStudents(){
-    this.registerService.Get({ url: 'Aluno' })
+    this.registerService.Get({ url: 'Alunoes' })
     .subscribe(
       (success: Students[]) => {
         this.students = new MatTableDataSource(success)
@@ -90,14 +99,25 @@ export class RegistersComponent implements OnInit {
     )
   }
 
+  applyFilterStudents(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.students.filter = filterValue.trim().toLowerCase();
+  }
+
   getResposibles(){
-    this.registerService.Get({ url: 'Responsavel' })
+    this.registerService.Get({ url: 'Responsavels' })
       .subscribe(
         (success: Responsibles[]) => {
           this.responsibles = new MatTableDataSource(success)
         }
       )
   }
+
+  applyFilterResponsibles(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.responsibles.filter = filterValue.trim().toLowerCase();
+  }
+
 
   registerGroups(type: string, id: number = 0){
 
@@ -143,7 +163,9 @@ export class RegistersComponent implements OnInit {
 
   }
 
-  registerStudent(type: string, id: number = 0){
+  registerStudent(type: string, element: any = {}){
+
+    console.log(element)
 
     this.matDialog.open(
       RegisterStudentComponent,
@@ -152,7 +174,9 @@ export class RegistersComponent implements OnInit {
         panelClass: 'dialog-template',
         data: {
           type: type,
-          id: id
+          id: element.id,
+          responsavelId: element.responsavelId,
+          turma: element.turma
         }
       }
     )
@@ -173,11 +197,6 @@ export class RegistersComponent implements OnInit {
       }
     )
 
-  }
-
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.groups.filter = filterValue.trim().toLowerCase();
   }
 
   public deleteItem(type: string, id: number): boolean{
