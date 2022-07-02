@@ -5,11 +5,13 @@ import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login.component';
 import { MaterialModule } from '../material-module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RecSenhaComponent } from './rec-senha/rec-senha.component';
 
 
 @NgModule({
   declarations: [
-    LoginComponent
+    LoginComponent,
+    RecSenhaComponent
   ],
   imports: [
     CommonModule,

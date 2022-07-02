@@ -6,14 +6,14 @@
         <form autocomplete="off" [formGroup]="_formLogin" (ngSubmit)="login()">
             <mat-form-field>
                 <mat-label> Login </mat-label>
-                <input matInput type="text" autocomplete="off" formControlName="Login" required>
+                <input matInput type="text" autocomplete="off" formControlName="Usuario" required>
                 <mat-error>
                     Digite seu email
                 </mat-error>
             </mat-form-field>
             <mat-form-field>
                 <mat-label> Senha </mat-label>
-                <input matInput type="password" autocomplete="off" formControlName="Password" required>
+                <input matInput type="password" autocomplete="off" formControlName="Senha" required>
                 <mat-icon matSuffix> visibility_off </mat-icon>
                 <mat-error>
                     Digite sua senha

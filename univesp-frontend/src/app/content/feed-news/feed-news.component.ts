@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import * as moment from 'moment';
 import { FeedService } from 'src/app/services/feednews/feed.service';
+import { LoginService } from 'src/app/services/login/login.service';
 import { ContentCreatorComponent } from './content-creator/content-creator.component';
 
 @Component({
@@ -13,7 +14,8 @@ export class FeedNewsComponent implements OnInit {
 
   constructor(
     private matDialog: MatDialog,
-    private feedService: FeedService
+    private feedService: FeedService,
+    private loginService: LoginService
   ) { }
 
   posts: any = []
@@ -22,7 +24,6 @@ export class FeedNewsComponent implements OnInit {
     moment.locale('pt-br');
     
     this.getContent()
-
   }
 
   getContent(){
@@ -33,6 +34,12 @@ export class FeedNewsComponent implements OnInit {
           this.posts.reverse()
         }
       )
+  }
+
+  getPermission(){
+
+    return this.loginService.havePermission()
+
   }
 
   createContent(type: string){

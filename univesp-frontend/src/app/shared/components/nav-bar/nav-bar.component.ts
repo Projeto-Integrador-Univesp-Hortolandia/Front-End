@@ -1,5 +1,6 @@
 import { MediaMatcher } from '@angular/cdk/layout';
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { LoginService } from 'src/app/services/login/login.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -8,7 +9,7 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 })
 export class NavBarComponent implements OnInit {
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) { 
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, public login: LoginService) { 
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
@@ -18,6 +19,10 @@ export class NavBarComponent implements OnInit {
   private _mobileQueryListener: () => void;
 
   ngOnInit(): void {
+  }
+
+  getPermission(){
+    return this.login.returnPermission()
   }
 
 }

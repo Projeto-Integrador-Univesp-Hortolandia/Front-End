@@ -18,8 +18,8 @@ export class LoginComponent implements OnInit {
   ) { }
 
   _formLogin: FormGroup = new FormGroup({
-    Login: new FormControl('', Validators.required),
-    Password: new FormControl('', Validators.required)
+    Usuario: new FormControl('', Validators.required),
+    Senha: new FormControl('', Validators.required)
   })
 
   ngOnInit(): void {
@@ -27,7 +27,27 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
-    this.router.navigateByUrl('/home')
+
+    let login = {
+      ...this._formLogin.value,
+    }
+
+    this.loginService.login(login)
+      .subscribe(
+        (success: any) => {
+          this.router.navigateByUrl('/noticias')
+          
+          this.loginService.Setlogin()
+          this.loginService.savePermission(success.isAdmin)
+        },
+        erro => {
+          this.matSnackbar.open('Usuario não encontrado', '', { duration: 2000 })
+        }
+      )
+
+
+
+
   }
 
 }

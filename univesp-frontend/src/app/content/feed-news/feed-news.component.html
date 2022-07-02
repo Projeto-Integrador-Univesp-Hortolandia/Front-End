@@ -2,7 +2,7 @@
 
     <div class="container">
 
-        <div class="creator-wrapper">
+        <div class="creator-wrapper" *ngIf="getPermission()">
 
             <div class="creator-container">
                 <p (click)="createContent('')"> Criar publicação </p>
@@ -26,7 +26,6 @@
         <div class="timeline">
 
             <app-card-news 
-            ta
                 *ngFor="let post of posts; let i = index"
                 [attr.tabindex]="i"
                 aria
@@ -34,6 +33,11 @@
                 [hasAlert]="post.hasAlert" 
                 [alertType]="post.type"
             ></app-card-news>
+
+            <ng-container *ngIf="!posts.length">
+                <span class="no-content"> Opa! Nenhuma publicação ainda. </span>
+                <span class="shruggle"> ¯\_(ツ)_/¯ </span>
+            </ng-container>
     
         </div>
 
