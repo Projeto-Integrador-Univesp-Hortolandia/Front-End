@@ -47,7 +47,7 @@
                     </mat-form-field>
                     <p class="alert" *ngIf="validatePassword() && (_confPassword.dirty || _password.dirty)"> As senhas não coincidem </p>
                     <p class="info" *ngIf="validadeLength() && (_confPassword.dirty || _password.dirty)"> Mínimo de 4 caracteres </p>
-                    <button mat-flat-button type="submit" color="primary">
+                    <button mat-flat-button (click)="updatePassword()" color="primary" [disabled]="validatePassword() || validadeLength()">
                         Redefinir senha
                     </button>
                 </div>

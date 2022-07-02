@@ -40,10 +40,10 @@ export class RegisterStudentComponent implements OnInit {
   groups$ = merge(this.allGroups$, this.filterGroups$)
 
   _form = new FormGroup({
-    nome: new FormControl('Teste front'),
-    cpf: new FormControl('123456789'),
-    dataNascimento: new FormControl('2022-01-01'),
-    observacoes: new FormControl('Teste fron')
+    nome: new FormControl(''),
+    cpf: new FormControl(''),
+    dataNascimento: new FormControl(''),
+    observacoes: new FormControl('')
   })
 
   groupsSelect = new FormControl('', Validators.required)

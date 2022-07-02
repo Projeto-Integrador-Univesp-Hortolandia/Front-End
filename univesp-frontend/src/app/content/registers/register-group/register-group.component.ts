@@ -42,11 +42,11 @@ export class RegisterGroupComponent implements OnInit {
   students$ = merge(this.allStudents$, this.filterStudents$)
 
   _form = new FormGroup({
-    nome: new FormControl('Teste front'),
-    ano: new FormControl('Teste'),
-    turma: new FormControl('A'),
-    periodo: new FormControl('Manhã'),
-    sala: new FormControl('A')
+    nome: new FormControl(''),
+    ano: new FormControl(''),
+    turma: new FormControl(''),
+    periodo: new FormControl(''),
+    sala: new FormControl('')
   })
 
   ngOnInit(): void {

@@ -10,12 +10,15 @@ import { LoginService } from 'src/app/services/login/login.service';
 })
 export class UserAvatarComponent implements OnInit {
 
+  user: string | null = ''
+
   constructor(
     public router: Router,
     public loginService: LoginService
   ) { }
 
   ngOnInit(): void {
+    this.user = localStorage.getItem('nome')
   }
 
   logout(){

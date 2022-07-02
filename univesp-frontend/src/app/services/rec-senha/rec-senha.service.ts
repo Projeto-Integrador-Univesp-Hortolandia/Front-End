@@ -18,5 +18,7 @@ export class RecSenhaService {
       return this.httpClient.get(`${API}forgotPassword/${value}`)
     }
 
-    
+    putPassword(body: any){
+      return this.httpClient.put(`${API}forgotPassword/${body.id}`, body.values)
+    }
 }

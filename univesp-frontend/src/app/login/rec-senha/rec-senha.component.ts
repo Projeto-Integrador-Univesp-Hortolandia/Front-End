@@ -2,6 +2,7 @@ import { animate, keyframes, state, style, transition, trigger } from '@angular/
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { RecSenhaService } from 'src/app/services/rec-senha/rec-senha.service';
 
 @Component({
@@ -53,7 +54,8 @@ export class RecSenhaComponent implements OnInit {
 
   constructor(
 	private recSenhaService: RecSenhaService,
-	private matSnackbar: MatSnackBar
+	private matSnackbar: MatSnackBar,
+	private route : Router
   ) { }
 
   _formRecSenha: FormGroup = new FormGroup({
@@ -64,29 +66,32 @@ export class RecSenhaComponent implements OnInit {
   _confPassword = new FormControl()
 
   step: number = 1
-
+  recValues: any = {}
 
   ngOnInit(): void {
 
   }
 
   getCPF(){
-	this.step = 2
+	//86074585076
 
-	// this.recSenhaService.getRegister(this._formRecSenha.value)
-	// 	.subscribe(
-	// 		(success: any) => {
-	// 			this.step = 2
-	// 		},
-	// 		error => {
-	// 			this.matSnackbar.open(
-	// 				'Registro não encontrado',
-	// 				'Fechar',
-	// 				{ duration: 2500 }
-	// 			)
-	// 		}
-	// 	)
-  }
+	let value = this._formRecSenha.value
+
+	this.recSenhaService.getRegister(value.cpf)
+		.subscribe(
+			(success: any) => {
+				this.recValues = success
+				this.step = 2
+			},
+			error => {
+				this.matSnackbar.open(
+					'Registro não encontrado',
+					'Fechar',
+					{ duration: 2500 }
+				)
+			}
+		)
+  	}
 
   validatePassword(){    
     return this._password.value != this._confPassword.value
@@ -99,8 +104,29 @@ export class RecSenhaComponent implements OnInit {
     return true
   }
 
-  updatePassword(){
+  updatePassword(){	
+	this.recValues.senha = this._password.value
 
+	console.log(this.recValues)
+
+	this.recSenhaService.putPassword({ id: this.recValues.id, values: this.recValues })
+		.subscribe(
+			(success: any) => {
+				this.matSnackbar.open(
+					'Senha redefinida com sucesso',
+					'Fechar',
+					{duration: 2000}
+				)
+
+				this.route.navigate(['login'])
+			}, error => {
+				this.matSnackbar.open(
+					'Ocorreu um erro ao tentar alterar a senha',
+					'Fechar',
+					{duration: 2500}
+				)
+			}
+		)
   }
 
 }

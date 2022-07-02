@@ -21,7 +21,7 @@ export class LoginService {
 
 
   login(body: any){
-    return this.httpClient.post(`${API}Login`, body)
+    return this.httpClient.post(`${API}Login`, body, { observe: 'response' })
   }
 
   returnPermission(){
@@ -66,5 +66,7 @@ export class LoginService {
 
   logout(){
     localStorage.removeItem('logged')
+    localStorage.removeItem('name')
+    this.deletePermission()
   }
 }

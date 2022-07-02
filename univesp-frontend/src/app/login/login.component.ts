@@ -35,10 +35,23 @@ export class LoginComponent implements OnInit {
     this.loginService.login(login)
       .subscribe(
         (success: any) => {
-          this.router.navigate(['home'])
-          
-          this.loginService.Setlogin()
-          this.loginService.savePermission(success.isAdmin)
+
+          const { status, body } = success
+
+          if (status === 200){
+            this.router.navigate(['home'])
+            
+            this.loginService.Setlogin()
+            this.loginService.savePermission(body.isAdmin)
+
+            localStorage.setItem('nome', body.nome)
+          }
+
+          else {
+            this.matSnackbar.open('Usuario não encontrado', '', { duration: 2000 })
+          }
+
+
         },
         erro => {
           this.matSnackbar.open('Usuario não encontrado', '', { duration: 2000 })
