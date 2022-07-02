@@ -6,7 +6,13 @@ import { LoginComponent } from './login.component';
 import { MaterialModule } from '../material-module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RecSenhaComponent } from './rec-senha/rec-senha.component';
+import { IConfig, NgxMaskModule } from 'ngx-mask';
 
+const maskConfigFunction: () => Partial<IConfig> = () => {
+	return {
+		validation: true
+	};
+};
 
 @NgModule({
   declarations: [
@@ -18,7 +24,9 @@ import { RecSenhaComponent } from './rec-senha/rec-senha.component';
     LoginRoutingModule,
     MaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxMaskModule.forRoot(maskConfigFunction),
+
   ]
 })
 export class LoginModule { }

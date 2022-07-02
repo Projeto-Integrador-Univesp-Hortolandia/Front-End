@@ -1,0 +1,34 @@
+.recSenha-container{
+
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .form-container{
+        width: 100%;
+        max-width: 450px;
+
+        form,
+        .form-group{
+            display: flex;
+            flex-direction: column;
+
+            .alert{
+                color: #f44336;
+            }
+
+            .info{
+                color: #1b7cd3;
+            }
+        }
+
+    }
+    
+    .spinner{
+        margin: auto;
+    }
+
+}

@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
     this.loginService.login(login)
       .subscribe(
         (success: any) => {
-          this.router.navigateByUrl('/noticias')
+          this.router.navigate(['home'])
           
           this.loginService.Setlogin()
           this.loginService.savePermission(success.isAdmin)

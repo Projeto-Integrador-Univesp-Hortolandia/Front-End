@@ -11,8 +11,15 @@ import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/materia
 import { CustomDateAdapter } from './shared/utils/custon-date-adapter';
 import { HttpClientModule } from '@angular/common/http';
 import { registerLocaleData } from '@angular/common';
+import { IConfig, NgxMaskModule } from 'ngx-mask';
 
 registerLocaleData(localePt, 'pt');
+
+const maskConfigFunction: () => Partial<IConfig> = () => {
+	return {
+		validation: true
+	};
+};
 
 @NgModule({
   declarations: [
@@ -23,7 +30,9 @@ registerLocaleData(localePt, 'pt');
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-	HttpClientModule
+	HttpClientModule,
+	NgxMaskModule.forRoot(maskConfigFunction),
+
   ],
   bootstrap: [AppComponent],
   providers: [
