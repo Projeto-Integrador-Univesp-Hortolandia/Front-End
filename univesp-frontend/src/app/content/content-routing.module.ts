@@ -14,7 +14,7 @@ const routes: Routes = [
       children: [
         { path: 'cadastros', component: RegistersComponent, canActivate: [AdminGuard] },
         { path: 'noticias', component: FeedNewsComponent },
-        { path: 'menssagens', component: MessegerComponent }
+        { path: 'mensagens', component: MessegerComponent }
       ]
     },
     
