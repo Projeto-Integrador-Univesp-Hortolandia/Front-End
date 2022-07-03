@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
           const { status, body } = success
 
           if (status === 200){
-            this.router.navigate(['home'])
+            this.router.navigate(['home/noticias'])
             
             let objStorage = {
               nome: body.nome,
