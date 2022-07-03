@@ -2,7 +2,7 @@
     <mat-toolbar class="toolbar">
         <div class="header-brand" routerLink="../home/noticias">
             <mat-icon> school </mat-icon>
-            <h1 class="header-brand-app-name"> ESCOLA EM CASA </h1>
+            <h1 class="header-brand-app-name" *ngIf="!mobileQuery.matches"> ESCOLA EM CASA </h1>
         </div>
         <button class="hamburg" (click)="snav.toggle()" mat-ripple>
             <mat-icon>menu</mat-icon>
@@ -45,6 +45,8 @@
                     <span> Painel administrativo </span>
                 </div>
             </mat-nav-list>
+
+            <p style="position: absolute; bottom: 0px; width: 100%; text-align: center;"> {{ currenVersion }}</p>
         </mat-sidenav>
         <mat-sidenav-content>
             <router-outlet>

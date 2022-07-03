@@ -1,11 +1,13 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormControl, FormControlName, FormGroup } from '@angular/forms';
+import { FormControl, FormControlName, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { merge, Observable } from 'rxjs';
 import { debounceTime, switchMap } from 'rxjs/operators';
 import { RegisterService } from 'src/app/services/register/register.service';
 import { Responsibles } from 'src/app/shared/models/groups';
+import { comparePassword } from '../register.utils';
+
 
 @Component({
   selector: 'app-register-responsible',
@@ -41,11 +43,15 @@ export class RegisterResponsibleComponent implements OnInit {
 
 
   _form = new FormGroup({
-    nome: new FormControl(''),
-    cpf: new FormControl(''),
-    dataNascimento: new FormControl(''),
+    nome: new FormControl('', Validators.required),
+    email: new FormControl('', Validators.required),
+    senha: new FormControl('', Validators.required),
+    cpf: new FormControl('', Validators.required),    
+    dataNascimento: new FormControl('', Validators.required),
     observacao: new FormControl('')
   })
+
+  confPassword = new FormControl('')
 
   ngOnInit(): void {
     if(this.dialogData.type === 'edit'){
@@ -53,11 +59,19 @@ export class RegisterResponsibleComponent implements OnInit {
       this.registerService.Get({ url: `Responsavels/${this.dialogData.id}`}).subscribe(
         (success: any) => {
           this._form.patchValue(success)
+          this.confPassword = success.senha ?? ''
         }
       )
 
     }
 
+  }
+
+  comparePasswords(){
+    const senha = this._form.controls['senha'].value ?? ''
+    const confSenha  = this.confPassword.value ?? ''
+
+    return comparePassword( senha , confSenha )
   }
 
   addToGroup(group: Responsibles){

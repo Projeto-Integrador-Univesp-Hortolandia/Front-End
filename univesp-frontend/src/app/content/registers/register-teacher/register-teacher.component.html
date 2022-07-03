@@ -21,8 +21,14 @@
 
             <mat-form-field class="grid-1">
                 <mat-label> conf. Senha </mat-label>
-                <input type="password" matInput required/>
+                <input type="password" [formControl]="confPassword" matInput required/>
             </mat-form-field>
+
+            <div class="grid-2" class="error-password" *ngIf="!comparePasswords().valid">
+
+                {{ comparePasswords().status }}
+
+            </div>
 
             <mat-form-field class="grid-1">
                 <mat-label> CPF </mat-label>
@@ -43,7 +49,7 @@
                 <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
 
-            <mat-form-field class="grid-2">
+            <mat-form-field class="grid-2" style="margin-bottom: 15px;">
                 <mat-label> Num. de registo </mat-label>
                 <input matInput formControlName="registro" />
             </mat-form-field>

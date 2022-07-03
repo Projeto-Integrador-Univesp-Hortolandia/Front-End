@@ -50,9 +50,23 @@ main.content[role="main"]{
 .dialog-contentCreator{
 	max-width: 30vw !important;
 	max-height: 50vh !important;
+	min-width: 500px;
 	width: 30vw;
 	height: 50vh;
 	position: relative !important;	
+}
+
+@media screen and (max-width: 500px){
+
+	.dialog-contentCreator{
+		max-width: 90vw !important;
+		max-height: 60vh !important;
+		min-width: 90vw;
+		width: 90vw;
+		height: 60vh;
+		position: relative !important;	
+	}	
+
 }
 
 //Global colors

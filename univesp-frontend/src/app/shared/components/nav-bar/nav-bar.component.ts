@@ -1,6 +1,7 @@
 import { MediaMatcher } from '@angular/cdk/layout';
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/services/login/login.service';
+import { environment } from 'src/environments/environment.prod';
 
 @Component({
   selector: 'app-nav-bar',
@@ -17,6 +18,8 @@ export class NavBarComponent implements OnInit {
 
   mobileQuery: MediaQueryList;
   private _mobileQueryListener: () => void;
+
+  currenVersion: string = environment.IdFrontVersao
 
   ngOnInit(): void {
   }

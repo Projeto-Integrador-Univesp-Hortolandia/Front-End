@@ -7,6 +7,8 @@ import { merge, Observable } from 'rxjs';
 import { debounceTime, map, startWith, switchMap } from 'rxjs/operators';
 import { RegisterService } from 'src/app/services/register/register.service';
 import { Groups } from 'src/app/shared/models/groups';
+import { comparePassword } from '../register.utils';
+
 
 @Component({
   selector: 'app-register-teacher',
@@ -50,6 +52,9 @@ export class RegisterTeacherComponent implements OnInit {
     dataNasc: new FormControl('', Validators.required),
     registro: new FormControl('')
   })
+  
+  confPassword = new FormControl('')
+
 
   ngOnInit(): void {
 
@@ -58,10 +63,18 @@ export class RegisterTeacherComponent implements OnInit {
       this.registerService.Get({ url: `Professors/${this.dialogData.id}`}).subscribe(
         (success: any) => {
           this._form.patchValue(success)
+          this.confPassword = success.senha ?? ''
         }
       )
 
     }
+  }
+
+  comparePasswords(){
+    const senha = this._form.controls['senha'].value ?? ''
+    const confSenha  = this.confPassword.value ?? ''
+
+    return comparePassword( senha , confSenha )
   }
 
   addToGroup(group: Groups){

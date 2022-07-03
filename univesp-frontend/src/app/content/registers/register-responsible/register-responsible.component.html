@@ -9,6 +9,26 @@
                 <input matInput required formControlName="nome" />
             </mat-form-field>
 
+            <mat-form-field class="grid-2">
+                <mat-label> Email </mat-label>
+                <input type="email" inputmode="email" matInput required formControlName="email" />
+            </mat-form-field>
+
+            <mat-form-field class="grid-1">
+                <mat-label> senha </mat-label>
+                <input type="password" matInput required formControlName="senha"/>
+            </mat-form-field>
+
+            <mat-form-field class="grid-1">
+                <mat-label> conf. Senha </mat-label>
+                <input type="password" [formControl]="confPassword" matInput required/>
+            </mat-form-field>
+
+            <div class="grid-2" class="error-password" *ngIf="!comparePasswords().valid">
+
+                {{ comparePasswords().status }}
+
+            </div>
             
             <mat-form-field class="grid-1">
                 <mat-label> CPF </mat-label>
@@ -81,8 +101,8 @@
         <button 
             mat-flat-button 
             color="primary"
-            [disabled]="dialogData.type === 'edit' ?  !_form.dirty : !_form.valid"
-            (click)="dialogData.type === 'edit' ? putResponsible() : registerResponsible() "
+            [disabled]="dialogData.type === 'edit' ?  !_form.dirty && comparePasswords().valid : !_form.valid"
+            (click)="dialogData.type === 'edit' ? putResponsible() : registerResponsible()"
         >
             {{ dialogData.type === 'edit' ? 'Salvar alterações' : 'Cadastrar responsável' }}
         </button>
