@@ -16,7 +16,7 @@ const routes: Routes = [
     loadChildren: 
       () => import('./login/login.module').then(m => m.LoginModule), 
     canLoad: [HasLoggedGuard],
-    data: { title: 'Veículos' }
+    data: { title: 'Login' }
    },
   { path: 'rec-senha', component: RecSenhaComponent },
   { 
