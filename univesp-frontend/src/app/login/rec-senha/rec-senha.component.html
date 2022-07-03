@@ -5,7 +5,7 @@
         <ng-container [ngSwitch]="step">
 
             <div *ngSwitchCase="1" [@changeAnim]="step === 1 ? 'open' : 'close'">
-                <p> Digite o CPF cadastrado para procurar sua conta </p>
+                <p> Digite o CPF e selecione sua data de nascimento cadastrada para procurar sua conta </p>
                 <form autocomplete="off" [formGroup]="_formRecSenha" (ngSubmit)="getCPF()">
                     <mat-form-field>
                         <mat-label> Digite seu CPF </mat-label>

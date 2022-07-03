@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormControlName, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import * as moment from 'moment';
 import { merge, Observable } from 'rxjs';
 import { debounceTime, map, startWith, switchMap } from 'rxjs/operators';
 import { RegisterService } from 'src/app/services/register/register.service';
@@ -47,7 +48,7 @@ export class RegisterTeacherComponent implements OnInit {
     senha: new FormControl('', Validators.required),
     cpf: new FormControl('', Validators.required),
     dataNasc: new FormControl('', Validators.required),
-    Registro: new FormControl('')
+    registro: new FormControl('')
   })
 
   ngOnInit(): void {
