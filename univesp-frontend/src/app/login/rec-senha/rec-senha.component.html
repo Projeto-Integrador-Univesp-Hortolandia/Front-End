@@ -21,6 +21,13 @@
                             Preencha o campo obrigatório
                         </mat-error>
                     </mat-form-field>
+                    <mat-form-field appearance="outline" class="grid-1">
+                        <mat-label>Data nascimento</mat-label>
+                        <input matInput required [matDatepicker]="picker" formControlName="dataNascimento">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+
                     <button mat-flat-button type="submit" color="primary" autocomplete="off" [disabled]="!_formRecSenha.valid">
                         Buscar
                     </button>

@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import * as moment from 'moment';
 import { FeedService } from 'src/app/services/feednews/feed.service';
 import { LoginService } from 'src/app/services/login/login.service';
 
@@ -32,6 +33,10 @@ export class ContentCreatorComponent implements OnInit {
 
   ngOnInit(): void {
 
+    moment.locale('pt-br');
+
+    console.log(moment().toString())
+
     if (this.data.type === 'alert'){
       this.isAlert = true;
     }
@@ -53,7 +58,7 @@ export class ContentCreatorComponent implements OnInit {
       type: this.isAlert ? this.type.value : 'content',
       hasAlert: this.isAlert,
       imagem: this.fileUpload ? formData : 'none',
-      dataPublicacao: new Date(),
+      dataPublicacao: moment().format('YYYY-MM-DD[T]HH:mm:ssZ'),
       tag: 0,
     }
 

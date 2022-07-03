@@ -37,9 +37,7 @@ export class FeedNewsComponent implements OnInit {
   }
 
   getPermission(){
-    console.log(this.loginService.returnPermission())
     return this.loginService.returnPermission()
-
   }
 
   createContent(type: string){

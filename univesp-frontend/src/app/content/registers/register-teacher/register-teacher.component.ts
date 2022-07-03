@@ -47,7 +47,7 @@ export class RegisterTeacherComponent implements OnInit {
     senha: new FormControl('', Validators.required),
     cpf: new FormControl('', Validators.required),
     dataNasc: new FormControl('', Validators.required),
-    Registro: new FormControl('', Validators.required)
+    Registro: new FormControl('')
   })
 
   ngOnInit(): void {

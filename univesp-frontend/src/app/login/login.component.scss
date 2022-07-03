@@ -24,9 +24,26 @@
                 width: 100%;
             }
 
-            button{
+            button, a{
                 width: 50%;
                 align-self: flex-end;
+                margin: auto;
+            }
+
+            a.reset-password{
+                margin: auto;
+                margin-top: 20px;
+                text-align: center;
+                text-decoration: none;
+                font-weight: bold;
+
+                &:hover{
+                    color: #391675;
+                }
+
+                &:visited{
+                    color: #673ab7;
+                }
             }
         }
     }

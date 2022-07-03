@@ -60,6 +60,7 @@ export class RecSenhaComponent implements OnInit {
 
   _formRecSenha: FormGroup = new FormGroup({
     cpf: new FormControl('', Validators.required),
+	dataNascimento: new FormControl('', Validators.required)
   })
 
   _password = new FormControl()

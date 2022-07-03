@@ -17,7 +17,7 @@ export class FeedService {
 
   Get(params: any): Observable<any>{
     return this.httpClient
-    .get(`${API}${params.url}?_sort=id&_order=desc`)
+    .get(`${API}${params.url}`)
   }
 
   Put(params: any){
