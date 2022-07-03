@@ -18,7 +18,7 @@ export class UserAvatarComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.user = localStorage.getItem('nome')
+    this.user = this.loginService.getUserInfo().nome
   }
 
   logout(){

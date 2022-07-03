@@ -44,10 +44,11 @@ export class LoginService {
     localStorage.removeItem('isAdmin')
   }
 
-  havePermission(){
-    
-  }
 
+  getUserInfo(){
+    const userInfo = localStorage.getItem('userInfos') ?? ''
+    return JSON.parse(userInfo)
+  }
 
   Setlogin(){
     localStorage.setItem('logged', 'true')
@@ -65,8 +66,8 @@ export class LoginService {
   }
 
   logout(){
+    localStorage.removeItem('userInfos')
     localStorage.removeItem('logged')
-    localStorage.removeItem('name')
     this.deletePermission()
   }
 }

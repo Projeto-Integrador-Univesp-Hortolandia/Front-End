@@ -41,10 +41,13 @@ export class LoginComponent implements OnInit {
           if (status === 200){
             this.router.navigate(['home'])
             
+            let objStorage = {
+              nome: body.nome,
+              id: body.id,
+            }
+            localStorage.setItem('userInfos', JSON.stringify(objStorage))
             this.loginService.Setlogin()
             this.loginService.savePermission(body.isAdmin)
-
-            localStorage.setItem('nome', body.nome)
           }
 
           else {

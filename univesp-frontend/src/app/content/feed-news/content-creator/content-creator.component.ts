@@ -3,6 +3,7 @@ import { FormControl, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FeedService } from 'src/app/services/feednews/feed.service';
+import { LoginService } from 'src/app/services/login/login.service';
 
 @Component({
   selector: 'app-content-creator',
@@ -14,6 +15,7 @@ export class ContentCreatorComponent implements OnInit {
   constructor(
     public feedNews: FeedService,
     public matSnackbar: MatSnackBar,
+    public loginService: LoginService,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) { }
 
@@ -44,9 +46,9 @@ export class ContentCreatorComponent implements OnInit {
     }
 
     let body = {
-      author: 'Usuario Teste',
+      author: this.loginService.getUserInfo().nome,
       turmaid: 1,
-      professorId: 0,
+      professorId: this.loginService.getUserInfo().id,
       postagem: this.content.value,
       type: this.isAlert ? this.type.value : 'content',
       hasAlert: this.isAlert,
