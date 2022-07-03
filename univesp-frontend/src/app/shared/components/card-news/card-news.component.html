@@ -16,7 +16,7 @@
             </div>
         </div>
         <div class="card-content">
-            <ng-container *ngIf="content.postagem != ''">
+            <ng-container *ngIf="content.postagem != '' && !hasAlert">
                 <p> {{ content.postagem }} </p>
             </ng-container>
             

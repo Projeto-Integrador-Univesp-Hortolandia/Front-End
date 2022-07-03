@@ -43,6 +43,10 @@ export class ContentCreatorComponent implements OnInit {
 
   }
 
+  getUser(){
+    return this.loginService.getUserInfo().nome || ''
+  }
+
   postFeed(){
     let formData = new FormData()
 
